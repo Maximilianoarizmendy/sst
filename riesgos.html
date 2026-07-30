@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factores de Riesgo SST - Riesgo Cero (CTGI)</title>
+    <meta name="description" content="Conoce a fondo los 7 factores de riesgo y peligros identificados en el CTGI. Afectaciones a la salud y medidas de prevención.">
+    <!-- Estilos Globales -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Estilos específicos para la visualización secuencial de riesgos */
+        .risk-section {
+            padding: 100px 0;
+            border-bottom: 1px solid var(--border-color);
+            scroll-margin-top: 80px; /* Para que al hacer scroll el header no tape el título */
+        }
+        .risk-section:last-of-type {
+            border-bottom: none;
+        }
+        .risk-section:nth-of-type(even) .risk-page-layout {
+            grid-template-columns: 0.9fr 1.1fr;
+        }
+        .risk-section:nth-of-type(even) .risk-visual {
+            grid-column: 1;
+            grid-row: 1;
+        }
+        .risk-section:nth-of-type(even) .risk-details {
+            grid-column: 2;
+        }
+        
+        /* Banner de Introducción */
+        .risks-intro-banner {
+            background-color: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            padding: 120px 0 60px 0;
+            text-align: center;
+        }
+        .risks-intro-banner h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .risks-intro-banner h1 span {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .risks-intro-banner p {
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+        
+        @media (max-width: 1024px) {
+            .risk-section:nth-of-type(even) .risk-page-layout {
+                grid-template-columns: 1fr;
+            }
+            .risk-section:nth-of-type(even) .risk-visual {
+                grid-column: auto;
+                grid-row: auto;
+            }
+            .risk-section:nth-of-type(even) .risk-details {
+                grid-column: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SVG Definitions for Gradients -->
+    <div class="svg-gradient-def">
+        <svg>
+            <defs>
+                <linearGradient id="emerald-cyan-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#10b981" />
+                    <stop offset="100%" stop-color="#06b6d4" />
+                </linearGradient>
+            </defs>
+        </svg>
+    </div>
+
+    <!-- HEADER & NAVBAR -->
+    <header class="header">
+        <div class="navbar">
+            <a href="index.html" class="logo" id="logo-brand">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2L2 22h20L12 2z" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 9v4M12 17h.01" stroke="#ef4444" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span>Riesgo Cero</span>
+            </a>
+            
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#biologicos" class="nav-link">Biológicos</a></li>
+                    <li><a href="#fisicos" class="nav-link">Físicos</a></li>
+                    <li><a href="#quimicos" class="nav-link">Químicos</a></li>
+                    <li><a href="#psicosociales" class="nav-link">Psicosociales</a></li>
+                    <li><a href="#biomecanicos" class="nav-link">Biomecánicos</a></li>
+                    <li><a href="#seguridad" class="nav-link">Seguridad</a></li>
+                    <li><a href="#naturales" class="nav-link">Naturales</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="theme-toggle-btn" id="theme-toggle" aria-label="Cambiar Tema">
+                    <svg class="sun-icon" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="5" /><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                    </svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                    </svg>
+                </button>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Abrir Menú">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- BANNER DE INTRODUCCIÓN -->
+    <div class="risks-intro-banner">
+        <div class="container">
+            <h1>Factores de <span>Riesgo y Peligro</span></h1>
+            <p>De acuerdo con la GTC 45, a continuación se detallan los 7 factores de riesgo identificados en el CTGI, su relación con nuestras instalaciones, las afectaciones a la salud y las medidas preventivas.</p>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT - SECCIONES DE RIESGOS -->
+    <main>
+        
+        <!-- 1. BIOLÓGICOS -->
+        <section class="risk-section" id="biologicos">
+            <div class="container">
+                <div class="risk-page-layout">
+                    <!-- DETALLES -->
+                    <div class="risk-details">
+                        <div class="hero-badge">GTC 45 - Riesgo 1</div>
+                        <h2 style="font-size: 2.2rem; margin-bottom: 1.5rem; font-family: var(--font-heading);">Riesgo <span>Biológico</span></h2>
+                        
+                        <div class="risk-info-block">
+                            <p style="color: var(--text-secondary);">Exposición a microorganismos patógenos como <strong>virus, bacterias, hongos y parásitos</strong> presentes en áreas de alta concurrencia, preparación de alimentos o manejo de desechos biológicos.</p>
+                        </div>
+
+                        <div class="risk-info-block">
+                            <h3>
+                                <svg viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+                                Afectaciones al Cuerpo y la Salud
+                            </h3>
+                            <ul class="affectations-list">
+                                <li><strong>Infecciones estomacales y respiratorias:</strong> Propagación rápida de gripes (como Influenza o COVID-19) y cuadros de intoxicación estomacal.</li>
+                                <li><strong>Dermatitis y micosis:</strong> Infecciones por hongos en la piel por contacto con humedad en duchas o superficies contaminadas.</li>
+                                <li><strong>Alergias severas:</strong> Cuadros de rinitis y asma por inhalación involuntaria de esporas de hongos en zonas poco ventiladas.</li>
+                            </ul>
+                        </div>
+
+                        <div class="risk-info-block">
+                            <h3>
+                                <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+                                Medidas de Prevención
+                            </h3>
+                            <ul class="prevention-list">
+                                <li>Lavado antibacterial de manos y uso de gel desinfectante en comedores y baños.</li>
+                                <li>Uso de Elementos de Protección Personal (EPP) en enfermería y laboratorios biológicos.</li>
+                                <li>Protocolos estrictos de limpieza en la cafetería y correcta disposición de residuos sólidos.</li>
+                            </ul>
+                        </div>
+
+                        <div class="ctgi-location-card">
+                            <h4>Ubicación en el CTGI</h4>
+                            <p>Se localiza en los <strong>baños públicos</strong>, la <strong>cafetería del centro</strong>, áreas de almacenamiento de basuras y en el <strong>área de enfermería</strong>.</p>
+                        </div>
+                    </div>
+
+                    <!-- FOTO -->
+                    <div class="risk-visual">
+                        <div class="interactive-image-container">
+                            <img src="img/biologicos.jpg" alt="Riesgo Biológico - Zonas comunes y manipulación en el CTGI" onerror="this.src='https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=80'">
+                            <div class="image-overlay-info">
+                                <span class="image-overlay-title">Riesgo Biológico</span>
+                                <span class="image-overlay-desc">Virus, bacterias y hongos en zonas de alta concurrencia o manipulación de alimentos.</span>
+                            </div>
+                            <div class="image-zoom-indicator">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                    <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. FÍSICOS -->
+        <section class="risk-section" id="fisicos">
+            <div class="container">
+                <div class="risk-page-layout">
+                    <!-- DETALLES -->
+                    <div class="risk-details">
+                        <div class="hero-badge">GTC 45 - Riesgo 2</div>
+                        <h2 style="font-size: 2.2rem; margin-bottom: 1.5rem; font-family: var(--font-heading);">Riesgo <span>Físico</span></h2>
+                        
+                        <div class="risk-info-block">
+                            <p style="color: var(--text-secondary);">Exposición a factores ambientales que pueden lesionar físicamente a las personas: <strong>ruido de maquinaria, iluminación inadecuada, vibraciones y temperaturas elevadas</strong>.</p>
+                        </div>
+
+                        <div class="risk-info-block">
+                            <h3>
+                                <svg viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+                                Afectaciones al Cuerpo y la Salud
+                            </h3>
+                            <ul class="affectations-list">
+                                <li><strong>Hipoacusia (Pérdida de audición):</strong> Causada por el ruido constante de equipos mecánicos e industriales y música a alto volumen.</li>
+                                <li><strong>Fatiga visual y dolores de cabeza:</strong> Debidos a iluminación deficiente en computadores o exceso de brillo directo.</li>
+                                <li><strong>Deshidratación y fatiga térmica:</strong> Afecta el rendimiento y la presión por alta temperatura y escasa ventilación corporal.</li>
+                            </ul>
+                        </div>
+
+                        <div class="risk-info-block">
+                            <h3>
+                                <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+                                Medidas de Prevención
+                            </h3>
+                            <ul class="prevention-list">
+                                <li>Uso de protectores auditivos (tapones o copas) en talleres de producción y ruido excesivo.</li>
+                                <li>Iluminación regulada e hidratación constante en zonas deportivas y talleres.</li>
+                                <li>Mantenimiento de ventiladores y aire acondicionado para control de temperaturas extremas.</li>
+                            </ul>
+                        </div>
+
+                        <div class="ctgi-location-card">
+                            <h4>Ubicación en el CTGI: Gimnasio</h4>
+                            <p>El punto de referencia principal es el <strong>Gimnasio del CTGI</strong> (ruido continuo de máquinas y pesas, música, temperaturas de esfuerzo) y los talleres metalmecánicos y de confecciones.</p>
+                        </div>
+                    </div>
+
+                    <!-- FOTO -->
+                    <div class="risk-visual">
+                        <div class="interactive-image-container">
+                            <img src="img/fisicos.jpg" alt="Riesgo Físico - Gimnasio del CTGI y ruido/calor" onerror="this.src='https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&w=800&q=80'">
+                            <div class="image-overlay-info">
+                                <span class="image-overlay-title">Riesgo Físico (Gimnasio)</span>
+                                <span class="image-overlay-desc">Ruido elevado de pesas, música y altas temperaturas generadas por la actividad física.</span>
+                            </div>
+                            <div class="image-zoom-indicator">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                    <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. QUÍMICOS -->
+        <section class="risk-section" id="quimicos">
+            <div class="container">
+                <div class="risk-page-layout">
+                    <!-- DETALLES -->
+                    <div class="risk-details">
+                        <div class="hero-badge">GTC 45 - Riesgo 3</div>
+                        <h2 style="font-size: 2.2rem; margin-bottom: 1.5rem; font-family: var(--font-heading);">Riesgo <span>Químico</span></h2>
+                        
+                        <div class="risk-info-block">
+                            <p style="color: var(--text-secondary);">Contacto, inhalación o absorción cutánea de agentes químicos dañinos como <strong>solventes, polvos suspendidos, humos metálicos, gases y vapores</strong> de combustibles.</p>
+                        </div>
+
+                        <div class="risk-info-block">
+                            <h3>
+                                <svg viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+                                Afectaciones al Cuerpo y la Salud
+                            </h3>
+                            <ul class="affectations-list">
+                                <li><strong>Quemaduras y dermatitis química:</strong> Lesiones en la piel por contacto con ácidos, desengrasantes y resinas sin guantes.</li>
+                                <li><strong>Intoxicación por inhalación:</strong> Cefaleas intensas y desmayos por inhalar gases de soldadura, combustión o vapores de pintura.</li>
+                                <li><strong>Problemas pulmonares crónicos:</strong> Asma e inflamaciones alveolares por exposición crónica a polvos y humos de procesos industriales.</li>
+                            </ul>
+                        </div>
+
+                        <div class="risk-info-block">
+                            <h3>
+                                <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+                                Medidas de Prevención
+                            </h3>
+                            <ul class="prevention-list">
+                                <li>Uso estricto de respiradores con filtros específicos para vapores orgánicos y gases de soldadura.</li>
+                                <li>Uso de guantes de nitrilo/neopreno de caña larga y gafas químicas.</li>
+                                <li>Disponer de cabinas de extracción de aire e instalación de estaciones lavaojos de emergencia.</li>
+                            </ul>
+                        </div>
+
+                        <div class="ctgi-location-card">
+                            <h4>Ubicación en el CTGI</h4>
+                            <p>Áreas críticas: taller de <strong>mantenimiento de automotores</strong> (gasolina, aceites), taller de <strong>soldadura</strong> (humos de soldadura), taller de <strong>pintura</strong> (solventes) y laboratorios de química.</p>
+                        </div>
+                    </div>
+
+                    <!-- FOTO -->
+                    <div class="risk-visual">
+                        <div class="interactive-image-container">
+                            <img src="img/quimicos.jpg" alt="Riesgo Químico - Manejo de solventes y gases en talleres del CTGI" onerror="this.src='https://images.unsplash.com/photo-1532187643603-ba119ca4109e?auto=format&fit=crop&w=800&q=80'">
+                            <div class="image-overlay-info">
+                                <span class="image-overlay-title">Riesgo Químico</span>
+                                <span class="image-overlay-desc">Manipulación de reactivos, solventes y gases inflamables o tóxicos en talleres mecánicos y químicos.</span>
+                            </div>
+                            <div class="image-zoom-indicator">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                    <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. PSICOSOCIALES -->
+        <section class="risk-section" id="psicosociales">
+            <div class="container">
+                <div class="risk-page-layout">
+                    <!-- DETALLES -->
+                    <div class="risk-details">
+                        <div class="hero-badge">GTC 45 - Riesgo 4</div>
+                        <h2 style="font-size: 2.2rem; margin-bottom: 1.5rem; font-family: var(--font-heading);">Riesgo <span>Psicosocial</span></h2>
+                        
+                        <div class="risk-info-block">
+                            <p style="color: var(--text-secondary);">Factores de la organización laboral que alteran el bienestar de los trabajadores y aprendices, enfocados en la <strong>carga laboral excesiva, horarios demandantes y estrés mental continuo</strong>.</p>
+                        </div>
+
+                        <div class="risk-info-block">
+                            <h3>
+                                <svg viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+                                Afectaciones al Cuerpo y la Salud
+                            </h3>
+                            <ul class="affectations-list">
+                                <li><strong>Trastornos digestivos y cardiovasculares:</strong> Colon irritable, gastritis e hipertensión debido a los altos niveles de cortisol por estrés.</li>
+                                <li><strong>Insomnio y fatiga mental:</strong> Dificultad para conciliar el sueño y sensación constante de cansancio cognitivo y físico.</li>
+                                <li><strong>Trastorno de ansiedad e irritabilidad:</strong> Afectación directa a la salud mental, derivando en cuadros de Burnout o depresión laboral.</li>
+                            </ul>
+                        </div>
+
+                        <div class="risk-info-block">
+                            <h3>
+                                <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+                                Medidas de Prevención
+                            </h3>
+                            <ul class="prevention-list">
+                                <li>Programación de jornadas y cargas académicas/laborales equilibradas.</li>
+                                <li>Implementación de pausas activas cognitivas y dinámicas de integración.</li>
+                                <li>Canales de apoyo psicológico para aprendices e instructores del centro.</li>
+                            </ul>
+                        </div>
+
+                        <div class="ctgi-location-card">
+                            <h4>Ubicación en el CTGI: Áreas Administrativas</h4>
+                            <p>Afecta a todas las empresas y organizaciones en general. En el centro se enfoca críticamente en las <strong>oficinas administrativas, coordinación académica, atención al cliente</strong> y salas de instructores debido a la carga de datos e interacción constante.</p>
+                        </div>
+                    </div>
+
+                    <!-- FOTO -->
+                    <div class="risk-visual">
+                        <div class="interactive-image-container">
+                            <img src="img/psicosociales.jpg" alt="Riesgo Psicosocial - Oficinas administrativas del CTGI" onerror="this.src='https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80'">
+                            <div class="image-overlay-info">
+                                <span class="image-overlay-title">Áreas Administrativas y de Coordinación</span>
+                                <span class="image-overlay-desc">El trabajo de oficina prolongado, los horarios y las cargas exigen pausas activas para evitar el estrés severo.</span>
+                            </div>
+                            <div class="image-zoom-indicator">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                    <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. BIOMECÁNICOS -->
+        <section class="risk-section" id="biomecanicos">
+            <div class="container">
+                <div class="risk-page-layout">
+                    <!-- DETALLES -->
+                    <div class="risk-details">
+                        <div class="hero-badge">GTC 45 - Riesgo 5</div>
+                        <h2 style="font-size: 2.2rem; margin-bottom: 1.5rem; font-family: var(--font-heading);">Riesgo <span>Biomecánico</span></h2>
+                        
+                        <div class="risk-info-block">
+                            <p style="color: var(--text-secondary);">Derivado del esfuerzo muscular y articular ante <strong>posturas incómodas o prolongadas, manipulación manual de cargas pesadas y movimientos repetitivos</strong>.</p>
+                        </div>
+
+                        <div class="risk-info-block">
+                            <h3>
+                                <svg viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+                                Afectaciones al Cuerpo y la Salud
+                            </h3>
+                            <ul class="affectations-list">
+                                <li><strong>Lumbalgias y lesiones de columna:</strong> Hernias discales por levantar cajas de herramientas u objetos pesados doblando la espalda.</li>
+                                <li><strong>Túnel Carpiano y Tendinitis:</strong> Lesiones en muñecas e inflamación de tendones debido al digitado repetitivo en salas de computadores.</li>
+                                <li><strong>Espasmos musculares y dolor cervical:</strong> Contracturas por mantener la cabeza inclinada o la espalda encorvada en sillas no ergonómicas.</li>
+                            </ul>
+                        </div>
+
+                        <div class="risk-info-block">
+                            <h3>
+                                <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+                                Medidas de Prevención
+                            </h3>
+                            <ul class="prevention-list">
+                                <li>Uso de mobiliario ajustable y ergonómico (sillas con soporte lumbar, pantallas a nivel de los ojos).</li>
+                                <li>Capacitación en higiene postural y técnicas seguras para el levantamiento manual de cargas.</li>
+                                <li>Realizar pausas activas osteomusculares con estiramientos de extremidades cada 2 horas.</li>
+                            </ul>
+                        </div>
+
+                        <div class="ctgi-location-card">
+                            <h4>Ubicación en el CTGI</h4>
+                            <p>Presente en las <strong>aulas de informática y diseño</strong> (posturas sedentarias prolongadas), en el <strong>almacén general del centro</strong> y en talleres de mantenimiento donde se cargan repuestos y materiales de gran peso.</p>
+                        </div>
+                    </div>
+
+                    <!-- FOTO -->
+                    <div class="risk-visual">
+                        <div class="interactive-image-container">
+                            <img src="img/biomecanicos.jpg" alt="Riesgo Biomecánico - Posturas y levantamiento de cargas en el CTGI" onerror="this.src='https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80'">
+                            <div class="image-overlay-info">
+                                <span class="image-overlay-title">Riesgo Biomecánico</span>
+                                <span class="image-overlay-desc">Movimientos de carga, posturas inadecuadas y digitación sin el mobiliario ergonómico correcto.</span>
+                            </div>
+                            <div class="image-zoom-indicator">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                    <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. CONDICIONES DE SEGURIDAD -->
+        <section class="risk-section" id="seguridad">
+            <div class="container">
+                <div class="risk-page-layout">
+                    <!-- DETALLES -->
+                    <div class="risk-details">
+                        <div class="hero-badge">GTC 45 - Riesgo 6</div>
+                        <h2 style="font-size: 2.2rem; margin-bottom: 1.5rem; font-family: var(--font-heading);">Condiciones de <span>Seguridad</span></h2>
+                        
+                        <div class="risk-info-block">
+                            <p style="color: var(--text-secondary);">Peligros vinculados a la infraestructura, el uso de maquinaria y herramientas: incluye <strong>riesgo eléctrico (electrocución), accidentes de tránsito internos, caídas de altura y atrapamientos mecánicos</strong>.</p>
+                        </div>
+
+                        <div class="risk-info-block">
+                            <h3>
+                                <svg viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+                                Afectaciones al Cuerpo y la Salud
+                            </h3>
+                            <ul class="affectations-list">
+                                <li><strong>Fracturas, contusiones y muertes por caídas:</strong> Lesiones traumáticas graves debido a caídas de escaleras, techos o andamios.</li>
+                                <li><strong>Electrocución y quemaduras graves:</strong> Paso de corriente eléctrica a través del cuerpo por contacto con tableros energizados defectuosos.</li>
+                                <li><strong>Amputaciones y aplastamientos mecánicos:</strong> Accidentes con engranajes o maquinaria pesada sin resguardos.</li>
+                            </ul>
+                        </div>
+
+                        <div class="risk-info-block">
+                            <h3>
+                                <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+                                Medidas de Prevención
+                            </h3>
+                            <ul class="prevention-list">
+                                <li>Uso obligatorio de arnés de cuerpo completo y líneas de vida certificadas para tareas superiores a 2.0 metros.</li>
+                                <li>Cumplimiento estricto del protocolo de bloqueo de energías peligrosas (LOTO) en tableros eléctricos.</li>
+                                <li>Instalación de guardas físicas en partes móviles de tornos, fresas y motores industriales.</li>
+                            </ul>
+                        </div>
+
+                        <div class="ctgi-location-card">
+                            <h4>Ubicación en el CTGI</h4>
+                            <p>Localizado en los <strong>talleres de mantenimiento industrial, electricidad y automatización</strong> (electricidad, alturas), <strong>escaleras y rampas de acceso</strong> comunes, y vías internas de circulación (accidentes de tránsito).</p>
+                        </div>
+                    </div>
+
+                    <!-- FOTO -->
+                    <div class="risk-visual">
+                        <div class="interactive-image-container">
+                            <img src="img/seguridad.jpg" alt="Riesgo de Seguridad - Alturas, tableros eléctricos y mecánica en el CTGI" onerror="this.src='https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80'">
+                            <div class="image-overlay-info">
+                                <span class="image-overlay-title">Condiciones de Seguridad</span>
+                                <span class="image-overlay-desc">Controlar los riesgos de descargas eléctricas, caídas desde alturas y atrapamiento por partes móviles.</span>
+                            </div>
+                            <div class="image-zoom-indicator">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                    <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. FENÓMENOS NATURALES -->
+        <section class="risk-section" id="naturales">
+            <div class="container">
+                <div class="risk-page-layout">
+                    <!-- DETALLES -->
+                    <div class="risk-details">
+                        <div class="hero-badge">GTC 45 - Riesgo 7</div>
+                        <h2 style="font-size: 2.2rem; margin-bottom: 1.5rem; font-family: var(--font-heading);">Fenómenos <span>Naturales</span></h2>
+                        
+                        <div class="risk-info-block">
+                            <p style="color: var(--text-secondary);">Situaciones fortuitas causadas por desastres naturales fuera del control directo humano, tales como <strong>sismos, inundaciones locales y tormentas eléctricas</strong>.</p>
+                        </div>
+
+                        <div class="risk-info-block">
+                            <h3>
+                                <svg viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+                                Afectaciones al Cuerpo y la Salud
+                            </h3>
+                            <ul class="affectations-list">
+                                <li><strong>Lesiones por aplastamiento:</strong> Fracturas o asfixia causadas por desprendimiento de cielo raso, luminarias o colapso estructural en un terremoto.</li>
+                                <li><strong>Quemaduras y shock eléctrico:</strong> Paro cardíaco provocado por el impacto indirecto o directo de descargas atmosféricas (rayos).</li>
+                                <li><strong>Traumas psicológicos y pánico:</strong> Crisis nerviosas severas y asfixia por avalanchas humanas debido a una evacuación caótica.</li>
+                            </ul>
+                        </div>
+
+                        <div class="risk-info-block">
+                            <h3>
+                                <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+                                Medidas de Prevención
+                            </h3>
+                            <ul class="prevention-list">
+                                <li>Identificación plena y señalización clara de rutas de evacuación y puntos de encuentro del CTGI.</li>
+                                <li>Simulacros de evacuación programados periódicamente para toda la comunidad SENA.</li>
+                                <li>Instalación y mantenimiento preventivo de sistemas de pararrayos y canales de desagüe pluvial.</li>
+                            </ul>
+                        </div>
+
+                        <div class="ctgi-location-card">
+                            <h4>Ubicación en el CTGI</h4>
+                            <p>Afecta de forma generalizada a toda la planta física del <strong>CTGI</strong>. Los puntos de encuentro están definidos en las <strong>canchas múltiples y parqueaderos externos</strong> libres de tendidos eléctricos.</p>
+                        </div>
+                    </div>
+
+                    <!-- FOTO -->
+                    <div class="risk-visual">
+                        <div class="interactive-image-container">
+                            <img src="img/naturales.jpg" alt="Riesgo Natural - Puntos de encuentro y evacuación en el CTGI" onerror="this.src='https://images.unsplash.com/photo-1461088945293-0c17689e48ac?auto=format&fit=crop&w=800&q=80'">
+                            <div class="image-overlay-info">
+                                <span class="image-overlay-title">Fenómenos Naturales</span>
+                                <span class="image-overlay-desc">Planes de emergencia y puntos de encuentro demarcados en las zonas abiertas del CTGI.</span>
+                            </div>
+                            <div class="image-zoom-indicator">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                    <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h3>Riesgo Cero</h3>
+                <p>Un proyecto educativo enfocado en concientizar sobre la Seguridad y Salud en el Trabajo (SST) para la comunidad del CTGI SENA.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Accesos Rápidos</h4>
+                <ul class="footer-links-list">
+                    <li><a href="#biologicos">Biológicos</a></li>
+                    <li><a href="#fisicos">Físicos</a></li>
+                    <li><a href="#quimicos">Químicos</a></li>
+                    <li><a href="#psicosociales">Psicosociales</a></li>
+                    <li><a href="#biomecanicos">Biomecánicos</a></li>
+                    <li><a href="#seguridad">Seguridad</a></li>
+                    <li><a href="#naturales">Naturales</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Información de Contacto</h4>
+                <p><strong>Ubicación:</strong> CTGI - SENA Pedregal, Medellín</p>
+                <p><strong>Programa:</strong> Gestión de la Seguridad y Salud en el Trabajo</p>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Riesgo Cero - SENA CTGI. Todos los derechos reservados.</p>
+            <p>Diseño y prevención para un entorno formativo seguro</p>
+        </div>
+    </footer>
+
+    <!-- LIGHTBOX/IMAGE MODAL -->
+    <div class="image-modal" id="image-modal">
+        <div class="modal-content-wrapper">
+            <button class="modal-close-btn" id="modal-close" aria-label="Cerrar">&times;</button>
+            <img class="modal-img" id="modal-img" src="" alt="">
+            <div class="modal-caption" id="modal-caption"></div>
+        </div>
+    </div>
+
+    <!-- Script de Interactividad -->
+    <script src="js/script.js"></script>
+</body>
+</html>

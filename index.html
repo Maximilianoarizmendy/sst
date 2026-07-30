@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riesgo Cero - Seguridad y Salud en el Trabajo (CTGI)</title>
+    <meta name="description" content="Portal interactivo de Seguridad y Salud en el Trabajo (SST) para el CTGI. Conoce los 7 factores de riesgo y cómo proteger tu salud.">
+    <!-- Estilos Globales -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- SVG Definitions for Gradients -->
+    <div class="svg-gradient-def">
+        <svg>
+            <defs>
+                <linearGradient id="emerald-cyan-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#10b981" />
+                    <stop offset="100%" stop-color="#06b6d4" />
+                </linearGradient>
+            </defs>
+        </svg>
+    </div>
+
+    <!-- HEADER & NAVBAR -->
+    <header class="header">
+        <div class="navbar">
+            <a href="index.html" class="logo" id="logo-brand">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2L2 22h20L12 2z" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 9v4M12 17h.01" stroke="#ef4444" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span>Riesgo Cero</span>
+            </a>
+            
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="riesgos.html#biologicos" class="nav-link">Biológicos</a></li>
+                    <li><a href="riesgos.html#fisicos" class="nav-link">Físicos</a></li>
+                    <li><a href="riesgos.html#quimicos" class="nav-link">Químicos</a></li>
+                    <li><a href="riesgos.html#psicosociales" class="nav-link">Psicosociales</a></li>
+                    <li><a href="riesgos.html#biomecanicos" class="nav-link">Biomecánicos</a></li>
+                    <li><a href="riesgos.html#seguridad" class="nav-link">Seguridad</a></li>
+                    <li><a href="riesgos.html#naturales" class="nav-link">Naturales</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="theme-toggle-btn" id="theme-toggle" aria-label="Cambiar Tema">
+                    <svg class="sun-icon" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="5" />
+                        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                    </svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                    </svg>
+                </button>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Abrir Menú">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        
+        <!-- HERO SECTION -->
+        <section class="hero" id="home">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                        Seguridad y Salud en el Trabajo - CTGI
+                    </div>
+                    <h1>Promoviendo la Cultura de <span>Prevención y Autocuidado</span></h1>
+                    <p>Bienvenido a <strong>Riesgo Cero</strong>, una plataforma diseñada para los aprendices, instructores y personal administrativo del Centro de Tecnología para la Manufactura y la Gestión Industrial (CTGI). Aquí podrás conocer, identificar y prevenir los principales riesgos laborales presentes en nuestro entorno formativo.</p>
+                    <a href="#riesgos" class="btn">
+                        Ver Factores de Riesgo
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-image-wrapper interactive-image-container">
+                        <!-- Imagen del centro CTGI (Ruta relativa a modificar por el usuario) -->
+                        <img src="img/ctgi_index.jpg" alt="Instalaciones del CTGI - Centro de Tecnología para la Manufactura y la Gestión Industrial" onerror="this.src='https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80'">
+                        <div class="image-overlay-info">
+                            <span class="image-overlay-title">Sede CTGI (SENA)</span>
+                            <span class="image-overlay-desc">Centro neurálgico de formación técnica y tecnológica donde aplicamos los principios de la SST.</span>
+                        </div>
+                        <div class="image-zoom-indicator">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="hero-decorator"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: FACTORES DE RIESGO -->
+        <section class="section" id="riesgos">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Factores de Riesgo GTC 45</h2>
+                    <p>Explora cada uno de los riesgos presentes en los diferentes talleres, oficinas y áreas comunes del CTGI. Aprende a identificarlos y a mitigar su impacto en tu salud.</p>
+                </div>
+
+                <div class="risks-grid">
+                    
+                    <!-- 1. Biológico -->
+                    <article class="risk-card">
+                        <div class="risk-card-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+                                <path d="M12 6v6m0 4h.01" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3>Riesgo Biológico</h3>
+                        <p>Exposición a microorganismos como virus, bacterias, hongos o parásitos que pueden causar infecciones, alergias o toxicidad en áreas de salud, cafeterías y zonas comunes.</p>
+                        <a href="riesgos.html#biologicos" class="risk-card-link">
+                            Ver Detalles
+                            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </article>
+
+                    <!-- 2. Físico -->
+                    <article class="risk-card">
+                        <div class="risk-card-icon">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="4"/>
+                                <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+                            </svg>
+                        </div>
+                        <h3>Riesgo Físico</h3>
+                        <p>Factores ambientales como el ruido extremo, temperaturas extremas, mala iluminación o radiaciones presentes en talleres de manufactura y el gimnasio.</p>
+                        <a href="riesgos.html#fisicos" class="risk-card-link">
+                            Ver Detalles
+                            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </article>
+
+                    <!-- 3. Químico -->
+                    <article class="risk-card">
+                        <div class="risk-card-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M10 2h4M12 2v5M8.5 7.5L5 20a2 2 0 002 2h10a2 2 0 002-2L15.5 7.5M8.5 7.5h7"/>
+                            </svg>
+                        </div>
+                        <h3>Riesgo Químico</h3>
+                        <p>Contacto o inhalación de sustancias nocivas en forma de gases, vapores, polvos, humos o líquidos, comunes en talleres de soldadura y pintura.</p>
+                        <a href="riesgos.html#quimicos" class="risk-card-link">
+                            Ver Detalles
+                            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </article>
+
+                    <!-- 4. Psicosocial -->
+                    <article class="risk-card">
+                        <div class="risk-card-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 7a4 4 0 110-8 4 4 0 010 8zm14 14v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+                            </svg>
+                        </div>
+                        <h3>Riesgo Psicosocial</h3>
+                        <p>Condiciones organizacionales como carga de trabajo, jornadas extensas y estrés, afectando la salud mental de instructores y personal administrativo.</p>
+                        <a href="riesgos.html#psicosociales" class="risk-card-link">
+                            Ver Detalles
+                            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </article>
+
+                    <!-- 5. Biomecánico -->
+                    <article class="risk-card">
+                        <div class="risk-card-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                        </div>
+                        <h3>Riesgo Biomecánico</h3>
+                        <p>Derivado de posturas forzadas, levantamiento manual de cargas pesadas o movimientos repetitivos en aulas de sistemas y almacenes.</p>
+                        <a href="riesgos.html#biomecanicos" class="risk-card-link">
+                            Ver Detalles
+                            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </article>
+
+                    <!-- 6. Condiciones de Seguridad -->
+                    <article class="risk-card">
+                        <div class="risk-card-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+                                <path d="M12 9v4M12 17h.01"/>
+                            </svg>
+                        </div>
+                        <h3>Condiciones de Seguridad</h3>
+                        <p>Peligros asociados a electrocución, trabajo en alturas, accidentes de tránsito o manejo de maquinaria pesada en talleres mecánicos e industriales.</p>
+                        <a href="riesgos.html#seguridad" class="risk-card-link">
+                            Ver Detalles
+                            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </article>
+
+                    <!-- 7. Fenómenos Naturales -->
+                    <article class="risk-card">
+                        <div class="risk-card-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                            </svg>
+                        </div>
+                        <h3>Fenómenos Naturales</h3>
+                        <p>Situaciones externas impredecibles de desastres naturales como sismos, inundaciones o tormentas eléctricas que comprometen la infraestructura del centro.</p>
+                        <a href="riesgos.html#naturales" class="risk-card-link">
+                            Ver Detalles
+                            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h3>Riesgo Cero</h3>
+                <p>Un proyecto educativo enfocado en concientizar sobre la Seguridad y Salud en el Trabajo (SST) para la comunidad del CTGI SENA.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Accesos Rápidos</h4>
+                <ul class="footer-links-list">
+                    <li><a href="riesgos.html#biologicos">Biológicos</a></li>
+                    <li><a href="riesgos.html#fisicos">Físicos</a></li>
+                    <li><a href="riesgos.html#quimicos">Químicos</a></li>
+                    <li><a href="riesgos.html#psicosociales">Psicosociales</a></li>
+                    <li><a href="riesgos.html#biomecanicos">Biomecánicos</a></li>
+                    <li><a href="riesgos.html#seguridad">Seguridad</a></li>
+                    <li><a href="riesgos.html#naturales">Naturales</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Información de Contacto</h4>
+                <p><strong>Ubicación:</strong> CTGI - SENA Pedregal, Medellín</p>
+                <p><strong>Programa:</strong> Gestión de la Seguridad y Salud en el Trabajo</p>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Riesgo Cero - SENA CTGI. Todos los derechos reservados.</p>
+            <p>Diseño y prevención para un entorno formativo seguro</p>
+        </div>
+    </footer>
+
+    <!-- LIGHTBOX/IMAGE MODAL -->
+    <div class="image-modal" id="image-modal">
+        <div class="modal-content-wrapper">
+            <button class="modal-close-btn" id="modal-close" aria-label="Cerrar">&times;</button>
+            <img class="modal-img" id="modal-img" src="" alt="">
+            <div class="modal-caption" id="modal-caption"></div>
+        </div>
+    </div>
+
+    <!-- Script de Interactividad -->
+    <script src="js/script.js"></script>
+</body>
+</html>
