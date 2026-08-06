@@ -168,5 +168,38 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 300);
         }
     }
+
+    // 5. GESTIÓN DE PESTAÑAS (TABS) PARA SEÑALIZACIÓN (COLORES Y FORMAS)
+    function setupTabs(tabSelector, contentSelector) {
+        const tabs = document.querySelectorAll(tabSelector);
+        const contents = document.querySelectorAll(contentSelector);
+
+        if (tabs.length > 0 && contents.length > 0) {
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const target = tab.getAttribute('data-tab');
+
+                    // Remover clase active de todas las pestañas de este grupo
+                    tabs.forEach(t => t.classList.remove('active'));
+                    // Agregar clase active a la pestaña seleccionada
+                    tab.classList.add('active');
+
+                    // Mostrar el contenido correspondiente y ocultar el resto
+                    contents.forEach(content => {
+                        if (content.id === target) {
+                            content.classList.add('active');
+                        } else {
+                            content.classList.remove('active');
+                        }
+                    });
+                });
+            });
+        }
+    }
+
+    setupTabs('.color-red, .color-blue, .color-yellow, .color-green, .color-tab-btn, .color-tab', '.color-tab-content');
+    setupTabs('.shape-tab, .shape-tab-btn', '.shape-tab-content');
+    setupTabs('.tab-btn[data-tab^="color-"]', '.color-tab-content');
+    setupTabs('.tab-btn[data-tab^="forma-"]', '.shape-tab-content');
 });
 
