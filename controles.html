@@ -1,181 +1,971 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Controles SST - Jerarquia de Controles | Riesgo Cero (CTGI)</title>
-    <meta name="description" content="Jerarquia de controles en SST para el CTGI: Eliminacion, Sustitucion, Ingenieria, Administrativos y EPP.">
+    <title>Jerarquía de Controles SST - Riesgo Cero (CTGI)</title>
+    <meta name="description"
+        content="Jerarquía de Controles y Elementos de Protección Personal (EPP) en el CTGI SENA: Eliminación, Sustitución, Ingeniería, Administrativos y EPP.">
+    <!-- Estilos Globales -->
     <link rel="stylesheet" href="css/style.css">
     <style>
-        .controles-banner { background-color: var(--bg-secondary); border-bottom: 1px solid var(--border-color); padding: 140px 0 60px 0; text-align: center; position: relative; overflow: hidden; }
-        .controles-banner::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 60% 40%, rgba(59,130,246,0.07), transparent 55%), radial-gradient(circle at 30% 70%, rgba(16,185,129,0.06), transparent 55%); pointer-events: none; }
-        .controles-banner h1 { font-size: 3rem; margin-bottom: 1rem; }
-        .controles-banner h1 span { background: linear-gradient(135deg, #3b82f6, #10b981); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .controles-banner .banner-desc { color: var(--text-secondary); max-width: 760px; margin: 0 auto 2rem auto; font-size: 1.1rem; }
-        .def-pills { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem; }
-        .def-pill { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 30px; padding: 0.55rem 1.2rem; font-size: 0.9rem; font-weight: 600; color: var(--text-primary); }
-        .def-pill .dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
-        .dot-green  { background: #10b981; box-shadow: 0 0 6px #10b981; }
-        .dot-blue   { background: #3b82f6; box-shadow: 0 0 6px #3b82f6; }
-        .dot-orange { background: #f59e0b; box-shadow: 0 0 6px #f59e0b; }
-        .controles-section { padding: 5rem 0; }
-        .controles-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.25rem; margin-bottom: 5rem; }
-        @media (max-width: 1100px) { .controles-grid { grid-template-columns: repeat(3, 1fr); } }
-        @media (max-width: 700px)  { .controles-grid { grid-template-columns: 1fr 1fr; } }
-        @media (max-width: 480px)  { .controles-grid { grid-template-columns: 1fr; } }
-        .ctrl-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--border-radius); overflow: hidden; display: flex; flex-direction: column; transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast); }
-        .ctrl-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
-        .ctrl-header { padding: 1.5rem 1.5rem 1rem; border-bottom: 1px solid var(--border-color); }
-        .ctrl-level { display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.22rem 0.65rem; border-radius: 20px; margin-bottom: 0.8rem; }
-        .ctrl-icon { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin-bottom: 0.75rem; }
-        .ctrl-header h3 { font-size: 1.15rem; margin: 0; }
-        .ctrl-body { padding: 1.25rem 1.5rem 1.5rem; flex: 1; }
-        .ctrl-body p { color: var(--text-secondary); font-size: 0.88rem; line-height: 1.55; margin-bottom: 1rem; }
-        .ctrl-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.4rem; }
-        .ctrl-list li { display: flex; align-items: flex-start; gap: 0.45rem; font-size: 0.87rem; color: var(--text-secondary); }
-        .ctrl-list li::before { content: "->"; font-weight: 700; flex-shrink: 0; margin-top: 0.05em; }
-        .lvl-1 .ctrl-header { border-top: 4px solid #ef4444; } .lvl-1 .ctrl-level { background: rgba(239,68,68,.15); color: #ef4444; } .lvl-1 .ctrl-icon { background: rgba(239,68,68,.12); } .lvl-1 .ctrl-list li::before { color: #ef4444; } .lvl-1:hover { border-color: #ef4444; }
-        .lvl-2 .ctrl-header { border-top: 4px solid #f59e0b; } .lvl-2 .ctrl-level { background: rgba(245,158,11,.15); color: #f59e0b; } .lvl-2 .ctrl-icon { background: rgba(245,158,11,.12); } .lvl-2 .ctrl-list li::before { color: #f59e0b; } .lvl-2:hover { border-color: #f59e0b; }
-        .lvl-3 .ctrl-header { border-top: 4px solid #3b82f6; } .lvl-3 .ctrl-level { background: rgba(59,130,246,.15); color: #3b82f6; } .lvl-3 .ctrl-icon { background: rgba(59,130,246,.12); } .lvl-3 .ctrl-list li::before { color: #3b82f6; } .lvl-3:hover { border-color: #3b82f6; }
-        .lvl-4 .ctrl-header { border-top: 4px solid #8b5cf6; } .lvl-4 .ctrl-level { background: rgba(139,92,246,.15); color: #8b5cf6; } .lvl-4 .ctrl-icon { background: rgba(139,92,246,.12); } .lvl-4 .ctrl-list li::before { color: #8b5cf6; } .lvl-4:hover { border-color: #8b5cf6; }
-        .lvl-5 .ctrl-header { border-top: 4px solid #10b981; } .lvl-5 .ctrl-level { background: rgba(16,185,129,.15); color: #10b981; } .lvl-5 .ctrl-icon { background: rgba(16,185,129,.12); } .lvl-5 .ctrl-list li::before { color: #10b981; } .lvl-5:hover { border-color: #10b981; }
-        .epp-section { padding: 5rem 0; background: var(--bg-secondary); }
-        .epp-split { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-bottom: 4rem; }
-        @media (max-width: 900px) { .epp-split { grid-template-columns: 1fr; } }
-        .epp-photo { border-radius: var(--border-radius); overflow: hidden; border: 1px solid var(--border-color); position: relative; }
-        .epp-photo img { width: 100%; height: 480px; object-fit: cover; object-position: top; display: block; }
-        .epp-photo-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(9,13,22,0.88)); padding: 2rem 1.5rem 1.5rem; }
-        .epp-photo-overlay p { color: #f3f4f6; font-size: 0.9rem; font-style: italic; }
-        .epp-callouts { display: flex; flex-direction: column; gap: 1rem; }
-        .epp-callout-item { display: flex; gap: 1rem; align-items: flex-start; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 1rem 1.2rem; transition: border-color var(--transition-fast), transform var(--transition-fast); }
-        .epp-callout-item:hover { border-color: #10b981; transform: translateX(4px); }
-        .callout-icon { font-size: 1.6rem; flex-shrink: 0; }
-        .callout-text h4 { font-size: 0.95rem; color: #10b981; margin-bottom: 0.25rem; }
-        .callout-text ul { list-style: none; padding: 0; margin: 0; }
-        .callout-text ul li { font-size: 0.85rem; color: var(--text-secondary); padding: 0.1rem 0; }
-        .alturas-card { background: linear-gradient(135deg, rgba(59,130,246,0.08), rgba(16,185,129,0.08)); border: 1px solid rgba(59,130,246,0.25); border-radius: var(--border-radius); padding: 2.5rem; }
-        .alturas-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
-        .alturas-header .icon { font-size: 2.2rem; }
-        .alturas-header h3 { font-size: 1.4rem; margin: 0; }
-        .alturas-header h3 span { background: linear-gradient(135deg, #3b82f6, #10b981); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .alturas-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-        @media (max-width: 600px) { .alturas-grid { grid-template-columns: 1fr; } }
-        .alturas-col h5 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-muted); margin-bottom: 0.75rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border-color); }
-        .alturas-col ul { list-style: none; padding: 0; margin: 0; }
-        .alturas-col ul li { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; color: var(--text-secondary); padding: 0.3rem 0; border-bottom: 1px solid var(--border-color); }
-        .alturas-col ul li:last-child { border-bottom: none; }
-        .alturas-col ul li::before { content: "v"; color: #3b82f6; font-weight: 700; }
-        .norm-note { margin-top: 1rem; background: rgba(16,185,129,0.06); border: 1px solid rgba(16,185,129,0.2); border-left: 4px solid #10b981; border-radius: 12px; padding: 1.2rem 1.5rem; display: flex; gap: 1rem; align-items: flex-start; }
-        .norm-note .note-icon { font-size: 1.4rem; flex-shrink: 0; }
-        .norm-note p { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6; }
-        .norm-note strong { color: var(--text-primary); }
+        /* Estilos específicos para Controles SST */
+        .controles-banner {
+            background-color: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            padding: 140px 0 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .controles-banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 70% 30%, rgba(16, 185, 129, 0.08), transparent 60%),
+                        radial-gradient(circle at 30% 80%, rgba(6, 182, 212, 0.08), transparent 60%);
+            pointer-events: none;
+        }
+
+        .controles-banner h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .controles-banner h1 span {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .controles-banner p {
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto 1.5rem auto;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* Banner de Objetivos y Definición */
+        .def-pill-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .def-pill {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 0.65rem 1.4rem;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .def-pill .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .dot-green { background: #10b981; box-shadow: 0 0 8px rgba(16, 185, 129, 0.5); }
+        .dot-blue { background: #06b6d4; box-shadow: 0 0 8px rgba(6, 182, 212, 0.5); }
+        .dot-orange { background: #f59e0b; box-shadow: 0 0 8px rgba(245, 158, 11, 0.5); }
+
+        /* Grid de la Jerarquía de 5 Niveles */
+        .hierarchy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0 5rem 0;
+        }
+
+        .hierarchy-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
+            position: relative;
+        }
+
+        .hierarchy-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hierarchy-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .hierarchy-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            margin-bottom: 0.75rem;
+        }
+
+        .hierarchy-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .hierarchy-header h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .hierarchy-body {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .hierarchy-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .hierarchy-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .hierarchy-list li {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .hierarchy-list li::before {
+            content: '•';
+            font-weight: bold;
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+
+        /* Colores por nivel */
+        .card-eliminacion { border-top: 4px solid #ef4444; }
+        .card-eliminacion .hierarchy-badge { background: rgba(239, 68, 68, 0.15); color: #ef4444; }
+        .card-eliminacion .hierarchy-list li::before { color: #ef4444; }
+        .card-eliminacion:hover { border-color: #ef4444; }
+
+        .card-sustitucion { border-top: 4px solid #f59e0b; }
+        .card-sustitucion .hierarchy-badge { background: rgba(245, 158, 11, 0.15); color: #f59e0b; }
+        .card-sustitucion .hierarchy-list li::before { color: #f59e0b; }
+        .card-sustitucion:hover { border-color: #f59e0b; }
+
+        .card-ingenieria { border-top: 4px solid #3b82f6; }
+        .card-ingenieria .hierarchy-badge { background: rgba(59, 130, 246, 0.15); color: #3b82f6; }
+        .card-ingenieria .hierarchy-list li::before { color: #3b82f6; }
+        .card-ingenieria:hover { border-color: #3b82f6; }
+
+        .card-administrativo { border-top: 4px solid #8b5cf6; }
+        .card-administrativo .hierarchy-badge { background: rgba(139, 92, 246, 0.15); color: #8b5cf6; }
+        .card-administrativo .hierarchy-list li::before { color: #8b5cf6; }
+        .card-administrativo:hover { border-color: #8b5cf6; }
+
+        .card-epp { border-top: 4px solid #10b981; }
+        .card-epp .hierarchy-badge { background: rgba(16, 185, 129, 0.15); color: #10b981; }
+        .card-epp .hierarchy-list li::before { color: #10b981; }
+        .card-epp:hover { border-color: #10b981; }
+
+        /* Galería de Evidencias y Casos Reales */
+        .evidence-section {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 5rem 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .evidence-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+        }
+
+        .evidence-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--border-hover);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .evidence-img-wrap {
+            position: relative;
+            height: 320px;
+            overflow: hidden;
+            background: var(--bg-primary);
+            cursor: pointer;
+        }
+
+        .evidence-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform var(--transition-normal);
+        }
+
+        .evidence-card:hover .evidence-img-wrap img {
+            transform: scale(1.05);
+        }
+
+        .evidence-tag {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            padding: 0.35rem 0.85rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            backdrop-filter: var(--glass-blur);
+            z-index: 2;
+        }
+
+        .tag-admin {
+            background: rgba(139, 92, 246, 0.85);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .tag-epp {
+            background: rgba(16, 185, 129, 0.85);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .evidence-zoom-hint {
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
+            background: rgba(0, 0, 0, 0.65);
+            color: #ffffff;
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .evidence-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            flex: 1;
+        }
+
+        .evidence-content h3 {
+            font-size: 1.25rem;
+            line-height: 1.3;
+        }
+
+        .evidence-content p {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            line-height: 1.55;
+        }
+
+        .evidence-items-badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: auto;
+            padding-top: 0.75rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .evidence-item-badge {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            padding: 0.25rem 0.65rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            color: var(--text-primary);
+        }
+
+        /* Desglose de EPP por Zona Corporal y Alturas */
+        .epp-zones-section {
+            padding: 5rem 0;
+        }
+
+        .zones-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .zone-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: 1.75rem;
+            transition: transform var(--transition-fast), border-color var(--transition-fast);
+        }
+
+        .zone-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-emerald);
+        }
+
+        .zone-icon {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .zone-card h3 {
+            font-size: 1.25rem;
+            color: var(--accent-emerald);
+            margin-bottom: 0.75rem;
+        }
+
+        .zone-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .zone-list li {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            padding-bottom: 0.4rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .zone-list li:last-child {
+            border-bottom: none;
+        }
+
+        .zone-list li::before {
+            content: '✓';
+            color: var(--accent-emerald);
+            font-weight: bold;
+        }
+
+        /* Tarjeta Destacada de Alturas */
+        .alturas-banner-card {
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.08) 0%, rgba(16, 185, 129, 0.08) 100%);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            margin-top: 3rem;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        @media (max-width: 850px) {
+            .alturas-banner-card {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .alturas-info h3 {
+            font-size: 1.6rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .alturas-info h3 span {
+            color: var(--accent-teal);
+        }
+
+        .alturas-info p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .alturas-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 550px) {
+            .alturas-columns {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .alturas-col h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .alturas-col ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .alturas-col ul li {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+        }
+
+        .alturas-col ul li::before {
+            content: '➜';
+            color: var(--accent-teal);
+            font-size: 0.8rem;
+        }
+
+        /* Banner Normativo */
+        .norm-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--accent-emerald);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin-top: 3rem;
+            display: flex;
+            gap: 1.25rem;
+            align-items: center;
+        }
+
+        .norm-box-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .norm-box p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .norm-box strong {
+            color: var(--text-primary);
+        }
     </style>
 </head>
+
 <body>
-    <div class="svg-gradient-def"><svg><defs><linearGradient id="emerald-cyan-grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#10b981" /><stop offset="100%" stop-color="#06b6d4" /></linearGradient></defs></svg></div>
+
+    <!-- SVG Definitions for Gradients -->
+    <div class="svg-gradient-def">
+        <svg>
+            <defs>
+                <linearGradient id="emerald-cyan-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#10b981" />
+                    <stop offset="100%" stop-color="#06b6d4" />
+                </linearGradient>
+            </defs>
+        </svg>
+    </div>
+
+    <!-- HEADER & NAVBAR -->
     <header class="header">
         <div class="navbar">
             <a href="index.html" class="logo" id="logo-brand">
-                <svg viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2z" stroke-linecap="round" stroke-linejoin="round" /><path d="M12 9v4M12 17h.01" stroke="#ef4444" stroke-width="2" stroke-linecap="round" /></svg>
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2L2 22h20L12 2z" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M12 9v4M12 17h.01" stroke="#ef4444" stroke-width="2" stroke-linecap="round" />
+                </svg>
                 <span>Riesgo Cero</span>
             </a>
+
             <nav>
                 <ul class="nav-menu" id="nav-menu">
                     <li><a href="index.html" class="nav-link">Inicio</a></li>
                     <li><a href="riesgos.html" class="nav-link">Riesgos</a></li>
-                    <li><a href="prevencion.html" class="nav-link">Prevencion</a></li>
+                    <li><a href="prevencion.html" class="nav-link">Prevención</a></li>
                     <li><a href="controles.html" class="nav-link active">Controles</a></li>
-                    <li><a href="senalizacion.html" class="nav-link">Senalizacion</a></li>
+                    <li><a href="senalizacion.html" class="nav-link">Señalización</a></li>
                 </ul>
             </nav>
+
             <div class="nav-actions">
                 <button class="theme-toggle-btn" id="theme-toggle" aria-label="Cambiar Tema">
-                    <svg class="sun-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" /><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" /></svg>
-                    <svg class="moon-icon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" /></svg>
+                    <svg class="sun-icon" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="5" />
+                        <path
+                            d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                    </svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                    </svg>
                 </button>
-                <button class="menu-toggle" id="menu-toggle" aria-label="Abrir Menu"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" /></svg></button>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Abrir Menú">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" />
+                    </svg>
+                </button>
             </div>
         </div>
     </header>
+
     <main>
+
+        <!-- BANNER DE INTRODUCCIÓN -->
         <section class="controles-banner">
             <div class="container">
-                <div class="hero-badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg> Seguridad y Salud en el Trabajo - SENA CTGI</div>
-                <h1>Jerarquia de <span>Controles</span> SST</h1>
-                <p class="banner-desc">Los controles son medidas para <strong>contrarrestar, reducir o eliminar</strong> los peligros en el lugar de trabajo. Se organizan de mayor a menor efectividad segun la GTC 45.</p>
-                <div class="def-pills">
-                    <div class="def-pill"><span class="dot dot-green"></span>Definicion: Contrarrestar el peligro</div>
-                    <div class="def-pill"><span class="dot dot-blue"></span>Objetivo: Bajo control</div>
-                    <div class="def-pill"><span class="dot dot-orange"></span>Meta: Impedir - Disminuir el riesgo</div>
+                <div class="hero-badge">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg>
+                    Seguridad y Salud en el Trabajo - SENA CTGI
+                </div>
+                <h1>Jerarquía de <span>Controles</span> SST</h1>
+                <p>Los controles son intervenciones sistemáticas orientadas a <strong>contrarrestar los peligros, mantener las fuentes bajo control, e impedir o disminuir la ocurrencia de accidentes</strong> en los ambientes de formación y talleres del SENA.</p>
+
+                <div class="def-pill-container">
+                    <div class="def-pill">
+                        <span class="dot dot-green"></span>
+                        Definición: Contrarrestar el peligro
+                    </div>
+                    <div class="def-pill">
+                        <span class="dot dot-blue"></span>
+                        Objetivo: Mantener bajo control
+                    </div>
+                    <div class="def-pill">
+                        <span class="dot dot-orange"></span>
+                        Meta: Impedir ➔ Disminuir el riesgo
+                    </div>
                 </div>
             </div>
         </section>
-        <section class="controles-section">
+
+        <!-- SECCIÓN 1: JERARQUÍA DE 5 NIVELES -->
+        <section class="section">
             <div class="container">
                 <div class="section-header">
-                    <h2>Los 5 Niveles de <span>Control</span></h2>
-                    <p>Desde la eliminacion total del peligro hasta la proteccion personal, cada nivel tiene un proposito especifico dentro del CTGI.</p>
+                    <h2>Los 5 Niveles de la <span>Jerarquía GTC 45</span></h2>
+                    <p>Ordenados de mayor a menor efectividad para la mitigación del riesgo laboral en la fuente, el medio y el individuo.</p>
                 </div>
-                <div class="controles-grid">
-                    <div class="ctrl-card lvl-1">
-                        <div class="ctrl-header"><span class="ctrl-level">Nivel 1 - Mayor eficacia</span><div class="ctrl-icon">&#128683;</div><h3>Eliminacion</h3></div>
-                        <div class="ctrl-body"><p>Quitar completamente el peligro del ambiente. El mas efectivo pero el mas dificil de aplicar al 100%.</p><ul class="ctrl-list"><li>Retirar maquinaria sin uso</li><li>Suprimir tareas peligrosas</li><li>Dificil de lograr al 100%</li></ul></div>
+
+                <div class="hierarchy-grid">
+
+                    <!-- NIVEL 1: ELIMINACIÓN -->
+                    <div class="hierarchy-card card-eliminacion">
+                        <div class="hierarchy-header">
+                            <span class="hierarchy-badge">Nivel 1 · Más Efectivo</span>
+                            <span class="hierarchy-icon">🚫</span>
+                            <h3>Eliminación</h3>
+                        </div>
+                        <div class="hierarchy-body">
+                            <p class="hierarchy-desc">Quitar completamente la fuente o condición peligrosa del ambiente de trabajo.</p>
+                            <ul class="hierarchy-list">
+                                <li>Retiro de maquinaria o equipos obsoletos sin uso</li>
+                                <li>Supresión definitiva de tareas de alto riesgo</li>
+                                <li>Remoción de residuos cortopunzantes o vidrios rotos</li>
+                                <li><strong>Nota:</strong> Es el más efectivo pero difícil al 100%</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="ctrl-card lvl-2">
-                        <div class="ctrl-header"><span class="ctrl-level">Nivel 2</span><div class="ctrl-icon">&#128260;</div><h3>Sustitucion</h3></div>
-                        <div class="ctrl-body"><p>Reemplazar el peligro por un elemento de menor riesgo cuando la eliminacion no es posible.</p><ul class="ctrl-list"><li>Quimicos por quimicos menor peligro</li><li>Auxiliares menos toxicos</li><li>Materiales mas seguros</li></ul></div>
+
+                    <!-- NIVEL 2: SUSTITUCIÓN -->
+                    <div class="hierarchy-card card-sustitucion">
+                        <div class="hierarchy-header">
+                            <span class="hierarchy-badge">Nivel 2</span>
+                            <span class="hierarchy-icon">🔄</span>
+                            <h3>Sustitución</h3>
+                        </div>
+                        <div class="hierarchy-body">
+                            <p class="hierarchy-desc">Reemplazar un peligro o material de alto riesgo por uno que represente menor peligro.</p>
+                            <ul class="hierarchy-list">
+                                <li>Sustitución de sustancias químicas agresivas por solventes ecológicos</li>
+                                <li>Cambio de insumos tóxicos por auxiliares biodegradables</li>
+                                <li>Pinturas base agua en reemplazo de solventes inflamables</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="ctrl-card lvl-3">
-                        <div class="ctrl-header"><span class="ctrl-level">Nivel 3</span><div class="ctrl-icon">&#9881;&#65039;</div><h3>Ingenieria</h3></div>
-                        <div class="ctrl-body"><p>Mejoras tecnologicas en maquinas y herramientas para reducir la exposicion al riesgo en la fuente.</p><ul class="ctrl-list"><li>Sensores de seguridad</li><li>Sistemas de seguro automatico</li><li>Alarmas de advertencia</li><li>Guardas protectoras</li></ul></div>
+
+                    <!-- NIVEL 3: INGENIERÍA -->
+                    <div class="hierarchy-card card-ingenieria">
+                        <div class="hierarchy-header">
+                            <span class="hierarchy-badge">Nivel 3</span>
+                            <span class="hierarchy-icon">⚙️</span>
+                            <h3>Ingeniería</h3>
+                        </div>
+                        <div class="hierarchy-body">
+                            <p class="hierarchy-desc">Mejoras técnicas y tecnológicas en máquinas, herramientas e infraestructura para aislar el peligro.</p>
+                            <ul class="hierarchy-list">
+                                <li>Sensores de presencia y paradas de emergencia</li>
+                                <li>Sistemas de seguros automáticos e interlocks</li>
+                                <li>Alarmas sonoras y luminosas de advertencia</li>
+                                <li>Guardas protectoras en partes móviles y telares</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="ctrl-card lvl-4">
-                        <div class="ctrl-header"><span class="ctrl-level">Nivel 4</span><div class="ctrl-icon">&#128203;</div><h3>Administrativos</h3></div>
-                        <div class="ctrl-body"><p>Medidas organizacionales para cambiar la forma en que las personas trabajan y se exponen al peligro.</p><ul class="ctrl-list"><li>Capacitaciones periodicas</li><li>Carteleras visuales</li><li>Senalizacion de areas</li><li>Simulacros de emergencia</li><li>Campanas de concientizacion</li></ul></div>
+
+                    <!-- NIVEL 4: ADMINISTRATIVOS -->
+                    <div class="hierarchy-card card-administrativo">
+                        <div class="hierarchy-header">
+                            <span class="hierarchy-badge">Nivel 4</span>
+                            <span class="hierarchy-icon">📋</span>
+                            <h3>Administrativos</h3>
+                        </div>
+                        <div class="hierarchy-body">
+                            <p class="hierarchy-desc">Medidas de gestión, organización y procedimientos para concientizar y regular el comportamiento.</p>
+                            <ul class="hierarchy-list">
+                                <li>Capacitaciones continuas en SST</li>
+                                <li>Carteleras visuales y campañas de concientización</li>
+                                <li>Señalización de rutas y áreas de riesgo</li>
+                                <li>Simulacros de evacuación y emergencias</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="ctrl-card lvl-5">
-                        <div class="ctrl-header"><span class="ctrl-level">Nivel 5 - Ultima barrera</span><div class="ctrl-icon">&#129562;</div><h3>EPP</h3></div>
-                        <div class="ctrl-body"><p>Elementos de Proteccion Personal. Barrera final. <strong>Disminuyen</strong> el impacto pero no eliminan el peligro.</p><ul class="ctrl-list"><li>Obligatorio por actividad economica</li><li>Barrera - disminuir un riesgo</li><li>Complemento de todos los controles</li></ul></div>
+
+                    <!-- NIVEL 5: EPP -->
+                    <div class="hierarchy-card card-epp">
+                        <div class="hierarchy-header">
+                            <span class="hierarchy-badge">Nivel 5 · Última Barrera</span>
+                            <span class="hierarchy-icon">🦺</span>
+                            <h3>EPP</h3>
+                        </div>
+                        <div class="hierarchy-body">
+                            <p class="hierarchy-desc">Elementos de Protección Personal como barrera final entre el individuo y el peligro.</p>
+                            <ul class="hierarchy-list">
+                                <li>Obligatorio por Actividad Económica</li>
+                                <li>Barrera ➔ Disminuye la severidad de la lesión</li>
+                                <li>No elimina el peligro en la fuente</li>
+                                <li>Protección en cabeza, extremidades y alturas</li>
+                            </ul>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </section>
-        <section class="epp-section">
+
+        <!-- SECCIÓN 2: EVIDENCIAS REALES DEL CTGI (IMG_NEW) -->
+        <section class="evidence-section" id="evidencias">
             <div class="container">
                 <div class="section-header">
-                    <h2>EPP por <span>Zona Corporal</span></h2>
-                    <p>Cada parte del cuerpo requiere proteccion especifica segun la actividad economica y el riesgo presente.</p>
+                    <h2>Evidencias de Controles y EPP en el <span>SENA CTGI</span></h2>
+                    <p>Casos fotográficos reales capturados en las instalaciones del Centro Tecnológico de Gestión Industrial que ilustran controles administrativos y EPP por actividad económica.</p>
                 </div>
-                <div class="epp-split">
-                    <div class="epp-photo">
-                        <img src="img/biologico.jpeg" alt="Trabajador del CTGI con EPP completo: casco, gafas y overol de seguridad">
-                        <div class="epp-photo-overlay"><p>Trabajador con EPP: casco, gafas de seguridad y overol - CTGI SENA</p></div>
+
+                <div class="gallery-grid">
+
+                    <!-- FOTO 1: EPP OPERARIO MAQUINARIA PESADA -->
+                    <div class="evidence-card">
+                        <div class="evidence-img-wrap interactive-image-container">
+                            <img src="img_new/image.png" alt="Operario de maquinaria pesada con EPP completo en el CTGI" loading="lazy">
+                            <span class="evidence-tag tag-epp">EPP · Maquinaria Pesada</span>
+                            <span class="evidence-zoom-hint">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                                Ampliar
+                            </span>
+                        </div>
+                        <div class="evidence-content">
+                            <h3>Operario de Mantenimiento y Maquinaria Pesada</h3>
+                            <p>Trabajador en patio exterior de talleres portando el equipamiento de protección reglamentario frente a retroexcavadora y barredora industrial Sweepster.</p>
+                            <div class="evidence-items-badge-container">
+                                <span class="evidence-item-badge">Casco blanco tipo 1</span>
+                                <span class="evidence-item-badge">Gafas de seguridad</span>
+                                <span class="evidence-item-badge">Overol enterizo azul</span>
+                                <span class="evidence-item-badge">Botas con puntera</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="epp-callouts">
-                        <div class="epp-callout-item"><div class="callout-icon">&#128119;</div><div class="callout-text"><h4>Cabeza</h4><ul><li>Casco de seguridad</li><li>Gafas protectoras</li><li>Tapa bocas / Respirador</li><li>Tapa oidos / Protector auditivo</li></ul></div></div>
-                        <div class="epp-callout-item"><div class="callout-icon">&#129470;</div><div class="callout-text"><h4>Brazos y manos</h4><ul><li>Mangas largas protectoras</li><li>Chaquetas de seguridad / Overol</li><li>Guantes industriales</li></ul></div></div>
-                        <div class="epp-callout-item"><div class="callout-icon">&#129461;</div><div class="callout-text"><h4>Pies y piernas</h4><ul><li>Botas de seguridad con punta</li><li>Pantalones de proteccion</li><li>Rodilleras</li></ul></div></div>
-                        <div class="norm-note"><div class="note-icon">&#128204;</div><p>El EPP es <strong>obligatorio segun la Actividad Economica</strong> del empleador y debe ser suministrado sin costo para el trabajador. <strong>Resolucion 0312 de 2019 y GTC 45.</strong></p></div>
+
+                    <!-- FOTO 2: EPP SERVICIOS GENERALES Y JARDINERÍA -->
+                    <div class="evidence-card">
+                        <div class="evidence-img-wrap interactive-image-container">
+                            <img src="img_new/image copy 2.png" alt="Trabajador de servicios generales e infraestructura exterior en jardineras" loading="lazy">
+                            <span class="evidence-tag tag-epp">EPP · Servicios y Jardinería</span>
+                            <span class="evidence-zoom-hint">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                                Ampliar
+                            </span>
+                        </div>
+                        <div class="evidence-content">
+                            <h3>Mantenimiento de Áreas Exteriores y Jardinería</h3>
+                            <p>Operario de servicios integrales realizando labores de cuidado de jardines y canaletas de desagüe con indumentaria de protección contra humedad y biológicos.</p>
+                            <div class="evidence-items-badge-container">
+                                <span class="evidence-item-badge">Botas pantaneras de caucho</span>
+                                <span class="evidence-item-badge">Camisa manga larga</span>
+                                <span class="evidence-item-badge">Gafas de protección</span>
+                                <span class="evidence-item-badge">Gorra con visera</span>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="alturas-card">
-                    <div class="alturas-header"><span class="icon">&#129399;</span><h3>Trabajo en <span>Alturas</span> - Proteccion Especial</h3></div>
-                    <div class="alturas-grid">
-                        <div class="alturas-col"><h5>EPP Requerido</h5><ul><li>Arnes de cuerpo entero</li><li>Casco con barbuquejo</li><li>Poleas y sistemas de descenso</li><li>Botas con puntera reforzada</li><li>Guantes antideslizantes</li></ul></div>
-                        <div class="alturas-col"><h5>Sistemas de proteccion colectiva</h5><ul><li>Lineas de vida horizontales</li><li>Lineas de vida verticales</li><li>Puntos de anclaje certificados</li><li>Gafas de proteccion UV</li></ul></div>
+
+                    <!-- FOTO 3: EPP LABORATORIO Y RIESGO BIOLÓGICO/QUÍMICO -->
+                    <div class="evidence-card">
+                        <div class="evidence-img-wrap interactive-image-container">
+                            <img src="img_new/image copy 3.png" alt="Aprendiz con EPP de laboratorio, bata, tapabocas y guantes" loading="lazy">
+                            <span class="evidence-tag tag-epp">EPP · Laboratorios y Química</span>
+                            <span class="evidence-zoom-hint">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                                Ampliar
+                            </span>
+                        </div>
+                        <div class="evidence-content">
+                            <h3>Ambientes de Laboratorio y Control de Calidad</h3>
+                            <p>Uso de elementos de bioseguridad y protección química para evitar contacto dérmico o inhalación de vapores, reactivos y agentes biológicos en prácticas formativas.</p>
+                            <div class="evidence-items-badge-container">
+                                <span class="evidence-item-badge">Bata blanca antifluidos</span>
+                                <span class="evidence-item-badge">Tapabocas quirúrgico</span>
+                                <span class="evidence-item-badge">Guantes de nitrilo / látex</span>
+                                <span class="evidence-item-badge">Calzado cerrado</span>
+                            </div>
+                        </div>
                     </div>
+
+                    <!-- FOTO 4: CONTROL ADMINISTRATIVO - CARTELERA INSTITUCIONAL SST -->
+                    <div class="evidence-card">
+                        <div class="evidence-img-wrap interactive-image-container">
+                            <img src="img_new/image copy 6.png" alt="Cartelera institucional de Seguridad y Salud en el Trabajo SENA" loading="lazy">
+                            <span class="evidence-tag tag-admin">Control Administrativo · Cartelera</span>
+                            <span class="evidence-zoom-hint">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                                Ampliar
+                            </span>
+                        </div>
+                        <div class="evidence-content">
+                            <h3>Cartelera Informativa y Campañas SST SENA</h3>
+                            <p>Punto de comunicación visual institucional que divulga las reglas que nos protegen, compromisos de SST, matriz de riesgos en el entorno y números de emergencia (Línea 123).</p>
+                            <div class="evidence-items-badge-container">
+                                <span class="evidence-item-badge">Carteleras visuales</span>
+                                <span class="evidence-item-badge">Campañas de prevención</span>
+                                <span class="evidence-item-badge">Línea de emergencia 123</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FOTO 5: CONTROL ADMINISTRATIVO - SEÑALIZACIÓN RUTA EVACUACIÓN -->
+                    <div class="evidence-card">
+                        <div class="evidence-img-wrap interactive-image-container">
+                            <img src="img_new/image copy 5.png" alt="Aviso preventivo de despeje de rutas de evacuación" loading="lazy">
+                            <span class="evidence-tag tag-admin">Control Administrativo · Señalización</span>
+                            <span class="evidence-zoom-hint">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                                Ampliar
+                            </span>
+                        </div>
+                        <div class="evidence-content">
+                            <h3>Señalización y Despeje de Rutas de Evacuación</h3>
+                            <p>Control preventivo para evitar el bloqueo u obstaculización de vías de escape y circulación peatonal con mobiliario en caso de presentarse una evacuación de emergencia.</p>
+                            <div class="evidence-items-badge-container">
+                                <span class="evidence-item-badge">Prohibición de bloqueo</span>
+                                <span class="evidence-item-badge">Ruta de evacuación</span>
+                                <span class="evidence-item-badge">Orden y aseo</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FOTO 6: CONTROL ADMINISTRATIVO - BIOSEGURIDAD -->
+                    <div class="evidence-card">
+                        <div class="evidence-img-wrap interactive-image-container">
+                            <img src="img_new/image copy 7.png" alt="Cartel de recomendaciones de Bioseguridad y código QR SENA" loading="lazy">
+                            <span class="evidence-tag tag-admin">Control Administrativo · Bioseguridad</span>
+                            <span class="evidence-zoom-hint">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                                Ampliar
+                            </span>
+                        </div>
+                        <div class="evidence-content">
+                            <h3>Protocolos y Recomendaciones de Bioseguridad</h3>
+                            <p>Instrucciones gráficas visibles en accesos peatonales sobre uso de tapabocas, etiqueta respiratoria, lavado de manos, distanciamiento y diligenciamiento de encuestas vía QR.</p>
+                            <div class="evidence-items-badge-container">
+                                <span class="evidence-item-badge">Etiqueta respiratoria</span>
+                                <span class="evidence-item-badge">Lavado de manos</span>
+                                <span class="evidence-item-badge">Encuesta previa QR</span>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
+
+        <!-- SECCIÓN 3: EPP POR ZONA CORPORAL Y ALTURAS -->
+        <section class="epp-zones-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Clasificación de EPP por <span>Zona Corporal</span></h2>
+                    <p>Especificaciones técnicas de los elementos de protección según las áreas del cuerpo y la actividad económica que se desempeñe.</p>
+                </div>
+
+                <div class="zones-grid">
+
+                    <!-- CABEZA -->
+                    <div class="zone-card">
+                        <span class="zone-icon">👷</span>
+                        <h3>Cabeza y Rostro</h3>
+                        <ul class="zone-list">
+                            <li><strong>Casco de seguridad:</strong> Protección contra impactos y objetos en caída.</li>
+                            <li><strong>Gafas de policarbonato:</strong> Protección contra esquirlas y químicos.</li>
+                            <li><strong>Tapabocas / Mascarilla:</strong> Filtro de partículas y bioseguridad.</li>
+                            <li><strong>Tapa oídos / Copas:</strong> Reducción de decibeles en telares y talleres.</li>
+                        </ul>
+                    </div>
+
+                    <!-- BRAZOS Y MANOS -->
+                    <div class="zone-card">
+                        <span class="zone-icon">🦾</span>
+                        <h3>Brazos y Manos</h3>
+                        <ul class="zone-list">
+                            <li><strong>Mangas de carnaza / lona:</strong> Protección ante abrasión y calor.</li>
+                            <li><strong>Chaquetas / Overol:</strong> Cobertura corporal total contra salpicaduras.</li>
+                            <li><strong>Guantes de nitrilo / látex:</strong> Manejo químico y biológico.</li>
+                            <li><strong>Guantes de vaqueta / carnaza:</strong> Trabajo mecánico y cargas pesadas.</li>
+                        </ul>
+                    </div>
+
+                    <!-- PIES Y PIERNAS -->
+                    <div class="zone-card">
+                        <span class="zone-icon">🦵</span>
+                        <h3>Pies y Piernas</h3>
+                        <ul class="zone-list">
+                            <li><strong>Botas con puntera de acero/composite:</strong> Impacto y aplastamiento.</li>
+                            <li><strong>Botas pantaneras de caucho:</strong> Humedad, jardinería y lodos.</li>
+                            <li><strong>Pantalones reforzados:</strong> Resistencia a desgarros y fricción.</li>
+                            <li><strong>Rodilleras industriales:</strong> Apoyo ergonómico en posturas bajas.</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <!-- TRABAJO EN ALTURAS -->
+                <div class="alturas-banner-card">
+                    <div class="alturas-info">
+                        <div class="hero-badge" style="margin-bottom: 0.5rem;">Resolución 4272 de 2021</div>
+                        <h3>Trabajo Seguro en <span>Alturas</span></h3>
+                        <p>Aplica para toda labor que se ejecute a más de <strong>2.0 metros</strong> de altura con riesgo de caída. Requiere equipamiento certificado individual y sistemas colectivos.</p>
+                    </div>
+
+                    <div class="alturas-columns">
+                        <div class="alturas-col">
+                            <h4>EPP Individual Requerido</h4>
+                            <ul>
+                                <li>Arnés de cuerpo entero multipropósito</li>
+                                <li>Casco con barbuquejo de 3 o 4 puntos</li>
+                                <li>Eslinga de posicionamiento y absorción</li>
+                                <li>Botas de seguridad con suela antideslizante</li>
+                                <li>Guantes con buen agarre mecánico</li>
+                            </ul>
+                        </div>
+                        <div class="alturas-col">
+                            <h4>Sistemas de Protección Colectiva</h4>
+                            <ul>
+                                <li>Líneas de vida horizontales y verticales</li>
+                                <li>Puntos de anclaje certificados (5000 lb)</li>
+                                <li>Poleas y mosquetones de acero forjado</li>
+                                <li>Gafas de seguridad con filtro UV</li>
+                                <li>Mallas y barandas perimetrales</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BANNER NORMATIVO -->
+                <div class="norm-box">
+                    <span class="norm-box-icon">⚖️</span>
+                    <p><strong>Marco Legal Colombiano:</strong> De acuerdo con la <strong>Resolución 0312 de 2019</strong> y la <strong>GTC 45</strong>, los Elementos de Protección Personal son de suministro obligatorio y gratuito por parte del empleador según la matriz de riesgo de cada actividad económica, y su uso es obligatorio por parte de aprendices, instructores y colaboradores.</p>
+                </div>
+
+            </div>
+        </section>
+
     </main>
+
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="container footer-grid">
-            <div class="footer-brand"><h3>Riesgo Cero</h3><p>Proyecto educativo de SST para la comunidad del CTGI SENA.</p></div>
-            <div class="footer-links"><h4>Accesos Rapidos</h4><ul class="footer-links-list"><li><a href="index.html">Inicio</a></li><li><a href="riesgos.html">Riesgos</a></li><li><a href="prevencion.html">Prevencion</a></li><li><a href="controles.html">Controles</a></li><li><a href="senalizacion.html">Senalizacion</a></li></ul></div>
-            <div class="footer-contact"><h4>Informacion de Contacto</h4><p><strong>Ubicacion:</strong> CTGI - SENA Pedregal, Medellin</p><p><strong>Programa:</strong> Analisis y Desarrollo de Software (ADSO) - SST</p></div>
+            <div class="footer-brand">
+                <h3>Riesgo Cero</h3>
+                <p>Un proyecto educativo enfocado en concientizar sobre la Seguridad y Salud en el Trabajo (SST) para la
+                    comunidad del CTGI SENA.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Accesos Rápidos</h4>
+                <ul class="footer-links-list">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="riesgos.html">Riesgos</a></li>
+                    <li><a href="prevencion.html">Prevención</a></li>
+                    <li><a href="controles.html">Controles</a></li>
+                    <li><a href="senalizacion.html">Señalización</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Información de Contacto</h4>
+                <p><strong>Ubicación:</strong> CTGI - SENA Pedregal, Medellín</p>
+                <p><strong>Programa:</strong> Análisis y Desarrollo de Software (ADSO) - SST</p>
+            </div>
         </div>
-        <div class="container footer-bottom"><p>&copy; 2026 Riesgo Cero - SENA CTGI. Todos los derechos reservados.</p></div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Riesgo Cero - SENA CTGI. Todos los derechos reservados.</p>
+            <p>Diseño y prevención para un entorno formativo seguro</p>
+        </div>
     </footer>
+
+    <!-- LIGHTBOX / MODAL DE IMÁGENES -->
+    <div class="image-modal" id="image-modal">
+        <div class="modal-content-wrapper">
+            <button class="modal-close-btn" id="modal-close" aria-label="Cerrar">&times;</button>
+            <img class="modal-img" id="modal-img" src="" alt="">
+            <div class="modal-caption" id="modal-caption"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
     <script src="js/script.js"></script>
 </body>
+
 </html>
