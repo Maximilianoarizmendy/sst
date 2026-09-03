@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controles SST - Jerarquia de Controles | Riesgo Cero (CTGI)</title>
+    <meta name="description" content="Jerarquia de controles en SST para el CTGI: Eliminacion, Sustitucion, Ingenieria, Administrativos y EPP.">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .controles-banner { background-color: var(--bg-secondary); border-bottom: 1px solid var(--border-color); padding: 140px 0 60px 0; text-align: center; position: relative; overflow: hidden; }
+        .controles-banner::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 60% 40%, rgba(59,130,246,0.07), transparent 55%), radial-gradient(circle at 30% 70%, rgba(16,185,129,0.06), transparent 55%); pointer-events: none; }
+        .controles-banner h1 { font-size: 3rem; margin-bottom: 1rem; }
+        .controles-banner h1 span { background: linear-gradient(135deg, #3b82f6, #10b981); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .controles-banner .banner-desc { color: var(--text-secondary); max-width: 760px; margin: 0 auto 2rem auto; font-size: 1.1rem; }
+        .def-pills { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem; }
+        .def-pill { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 30px; padding: 0.55rem 1.2rem; font-size: 0.9rem; font-weight: 600; color: var(--text-primary); }
+        .def-pill .dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+        .dot-green  { background: #10b981; box-shadow: 0 0 6px #10b981; }
+        .dot-blue   { background: #3b82f6; box-shadow: 0 0 6px #3b82f6; }
+        .dot-orange { background: #f59e0b; box-shadow: 0 0 6px #f59e0b; }
+        .controles-section { padding: 5rem 0; }
+        .controles-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.25rem; margin-bottom: 5rem; }
+        @media (max-width: 1100px) { .controles-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 700px)  { .controles-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 480px)  { .controles-grid { grid-template-columns: 1fr; } }
+        .ctrl-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--border-radius); overflow: hidden; display: flex; flex-direction: column; transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast); }
+        .ctrl-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+        .ctrl-header { padding: 1.5rem 1.5rem 1rem; border-bottom: 1px solid var(--border-color); }
+        .ctrl-level { display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.22rem 0.65rem; border-radius: 20px; margin-bottom: 0.8rem; }
+        .ctrl-icon { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin-bottom: 0.75rem; }
+        .ctrl-header h3 { font-size: 1.15rem; margin: 0; }
+        .ctrl-body { padding: 1.25rem 1.5rem 1.5rem; flex: 1; }
+        .ctrl-body p { color: var(--text-secondary); font-size: 0.88rem; line-height: 1.55; margin-bottom: 1rem; }
+        .ctrl-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.4rem; }
+        .ctrl-list li { display: flex; align-items: flex-start; gap: 0.45rem; font-size: 0.87rem; color: var(--text-secondary); }
+        .ctrl-list li::before { content: "->"; font-weight: 700; flex-shrink: 0; margin-top: 0.05em; }
+        .lvl-1 .ctrl-header { border-top: 4px solid #ef4444; } .lvl-1 .ctrl-level { background: rgba(239,68,68,.15); color: #ef4444; } .lvl-1 .ctrl-icon { background: rgba(239,68,68,.12); } .lvl-1 .ctrl-list li::before { color: #ef4444; } .lvl-1:hover { border-color: #ef4444; }
+        .lvl-2 .ctrl-header { border-top: 4px solid #f59e0b; } .lvl-2 .ctrl-level { background: rgba(245,158,11,.15); color: #f59e0b; } .lvl-2 .ctrl-icon { background: rgba(245,158,11,.12); } .lvl-2 .ctrl-list li::before { color: #f59e0b; } .lvl-2:hover { border-color: #f59e0b; }
+        .lvl-3 .ctrl-header { border-top: 4px solid #3b82f6; } .lvl-3 .ctrl-level { background: rgba(59,130,246,.15); color: #3b82f6; } .lvl-3 .ctrl-icon { background: rgba(59,130,246,.12); } .lvl-3 .ctrl-list li::before { color: #3b82f6; } .lvl-3:hover { border-color: #3b82f6; }
+        .lvl-4 .ctrl-header { border-top: 4px solid #8b5cf6; } .lvl-4 .ctrl-level { background: rgba(139,92,246,.15); color: #8b5cf6; } .lvl-4 .ctrl-icon { background: rgba(139,92,246,.12); } .lvl-4 .ctrl-list li::before { color: #8b5cf6; } .lvl-4:hover { border-color: #8b5cf6; }
+        .lvl-5 .ctrl-header { border-top: 4px solid #10b981; } .lvl-5 .ctrl-level { background: rgba(16,185,129,.15); color: #10b981; } .lvl-5 .ctrl-icon { background: rgba(16,185,129,.12); } .lvl-5 .ctrl-list li::before { color: #10b981; } .lvl-5:hover { border-color: #10b981; }
+        .epp-section { padding: 5rem 0; background: var(--bg-secondary); }
+        .epp-split { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-bottom: 4rem; }
+        @media (max-width: 900px) { .epp-split { grid-template-columns: 1fr; } }
+        .epp-photo { border-radius: var(--border-radius); overflow: hidden; border: 1px solid var(--border-color); position: relative; }
+        .epp-photo img { width: 100%; height: 480px; object-fit: cover; object-position: top; display: block; }
+        .epp-photo-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(9,13,22,0.88)); padding: 2rem 1.5rem 1.5rem; }
+        .epp-photo-overlay p { color: #f3f4f6; font-size: 0.9rem; font-style: italic; }
+        .epp-callouts { display: flex; flex-direction: column; gap: 1rem; }
+        .epp-callout-item { display: flex; gap: 1rem; align-items: flex-start; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 1rem 1.2rem; transition: border-color var(--transition-fast), transform var(--transition-fast); }
+        .epp-callout-item:hover { border-color: #10b981; transform: translateX(4px); }
+        .callout-icon { font-size: 1.6rem; flex-shrink: 0; }
+        .callout-text h4 { font-size: 0.95rem; color: #10b981; margin-bottom: 0.25rem; }
+        .callout-text ul { list-style: none; padding: 0; margin: 0; }
+        .callout-text ul li { font-size: 0.85rem; color: var(--text-secondary); padding: 0.1rem 0; }
+        .alturas-card { background: linear-gradient(135deg, rgba(59,130,246,0.08), rgba(16,185,129,0.08)); border: 1px solid rgba(59,130,246,0.25); border-radius: var(--border-radius); padding: 2.5rem; }
+        .alturas-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
+        .alturas-header .icon { font-size: 2.2rem; }
+        .alturas-header h3 { font-size: 1.4rem; margin: 0; }
+        .alturas-header h3 span { background: linear-gradient(135deg, #3b82f6, #10b981); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .alturas-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        @media (max-width: 600px) { .alturas-grid { grid-template-columns: 1fr; } }
+        .alturas-col h5 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-muted); margin-bottom: 0.75rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border-color); }
+        .alturas-col ul { list-style: none; padding: 0; margin: 0; }
+        .alturas-col ul li { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; color: var(--text-secondary); padding: 0.3rem 0; border-bottom: 1px solid var(--border-color); }
+        .alturas-col ul li:last-child { border-bottom: none; }
+        .alturas-col ul li::before { content: "v"; color: #3b82f6; font-weight: 700; }
+        .norm-note { margin-top: 1rem; background: rgba(16,185,129,0.06); border: 1px solid rgba(16,185,129,0.2); border-left: 4px solid #10b981; border-radius: 12px; padding: 1.2rem 1.5rem; display: flex; gap: 1rem; align-items: flex-start; }
+        .norm-note .note-icon { font-size: 1.4rem; flex-shrink: 0; }
+        .norm-note p { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6; }
+        .norm-note strong { color: var(--text-primary); }
+    </style>
+</head>
+<body>
+    <div class="svg-gradient-def"><svg><defs><linearGradient id="emerald-cyan-grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#10b981" /><stop offset="100%" stop-color="#06b6d4" /></linearGradient></defs></svg></div>
+    <header class="header">
+        <div class="navbar">
+            <a href="index.html" class="logo" id="logo-brand">
+                <svg viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2z" stroke-linecap="round" stroke-linejoin="round" /><path d="M12 9v4M12 17h.01" stroke="#ef4444" stroke-width="2" stroke-linecap="round" /></svg>
+                <span>Riesgo Cero</span>
+            </a>
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html" class="nav-link">Inicio</a></li>
+                    <li><a href="riesgos.html" class="nav-link">Riesgos</a></li>
+                    <li><a href="prevencion.html" class="nav-link">Prevencion</a></li>
+                    <li><a href="controles.html" class="nav-link active">Controles</a></li>
+                    <li><a href="senalizacion.html" class="nav-link">Senalizacion</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button class="theme-toggle-btn" id="theme-toggle" aria-label="Cambiar Tema">
+                    <svg class="sun-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" /><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" /></svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" /></svg>
+                </button>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Abrir Menu"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" /></svg></button>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="controles-banner">
+            <div class="container">
+                <div class="hero-badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg> Seguridad y Salud en el Trabajo - SENA CTGI</div>
+                <h1>Jerarquia de <span>Controles</span> SST</h1>
+                <p class="banner-desc">Los controles son medidas para <strong>contrarrestar, reducir o eliminar</strong> los peligros en el lugar de trabajo. Se organizan de mayor a menor efectividad segun la GTC 45.</p>
+                <div class="def-pills">
+                    <div class="def-pill"><span class="dot dot-green"></span>Definicion: Contrarrestar el peligro</div>
+                    <div class="def-pill"><span class="dot dot-blue"></span>Objetivo: Bajo control</div>
+                    <div class="def-pill"><span class="dot dot-orange"></span>Meta: Impedir - Disminuir el riesgo</div>
+                </div>
+            </div>
+        </section>
+        <section class="controles-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Los 5 Niveles de <span>Control</span></h2>
+                    <p>Desde la eliminacion total del peligro hasta la proteccion personal, cada nivel tiene un proposito especifico dentro del CTGI.</p>
+                </div>
+                <div class="controles-grid">
+                    <div class="ctrl-card lvl-1">
+                        <div class="ctrl-header"><span class="ctrl-level">Nivel 1 - Mayor eficacia</span><div class="ctrl-icon">&#128683;</div><h3>Eliminacion</h3></div>
+                        <div class="ctrl-body"><p>Quitar completamente el peligro del ambiente. El mas efectivo pero el mas dificil de aplicar al 100%.</p><ul class="ctrl-list"><li>Retirar maquinaria sin uso</li><li>Suprimir tareas peligrosas</li><li>Dificil de lograr al 100%</li></ul></div>
+                    </div>
+                    <div class="ctrl-card lvl-2">
+                        <div class="ctrl-header"><span class="ctrl-level">Nivel 2</span><div class="ctrl-icon">&#128260;</div><h3>Sustitucion</h3></div>
+                        <div class="ctrl-body"><p>Reemplazar el peligro por un elemento de menor riesgo cuando la eliminacion no es posible.</p><ul class="ctrl-list"><li>Quimicos por quimicos menor peligro</li><li>Auxiliares menos toxicos</li><li>Materiales mas seguros</li></ul></div>
+                    </div>
+                    <div class="ctrl-card lvl-3">
+                        <div class="ctrl-header"><span class="ctrl-level">Nivel 3</span><div class="ctrl-icon">&#9881;&#65039;</div><h3>Ingenieria</h3></div>
+                        <div class="ctrl-body"><p>Mejoras tecnologicas en maquinas y herramientas para reducir la exposicion al riesgo en la fuente.</p><ul class="ctrl-list"><li>Sensores de seguridad</li><li>Sistemas de seguro automatico</li><li>Alarmas de advertencia</li><li>Guardas protectoras</li></ul></div>
+                    </div>
+                    <div class="ctrl-card lvl-4">
+                        <div class="ctrl-header"><span class="ctrl-level">Nivel 4</span><div class="ctrl-icon">&#128203;</div><h3>Administrativos</h3></div>
+                        <div class="ctrl-body"><p>Medidas organizacionales para cambiar la forma en que las personas trabajan y se exponen al peligro.</p><ul class="ctrl-list"><li>Capacitaciones periodicas</li><li>Carteleras visuales</li><li>Senalizacion de areas</li><li>Simulacros de emergencia</li><li>Campanas de concientizacion</li></ul></div>
+                    </div>
+                    <div class="ctrl-card lvl-5">
+                        <div class="ctrl-header"><span class="ctrl-level">Nivel 5 - Ultima barrera</span><div class="ctrl-icon">&#129562;</div><h3>EPP</h3></div>
+                        <div class="ctrl-body"><p>Elementos de Proteccion Personal. Barrera final. <strong>Disminuyen</strong> el impacto pero no eliminan el peligro.</p><ul class="ctrl-list"><li>Obligatorio por actividad economica</li><li>Barrera - disminuir un riesgo</li><li>Complemento de todos los controles</li></ul></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="epp-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>EPP por <span>Zona Corporal</span></h2>
+                    <p>Cada parte del cuerpo requiere proteccion especifica segun la actividad economica y el riesgo presente.</p>
+                </div>
+                <div class="epp-split">
+                    <div class="epp-photo">
+                        <img src="img/biologico.jpeg" alt="Trabajador del CTGI con EPP completo: casco, gafas y overol de seguridad">
+                        <div class="epp-photo-overlay"><p>Trabajador con EPP: casco, gafas de seguridad y overol - CTGI SENA</p></div>
+                    </div>
+                    <div class="epp-callouts">
+                        <div class="epp-callout-item"><div class="callout-icon">&#128119;</div><div class="callout-text"><h4>Cabeza</h4><ul><li>Casco de seguridad</li><li>Gafas protectoras</li><li>Tapa bocas / Respirador</li><li>Tapa oidos / Protector auditivo</li></ul></div></div>
+                        <div class="epp-callout-item"><div class="callout-icon">&#129470;</div><div class="callout-text"><h4>Brazos y manos</h4><ul><li>Mangas largas protectoras</li><li>Chaquetas de seguridad / Overol</li><li>Guantes industriales</li></ul></div></div>
+                        <div class="epp-callout-item"><div class="callout-icon">&#129461;</div><div class="callout-text"><h4>Pies y piernas</h4><ul><li>Botas de seguridad con punta</li><li>Pantalones de proteccion</li><li>Rodilleras</li></ul></div></div>
+                        <div class="norm-note"><div class="note-icon">&#128204;</div><p>El EPP es <strong>obligatorio segun la Actividad Economica</strong> del empleador y debe ser suministrado sin costo para el trabajador. <strong>Resolucion 0312 de 2019 y GTC 45.</strong></p></div>
+                    </div>
+                </div>
+                <div class="alturas-card">
+                    <div class="alturas-header"><span class="icon">&#129399;</span><h3>Trabajo en <span>Alturas</span> - Proteccion Especial</h3></div>
+                    <div class="alturas-grid">
+                        <div class="alturas-col"><h5>EPP Requerido</h5><ul><li>Arnes de cuerpo entero</li><li>Casco con barbuquejo</li><li>Poleas y sistemas de descenso</li><li>Botas con puntera reforzada</li><li>Guantes antideslizantes</li></ul></div>
+                        <div class="alturas-col"><h5>Sistemas de proteccion colectiva</h5><ul><li>Lineas de vida horizontales</li><li>Lineas de vida verticales</li><li>Puntos de anclaje certificados</li><li>Gafas de proteccion UV</li></ul></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand"><h3>Riesgo Cero</h3><p>Proyecto educativo de SST para la comunidad del CTGI SENA.</p></div>
+            <div class="footer-links"><h4>Accesos Rapidos</h4><ul class="footer-links-list"><li><a href="index.html">Inicio</a></li><li><a href="riesgos.html">Riesgos</a></li><li><a href="prevencion.html">Prevencion</a></li><li><a href="controles.html">Controles</a></li><li><a href="senalizacion.html">Senalizacion</a></li></ul></div>
+            <div class="footer-contact"><h4>Informacion de Contacto</h4><p><strong>Ubicacion:</strong> CTGI - SENA Pedregal, Medellin</p><p><strong>Programa:</strong> Analisis y Desarrollo de Software (ADSO) - SST</p></div>
+        </div>
+        <div class="container footer-bottom"><p>&copy; 2026 Riesgo Cero - SENA CTGI. Todos los derechos reservados.</p></div>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>
