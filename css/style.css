@@ -1322,9 +1322,7 @@ body[data-theme="light"] .signal-img-container {
 }
 
 /* Hover del slot vacío */
-.photo-slot:hover {
-    border-color: var(--accent-emerald);
-    background-color: rgba(16, 185, 129, 0.03);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
 
 /* Overlay de descripción sobre la imagen cargada */
@@ -1336,7 +1334,7 @@ body[data-theme="light"] .signal-img-container {
     padding: 1.5rem 0.75rem 0.75rem 0.75rem;
     background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
     color: #ffffff;
-    font-size: 0.82rem;
+    font-size: 0.85rem;
     font-weight: 500;
     line-height: 1.35;
     z-index: 3;
@@ -1351,13 +1349,13 @@ body[data-theme="light"] .signal-img-container {
 
 /* Responsive: en móvil 2 columnas y en pequeño 1 columna */
 @media (max-width: 900px) {
-    .photos-4-grid {
+    .photos-4-grid, .photos-3-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 550px) {
-    .photos-4-grid {
+    .photos-4-grid, .photos-3-grid {
         grid-template-columns: 1fr;
     }
 }
