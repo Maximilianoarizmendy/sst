@@ -898,3 +898,466 @@ body:not([data-theme="light"]) .theme-toggle-btn .moon-icon {
     height: 0;
     overflow: hidden;
 }
+
+/* ==========================================================================
+   ESTILOS DE LA PÁGINA DE SEÑALIZACIÓN SST
+   ========================================================================== */
+
+/* Contenedor de tipos de señalización (Sonora, Luminiscencia, Piso) */
+.types-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.type-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 2.5rem 2rem;
+    transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.type-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--border-hover);
+    box-shadow: var(--shadow-md);
+}
+
+.type-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--gradient-primary);
+    opacity: 0.8;
+}
+
+.type-card-badge {
+    align-self: flex-start;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    margin-bottom: 1rem;
+}
+
+.type-card-badge.visual {
+    background-color: rgba(6, 182, 212, 0.1);
+    color: var(--accent-teal);
+}
+
+.type-card-badge.auditory {
+    background-color: rgba(245, 158, 11, 0.1);
+    color: var(--accent-orange);
+}
+
+.type-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-family: var(--font-heading);
+}
+
+.type-card p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.type-features-list {
+    list-style: none;
+    margin-top: auto;
+}
+
+.type-features-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.type-features-list li svg {
+    width: 16px;
+    height: 16px;
+    color: var(--accent-emerald);
+    flex-shrink: 0;
+}
+
+/* Sistema de Pestañas (Tabs) */
+.tabs-wrapper {
+    margin-top: 3rem;
+}
+
+.tabs-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.tab-btn {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.8rem 1.8rem;
+    border-radius: 50px;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all var(--transition-fast);
+}
+
+.tab-btn:hover {
+    color: var(--text-primary);
+    border-color: var(--border-hover);
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.tab-btn.active {
+    color: #ffffff;
+    border-color: transparent;
+}
+
+/* Colores específicos de pestañas activas */
+.tab-btn.color-red.active {
+    background-color: var(--accent-red);
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+}
+.tab-btn.color-blue.active {
+    background-color: #2563eb; /* Azul seguridad */
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+}
+.tab-btn.color-yellow.active {
+    background-color: #d97706; /* Amarillo ocre para legibilidad de texto blanco */
+    box-shadow: 0 4px 15px rgba(217, 119, 6, 0.4);
+}
+.tab-btn.color-green.active {
+    background-color: var(--accent-emerald);
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+}
+
+/* Pestañas de Formas */
+.tab-btn.shape-tab.active {
+    background: var(--gradient-primary);
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+/* Contenido de Pestañas */
+.tab-content {
+    display: none;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.tab-content.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Información de la pestaña seleccionada */
+.tab-info-header {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    margin-bottom: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.tab-info-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.tab-info-icon.red { background-color: rgba(239, 68, 68, 0.1); color: var(--accent-red); }
+.tab-info-icon.blue { background-color: rgba(37, 99, 235, 0.1); color: #2563eb; }
+.tab-info-icon.yellow { background-color: rgba(245, 158, 11, 0.1); color: var(--accent-orange); }
+.tab-info-icon.green { background-color: rgba(16, 185, 129, 0.1); color: var(--accent-emerald); }
+
+.tab-info-text h3 {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+}
+
+.tab-info-text p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Cuadrícula de Señales */
+.signals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+}
+
+/* Tarjeta de Señal */
+.signal-card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.signal-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--border-hover);
+    box-shadow: var(--shadow-md);
+}
+
+/* Contenedor de la Imagen/SVG */
+.signal-img-container {
+    width: 100%;
+    aspect-ratio: 1;
+    background-color: rgba(255, 255, 255, 0.02);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    position: relative;
+    cursor: zoom-in;
+}
+
+body[data-theme="light"] .signal-img-container {
+    background-color: rgba(0, 0, 0, 0.01);
+}
+
+.signal-img-container svg {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    transition: transform var(--transition-normal);
+}
+
+.signal-card:hover .signal-img-container svg {
+    transform: scale(1.05);
+}
+
+.signal-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.signal-card p {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+/* Media Queries específicas para Pestañas */
+@media (max-width: 768px) {
+    .tab-info-header {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+        gap: 1rem;
+    }
+    
+    .tab-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .signals-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================================================
+   FOTO PLACEHOLDERS - GALERÍAS DE 4 IMÁGENES
+   ========================================================================== */
+
+/* Contenedor de galería de 4 fotos */
+.photo-gallery-section {
+    margin-top: 3rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.photo-gallery-section h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-heading);
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.photo-gallery-section h3 svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--accent-emerald);
+    fill: none;
+    stroke-width: 2;
+}
+
+.photo-gallery-section .gallery-subtitle {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+/* Grid de 4 fotos: 2x2 */
+.photos-4-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+}
+
+/* Cada slot de foto */
+.photo-slot {
+    position: relative;
+    border: 2px dashed var(--border-color);
+    border-radius: var(--border-radius);
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    background-color: var(--bg-card);
+    transition: border-color var(--transition-fast), background-color var(--transition-fast);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    cursor: default;
+}
+
+/* Si la imagen ya fue cargada, ocupa todo el slot */
+.photo-slot img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: calc(var(--border-radius) - 2px);
+    display: block;
+    transition: transform var(--transition-normal);
+}
+
+.photo-slot:has(img:not([src=""])):not(.photo-slot--empty):hover img {
+    transform: scale(1.04);
+}
+
+/* Icono y texto del placeholder */
+.photo-slot-icon {
+    width: 40px;
+    height: 40px;
+    color: var(--text-muted);
+    opacity: 0.6;
+}
+
+.photo-slot-filename {
+    font-family: 'Courier New', monospace;
+    font-size: 0.78rem;
+    color: var(--accent-emerald);
+    background: rgba(16, 185, 129, 0.08);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    text-align: center;
+    word-break: break-all;
+}
+
+.photo-slot-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-align: center;
+    line-height: 1.4;
+}
+
+/* Número de foto */
+.photo-slot-number {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+/* Hover del slot vacío */
+.photo-slot:hover {
+    border-color: var(--accent-emerald);
+    background-color: rgba(16, 185, 129, 0.03);
+}
+
+/* Overlay de descripción sobre la imagen cargada */
+.photo-slot-desc {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem 0.75rem 0.75rem 0.75rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
+    color: #ffffff;
+    font-size: 0.82rem;
+    font-weight: 500;
+    line-height: 1.35;
+    z-index: 3;
+    opacity: 0.95;
+    transition: opacity var(--transition-fast), padding var(--transition-fast);
+}
+
+.photo-slot:hover .photo-slot-desc {
+    opacity: 1;
+    padding-bottom: 0.9rem;
+}
+
+/* Responsive: en móvil 2 columnas y en pequeño 1 columna */
+@media (max-width: 900px) {
+    .photos-4-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 550px) {
+    .photos-4-grid {
+        grid-template-columns: 1fr;
+    }
+}

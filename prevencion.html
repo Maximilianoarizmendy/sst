@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prevención y Control SST - Riesgo Cero (CTGI)</title>
+    <meta name="description"
+        content="Guía de prevención de riesgos laborales en el CTGI. Ejemplos ilustrados de condiciones inseguras y acciones inseguras para promover la salud y seguridad en el trabajo.">
+    <!-- Estilos Globales -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Estilos específicos para la página de Prevención y Control */
+        .prevencion-banner {
+            background-color: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            padding: 140px 0 60px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .prevencion-banner h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .prevencion-banner h1 span {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .prevencion-banner p {
+            color: var(--text-secondary);
+            max-width: 760px;
+            margin: 0 auto 2rem auto;
+            font-size: 1.1rem;
+        }
+
+        /* Comparativa: Condición vs Acción */
+        .concept-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .concept-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+        }
+
+        .concept-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--border-hover);
+            box-shadow: var(--shadow-md);
+        }
+
+        .concept-card.condicion {
+            border-top: 4px solid var(--accent-orange);
+        }
+
+        .concept-card.accion {
+            border-top: 4px solid var(--accent-red);
+        }
+
+        .concept-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .concept-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .concept-card.condicion .concept-icon {
+            background: rgba(245, 158, 11, 0.15);
+            color: var(--accent-orange);
+        }
+
+        .concept-card.accion .concept-icon {
+            background: rgba(239, 68, 68, 0.15);
+            color: var(--accent-red);
+        }
+
+        .concept-header h3 {
+            font-size: 1.4rem;
+        }
+
+        .concept-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Filtros de Galería */
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 0.65rem 1.4rem;
+            border-radius: 30px;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .filter-btn:hover {
+            color: var(--text-primary);
+            border-color: var(--border-hover);
+        }
+
+        .filter-btn.active {
+            background: var(--gradient-primary);
+            color: #ffffff;
+            border-color: transparent;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.25);
+        }
+
+        .filter-badge-count {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.15rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+        }
+
+        /* Grid de Tarjetas de Casos */
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 2rem;
+        }
+
+        .case-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
+        }
+
+        .case-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--border-hover);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .case-card.hide {
+            display: none !important;
+        }
+
+        .case-image-wrapper {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+            background-color: var(--bg-secondary);
+            cursor: pointer;
+        }
+
+        .case-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-normal);
+        }
+
+        .case-card:hover .case-image-wrapper img {
+            transform: scale(1.06);
+        }
+
+        .case-type-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            z-index: 2;
+            padding: 0.35rem 0.8rem;
+            border-radius: 20px;
+            font-family: var(--font-heading);
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .badge-condicion {
+            background: rgba(245, 158, 11, 0.9);
+            color: #000000;
+        }
+
+        .badge-accion {
+            background: rgba(239, 68, 68, 0.9);
+            color: #ffffff;
+        }
+
+        .case-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .case-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.6rem;
+            color: var(--text-primary);
+        }
+
+        .case-location {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--accent-teal);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .case-description {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            line-height: 1.55;
+            margin-bottom: 1.2rem;
+            flex-grow: 1;
+        }
+
+        .case-prevention-box {
+            background: rgba(16, 185, 129, 0.08);
+            border-left: 3px solid var(--accent-emerald);
+            padding: 0.8rem 1rem;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.88rem;
+        }
+
+        .case-prevention-box strong {
+            color: var(--accent-emerald);
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .case-prevention-box p {
+            color: var(--text-primary);
+            margin: 0;
+
+        }
+
+        /* Sección de Jerarquía de Controles */
+        .controls-hierarchy {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hierarchy-item {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            align-items: center;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.2rem 1.5rem;
+            transition: transform var(--transition-fast);
+        }
+
+        .hierarchy-item:hover {
+            transform: translateX(6px);
+            border-color: var(--border-hover);
+        }
+
+        .hierarchy-item-title {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .hierarchy-level-1 {
+            border-left: 5px solid #ef4444;
+        }
+
+        .hierarchy-level-2 {
+            border-left: 5px solid #f97316;
+        }
+
+        .hierarchy-level-3 {
+            border-left: 5px solid #f59e0b;
+        }
+
+        .hierarchy-level-4 {
+            border-left: 5px solid #3b82f6;
+        }
+
+        .hierarchy-level-5 {
+            border-left: 5px solid #10b981;
+        }
+
+        /* Formulario de Reportes */
+        .report-section {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: 3rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .report-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group-full {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            display: block;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            transition: border-color var(--transition-fast);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-emerald);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 110px;
+        }
+
+        .toast-notification {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--gradient-primary);
+            color: #ffffff;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            z-index: 2000;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: transform 0.4s ease, opacity 0.4s ease;
+        }
+
+        .toast-notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .hierarchy-item {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+
+            .report-form {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- SVG Definitions for Gradients -->
+    <div class="svg-gradient-def">
+        <svg>
+            <defs>
+                <linearGradient id="emerald-cyan-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#10b981" />
+                    <stop offset="100%" stop-color="#06b6d4" />
+                </linearGradient>
+            </defs>
+        </svg>
+    </div>
+
+    <!-- HEADER & NAVBAR -->
+    <header class="header">
+        <div class="navbar">
+            <a href="index.html" class="logo" id="logo-brand">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2L2 22h20L12 2z" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M12 9v4M12 17h.01" stroke="#ef4444" stroke-width="2" stroke-linecap="round" />
+                </svg>
+                <span>Riesgo Cero</span>
+            </a>
+
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html" class="nav-link">Inicio</a></li>
+                    <li><a href="riesgos.html" class="nav-link">Riesgos</a></li>
+                    <li><a href="prevencion.html" class="nav-link active">Prevención</a></li>
+                    <li><a href="senalizacion.html" class="nav-link">Señalización</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="theme-toggle-btn" id="theme-toggle" aria-label="Cambiar Tema">
+                    <svg class="sun-icon" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="5" />
+                        <path
+                            d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                    </svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                    </svg>
+                </button>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Abrir Menú">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+
+        <!-- BANNER DE INTRODUCCIÓN -->
+        <section class="prevencion-banner">
+            <div class="container">
+                <div class="hero-badge">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg>
+                    Seguridad y Salud en el Trabajo - SENA CTGI
+                </div>
+                <h1>Medidas de <span>Prevención y Control</span> SST</h1>
+                <p>Identificar a tiempo las situaciones peligrosas en los ambientes de aprendizaje y laboratorios del CTGI
+                    permite prevenir accidentes y enfermedades laborales. Explora la galería con casos ilustrados de
+                    <strong>Condiciones Inseguras</strong> y <strong>Acciones Inseguras</strong>.</p>
+            </div>
+        </section>
+
+        <!-- CONCEPTOS CLAVE -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>¿Cuál es la Diferencia?</h2>
+                    <p>En SST, diferenciar una condición ambiental peligrosa de un comportamiento imprudente es clave para aplicar los controles adecuados.</p>
+                </div>
+
+                <div class="concept-grid">
+                    <div class="concept-card condicion">
+                        <div class="concept-header">
+                            <div class="concept-icon">⚠️</div>
+                            <div>
+                                <h3>Condición Insegura</h3>
+                                <small style="color: var(--accent-orange); font-weight: 600;">Factor del Entorno</small>
+                            </div>
+                        </div>
+                        <p>Estado o circunstancia física del ambiente de trabajo (equipos, instalaciones, infraestructura o herramientas) que se encuentra fuera de norma y presenta riesgo de causar un incidente o accidente.</p>
+                    </div>
+
+                    <div class="concept-card accion">
+                        <div class="concept-header">
+                            <div class="concept-icon">🚫</div>
+                            <div>
+                                <h3>Acción / Acto Inseguro</h3>
+                                <small style="color: var(--accent-red); font-weight: 600;">Comportamiento Humano</small>
+                            </div>
+                        </div>
+                        <p>Conducta u omisión del trabajador o aprendiz que viola las normas, procedimientos o recomendaciones de seguridad establecidas, aumentando la posibilidad de sufrir o causar un accidente.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GALERÍA DE CASOS E IMÁGENES -->
+        <section class="section" style="background-color: var(--bg-secondary); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Galería de Casos: Condiciones y Acciones Inseguras</h2>
+                    <p>Haz clic en cualquier imagen para verla en pantalla completa con su respectivo análisis y medida de prevención.</p>
+                </div>
+
+                <!-- FILTROS -->
+                <div class="filter-container">
+                    <button class="filter-btn active" data-filter="all">
+                        Todas <span class="filter-badge-count">12</span>
+                    </button>
+                    <button class="filter-btn" data-filter="condicion">
+                        ⚠️ Condiciones Inseguras <span class="filter-badge-count">10</span>
+                    </button>
+                    <button class="filter-btn" data-filter="accion">
+                        🚫 Acciones Inseguras <span class="filter-badge-count">2</span>
+                    </button>
+                </div>
+
+                <!-- GRID DE TARJETAS -->
+                <div class="cases-grid">
+
+                    <!-- ================= CONDICIONES INSEGURAS (10 CASOS) ================= -->
+
+                    <!-- Caso 1 -->
+                    <article class="case-card" data-category="condicion">
+                        <div class="case-image-wrapper interactive-image-container">
+                            <span class="case-type-badge badge-condicion">Condición Insegura</span>
+                            <img src="img/16356616-94e7-40b6-a083-4a43edad6821.jpg" alt="Cables eléctricos expuestos y sobrecargados en taller" onerror="this.src='https://images.unsplash.com/photo-1544724793-7987258d4a94?auto=format&fit=crop&w=800&q=80'">
+                            <div class="image-overlay-info" style="display:none;">
+                                <span class="image-overlay-title">Cables Eléctricos Expuestos</span>
+                                <span class="image-overlay-desc">Cables sin canaleta ni aislamiento en zonas de tránsito.</span>
+                            </div>
+                            <div class="image-zoom-indicator">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                    <circle cx="11" cy="11" r="8" />
+                                    <path d="M21 21l-4.3-4.3M11 8v6M8 11h6" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="case-content">
+                            <h3 class="case-title">1. Cables Eléctricos Expuestos y Sobrecargados</h3>
+                            <div class="case-location">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                Aulas de Informática y Electrónica - CTGI
+                            </div>
+                            <p class="case-description">Cableado eléctrico en el piso sin canaleta de protección, conexiones improvisadas y multitomas en cadena que pueden generar cortocircuitos o tropezones.</p>
+                            <div class="case-prevention-box">
+                                <strong>Medida Preventiva / Correctiva:</strong>
+                                <p>Canalizar el cableado mediante canaletas de pared o piso tipo Daisa y realizar mantenimiento preventivo del sistema eléctrico.</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Caso 2 -->
+                    <article class="case-card" data-category="condicion">
+                        <div class="case-image-wrapper interactive-image-container">
+                            <span class="case-type-badge badge-condicion">Condición Insegura</span>
+                            <img src="img/bf620c6c-c920-43ee-917a-f6cc2e143cda.jpg" alt="Piso húmedo y resbaladizo sin señalización adecuada" onerror="this.src='https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80'">
+                            <div class="image-overlay-info" style="display:none;">
+                                <span class="image-overlay-title">Piso Mojado sin Señalización</span>
+                                <span class="image-overlay-desc">Derrames de agua en pasillos principales.</span>
+                            </div>
+                            <div class="image-zoom-indicator">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                    <circle cx="11" cy="11" r="8" />
+                                    <path d="M21 21l-4.3-4.3M11 8v6M8 11h6" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="case-content">
+                            <h3 class="case-title">2. Piso Húmedo sin Señalización de Advertencia</h3>
+                            <div class="case-location">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                Corredores y Servicios Sanitarios - Bloque A
+                            </div>
+                            <p class="case-description">Superficie de tránsito húmeda por labores de aseo o fugas de agua sin el cono amarillo de peligro, propiciando caídas al mismo nivel y contusiones.</p>
+                            <div class="case-prevention-box">
+                                <strong>Medida Preventiva / Correctiva:</strong>
+                                <p>Colocar obligatoriamente la señalización temporal de aviso de "Piso Mojado" antes de iniciar la limpieza y secar inmediatamente.</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Caso 3 -->
+                    <article class="case-card" data-category="condicion">
+                        <div class="case-image-wrapper interactive-image-container">
+                            <span class="case-type-badge badge-condicion">Condición Insegura</span>
+                            <img src="img/e7e8c878-89fb-47c3-adf9-384bb51cb0ad.jpg" alt="Pasillos y vías de evacuación obstruidas con cajas y materiales" onerror="this.src='https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80'">
+                            <div class="image-overlay-info" style="display:none;">
+                                <span class="image-overlay-title">Ruta de Evacuación Bloqueada</span>
+                                <span class="image-overlay-desc">Materiales y mobiliario acumulados en pasillos.</span>
+                            </div>
+                            <div class="image-zoom-indicator">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                    <circle cx="11" cy="11" r="8" />
+                                    <path d="M21 21l-4.3-4.3M11 8v6M8 11h6" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="case-content">
+                            <h3 class="case-title">3. Obstrucción en Vías de Evacuación</h3>
+                            <div class="case-location">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                Escaleras y Salidas de Emergencia - CTGI
+                            </div>
+                            <p class="case-description">Cajas, escritorios o herramientas apiladas bloqueando parcialmente las rutas de salida de emergencia, imposibilitando una rápida evacuación ante incendios o sismos.</p>
+                            <div class="case-prevention-box">
+                                <strong>Medida Preventiva / Correctiva:</strong>
+                                <p>Mantener en todo momento libres de obstáculos las rutas de evacuación y aplicar las 5S en el orden de pasillos.</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Caso 4 -->
+                    <article class="case-card" data-category="condicion">
+                        <div class="case-image-wrapper interactive-image-container">
+                            <span class="case-type-badge badge-condicion">Condición Insegura</span>
+                            <img src="img/6506e2b7-f0b3-4194-a5a0-91e4a9428e64.jpg" alt="Iluminación deficiente en zonas de trabajo o escaleras" onerror="this.src='https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=800&q=80'">
+                            <div class="image-overlay-info" style="display:none;">
+                                <span class="image-overlay-title">Iluminación Deficiente</span>
+                                <span class="image-overlay-desc">Luminarias averiadas en talleres de aprendizaje.</span>
+                            </div>
+                            <div class="image-zoom-indicator">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                    <circle cx="11" cy="11" r="8" />
+                                    <path d="M21 21l-4.3-4.3M11 8v6M8 11h6" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="case-content">
+                            <h3 class="case-title">4. Iluminación Deficiente o Averiada</h3>
+                            <div class="case-location">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                Talleres Mecánicos y Escaleras Traseras
+                            </div>
+                            <p class="case-description">Niveles lumínicos inferiores a los requeridos por RETILAP debido a lámparas quemadas o sombras pronunciadas en puestos de precisión, produciendo fatiga visual y fallos mecánicos.</p>
+                            <div class="case-prevention-box">
+                                <strong>Medida Preventiva / Correctiva:</strong>
+                                <p>Sustituir de inmediato los tubos de luz averiados por luminarias LED de alta eficiencia con cobertura uniforme.</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Caso 5 -->
+                    <article class="case-card" data-category="condicion">
+                        <div class="case-image-wrapper interactive-image-container">
+                            <span class="case-type-badge badge-condicion">Condición Insegura</span>
+                            <img src="img/8dc71121-b66c-494d-8f4b-5b09753fcb5b.jpg" alt="Falta de guardas de protección en máquinas rotativas" onerror="this.src='https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80'">
+                            <div class="image-overlay-info" style="display:none;">
+                                <span class="image-overlay-title">Maquinaria sin Guardas</span>
+                                <span class="image-overlay-desc">Partes móviles expuestas sin carcasa protectora.</span>
+                            </div>
+                            <div class="image-zoom-indicator">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                    <circle cx="11" cy="11" r="8" />
+                                    <path d="M21 21l-4.3-4.3M11 8v6M8 11h6" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="case-content">
+                            <h3 class="case-title">5. Maquinaria sin Guardas de Protección</h3>
+                            <div class="case-location">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                Talleres de Manufactura Industrial
+                            </div>
+                            <p class="case-description">Esmeriles, tornos o sierras rotativas funcionando sin la carcasa móvil o fija de seguridad, exponiendo al operador a atrapamientos o proyecciones de partículas.</p>
+                            <div class="case-prevention-box">
+                                <strong>Medida Preventiva / Correctiva:</strong>
+                                <p>Instalar resguardos fijos o acoplados con microswitches de seguridad que impidan el encendido sin la tapa de protección.</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Caso 6 -->
+                    <article class="case-card" data-category="condicion">
+                        <div class="case-image-wrapper interactive-image-container">
+                            <span class="case-type-badge badge-condicion">Condición Insegura</span>
+                            <img src="img/biologico.jpeg" alt="Almacenamiento inadecuado de sustancias químicas sin etiquetar" onerror="this.src='https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?auto=format&fit=crop&w=800&q=80'">
+                            <div class="image-overlay-info" style="display:none;">
+                                <span class="image-overlay-title">Químicos sin Rotular</span>
+                                <span class="image-overlay-desc">Reactivos y limpiadores en botellas sin código SGA.</span>
+                            </div>
+                            <div class="image-zoom-indicator">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                    <circle cx="11" cy="11" r="8" />
+                                    <path d="M21 21l-4.3-4.3M11 8v6M8 11h6" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="case-content">
+                            <h3 class="case-title">6. Almacenamiento Inadecuado de Químicos</h3>
+                            <div class="case-location">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                Laboratorios y Cuartos de Servicios Generales
+                            </div>
+                            <p class="case-description">Productos químicos o reactivos almacenados en recipientes de gaseosa o botellas sin etiquetar según el SGA, con peligro de intoxicación o quemaduras.</p>
+                            <div class="case-prevention-box">
+                                <strong>Medida Preventiva / Correctiva:</strong>
+                                <p>Rotular todos los envases con pictogramas del Sistema Globalmente Armonizado y almacenar en gabinetes ignífugos ventilados.</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Caso 7 -->
+                    <article class="case-card" data-category="condicion">
+                        <div class="case-image-wrapper interactive-image-container">
+                            <span class="case-type-badge badge-condicion">Condición Insegura</span>
+                            <img src="img/3bbaa3f3-b91f-4923-a5a0-91e4a9428e64.jpg" alt="Mobiliario o sillas de oficina ergonómicas defectuosas" onerror="this.src='https://images.unsplash.com/photo-1580481072645-022f9a6d8310?auto=format&fit=crop&w=800&q=80'">
+                            <div class="image-overlay-info" style="display:none;">
+                                <span class="image-overlay-title">Sillas Defectuosas</span>
+                                <span class="image-overlay-desc">Mobiliario con ruedas rotas o pistones vencidos.</span>
+                            </div>
+                            <div class="image-zoom-indicator">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                    <circle cx="11" cy="11" r="8" />
+                                    <path d="M21 21l-4.3-4.3M11 8v6M8 11h6" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="case-content">
+                            <h3 class="case-title">7. Sillas y Mobiliario Ergonómico Roto</h3>
+                            <div class="case-location">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                Ambientes de Aprendizaje ADSO / Oficinas
+                            </div>
+                            <p class="case-description">Sillas ergonómicas con respaldos sueltos, pistones neumáticos dañados o ruedas faltantes que obligan a posturas forzadas o provocan caídas intempestivas.</p>
+                            <div class="case-prevention-box">
+                                <strong>Medida Preventiva / Correctiva:</strong>
+                                <p>Retirar del servicio las sillas averiadas y reportar la novedad para adquisición o reparación inmediata por inventario.</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Caso 8 -->
+                    <article class="case-card" data-category="condicion">
+                        <div class="case-image-wrapper interactive-image-container">
+                            <span class="case-type-badge badge-condicion">Condición Insegura</span>
+                            <img src="img/467bfc55-78c8-435d-b02f-eba206140d0b.jpg" alt="Extintores contra incendios bloqueados o sin recarga vigente" onerror="this.src='https://images.unsplash.com/photo-1582139329536-e7284fece509?auto=format&fit=crop&w=800&q=80'">
+                            <div class="image-overlay-info" style="display:none;">
+                                <span class="image-overlay-title">Extintor Obstruido o Vencido</span>
+                                <span class="image-overlay-desc">Acceso al extintor tapado por archivadores o muebles.</span>
+                            </div>
+                            <div class="image-zoom-indicator">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                    <circle cx="11" cy="11" r="8" />
+                                    <path d="M21 21l-4.3-4.3M11 8v6M8 11h6" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="case-content">
+                            <h3 class="case-title">8. Extintores Bloqueados o Despresurizados</h3>
+                            <div class="case-location">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                Estaciones de Emergencia - Todos los Bloques
+                            </div>
+                            <p class="case-description">Equipos de extinción de incendios bloqueados por estantes o con manómetro marcando presión baja, inutilizándolos ante un amago de fuego.</p>
+                            <div class="case-prevention-box">
+                                <strong>Medida Preventiva / Correctiva:</strong>
+                                <p>Mantener despejado el radio de 1 metro del extintor y verificar mensualmente la tarjeta de inspección y presurización.</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Caso 9 -->
+                    <article class="case-card" data-category="condicion">
+                        <div class="case-image-wrapper interactive-image-container">
+                            <span class="case-type-badge badge-condicion">Condición Insegura</span>
+                            <img src="img/f36713e7-210f-4bc9-b02c-a00e6eabd987.jpg" alt="Herramientas manuales en mal estado o agrietadas" onerror="this.src='https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=80'">
+                            <div class="image-overlay-info" style="display:none;">
+                                <span class="image-overlay-title">Herramientas Deterioradas</span>
+                                <span class="image-overlay-desc">Alicates u destornilladores sin aislamiento.</span>
+                            </div>
+                            <div class="image-zoom-indicator">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                    <circle cx="11" cy="11" r="8" />
+                                    <path d="M21 21l-4.3-4.3M11 8v6M8 11h6" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="case-content">
+                            <h3 class="case-title">9. Herramientas Manuales Deterioradas</h3>
+                            <div class="case-location">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                Talleres de Mantenimiento e Instalaciones
+                            </div>
+                            <p class="case-description">Martillos con mangos fisurados, destornilladores mellados o alicates con el revestimiento aislante roto, ocasionando golpes o descargas eléctricas.</p>
+                            <div class="case-prevention-box">
+                                <strong>Medida Preventiva / Correctiva:</strong>
+                                <p>Inspeccionar las herramientas antes de la jornada y sustituir de inmediato aquellas que presenten fisuras o desgaste extremo.</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Caso 10 -->
+                    <article class="case-card" data-category="condicion">
+                        <div class="case-image-wrapper interactive-image-container">
+                            <span class="case-type-badge badge-condicion">Condición Insegura</span>
+                            <img src="img/5d1bcbae-7ccb-42c3-874b-f68debad8a2d.jpg" alt="Tomacorrientes destapados o tableros de energía sin protección" onerror="this.src='https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80'">
+                            <div class="image-overlay-info" style="display:none;">
+                                <span class="image-overlay-title">Tomacorrientes Destapados</span>
+                                <span class="image-overlay-desc">Cajas eléctricas de paso abiertas con cables en vivo.</span>
+                            </div>
+                            <div class="image-zoom-indicator">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                    <circle cx="11" cy="11" r="8" />
+                                    <path d="M21 21l-4.3-4.3M11 8v6M8 11h6" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="case-content">
+                            <h3 class="case-title">10. Tomacorrientes y Tableros Destapados</h3>
+                            <div class="case-location">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                Ambientes de Formación y Pasillos
+                            </div>
+                            <p class="case-description">Tapas ciegas sueltas o faltantes en cajas superficiales de energía, dejando contactos eléctricos al alcance directo del personal o aprendices.</p>
+                            <div class="case-prevention-box">
+                                <strong>Medida Preventiva / Correctiva:</strong>
+                                <p>Instalar las tapas protectoras norma retie y acordonar la zona hasta que el equipo de mantenimiento asegure el punto.</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- ================= ACCIONES INSEGURAS (2 CASOS) ================= -->
+
+                    <!-- Caso 11 (Acción 1) -->
+                    <article class="case-card" data-category="accion">
+                        <div class="case-image-wrapper interactive-image-container">
+                            <span class="case-type-badge badge-accion">Acción Insegura</span>
+                            <img src="img/b60308af-55ec-40a8-b1b5-b7e160a8378c.jpg" alt="Trabajador o aprendiz sin elementos de protección personal EPP" onerror="this.src='https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80'">
+                            <div class="image-overlay-info" style="display:none;">
+                                <span class="image-overlay-title">Omisión del Uso de EPP</span>
+                                <span class="image-overlay-desc">Manipulación de maquinaria sin gafas ni guantes de seguridad.</span>
+                            </div>
+                            <div class="image-zoom-indicator">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                    <circle cx="11" cy="11" r="8" />
+                                    <path d="M21 21l-4.3-4.3M11 8v6M8 11h6" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="case-content">
+                            <h3 class="case-title">1. No Usar Elementos de Protección Personal (EPP)</h3>
+                            <div class="case-location">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                Talleres Mecánicos y Prácticas de Campo
+                            </div>
+                            <p class="case-description">Operar esmeriles o manipular sustancias químicas sin utilizar gafas de policarbonato, guantes de nitrilo o botas de seguridad por exceso de confianza o prisa.</p>
+                            <div class="case-prevention-box">
+                                <strong>Medida Preventiva / Correctiva:</strong>
+                                <p>Supervisar el uso obligatorio de los EPP correspondientes antes de encender cualquier máquina o iniciar la práctica.</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Caso 12 (Acción 2) -->
+                    <article class="case-card" data-category="accion">
+                        <div class="case-image-wrapper interactive-image-container">
+                            <span class="case-type-badge badge-accion">Acción Insegura</span>
+                            <img src="img/a3d8b95e-a921-49cc-98c9-941f7212f965.jpg" alt="Distracción usando el celular mientras camina por las escaleras" onerror="this.src='https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=800&q=80'">
+                            <div class="image-overlay-info" style="display:none;">
+                                <span class="image-overlay-title">Distracción con el Teléfono Móvil</span>
+                                <span class="image-overlay-desc">Bajar escaleras sin tomarse del pasamanos mientras mira el celular.</span>
+                            </div>
+                            <div class="image-zoom-indicator">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                    <circle cx="11" cy="11" r="8" />
+                                    <path d="M21 21l-4.3-4.3M11 8v6M8 11h6" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="case-content">
+                            <h3 class="case-title">2. Distracción con Celular en Escaleras / Pasillos</h3>
+                            <div class="case-location">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                Escaleras Principales y Accesos al CTGI
+                            </div>
+                            <p class="case-description">Desplazarse por escaleras o áreas de circulación observando la pantalla del dispositivo móvil sin sujetarse del pasamanos ni prestar atención al entorno.</p>
+                            <div class="case-prevention-box">
+                                <strong>Medida Preventiva / Correctiva:</strong>
+                                <p>Detener la marcha antes de responder mensajes o atender llamadas, sujetarse del pasamanos y mantener siempre la vista al frente.</p>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: JERARQUÍA DE CONTROLES SST -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Jerarquía de Controles de Riesgo</h2>
+                    <p>Orden normativo de efectividad para mitigar cualquier peligro identificado en el ambiente de trabajo.</p>
+                </div>
+
+                <div class="controls-hierarchy">
+                    <div class="hierarchy-item hierarchy-level-1">
+                        <div class="hierarchy-item-title">
+                            <span>1. Eliminación</span>
+                        </div>
+                        <div>
+                            <p style="color: var(--text-secondary);">Remover físicamente el peligro (ej. eliminar el uso de una sustancia tóxica o una máquina obsoleta).</p>
+                        </div>
+                    </div>
+
+                    <div class="hierarchy-item hierarchy-level-2">
+                        <div class="hierarchy-item-title">
+                            <span>2. Sustitución</span>
+                        </div>
+                        <div>
+                            <p style="color: var(--text-secondary);">Reemplazar el peligro por un proceso o insumo más seguro (ej. cambiar pintura en base solvente por base agua).</p>
+                        </div>
+                    </div>
+
+                    <div class="hierarchy-item hierarchy-level-3">
+                        <div class="hierarchy-item-title">
+                            <span>3. Controles de Ingeniería</span>
+                        </div>
+                        <div>
+                            <p style="color: var(--text-secondary);">Aislar a las personas del peligro (ej. instalar guardas de protección, extractores de humo o insonorización).</p>
+                        </div>
+                    </div>
+
+                    <div class="hierarchy-item hierarchy-level-4">
+                        <div class="hierarchy-item-title">
+                            <span>4. Controles Administrativos</span>
+                        </div>
+                        <div>
+                            <p style="color: var(--text-secondary);">Cambiar la forma de trabajar mediante señalización, capacitaciones, permisos de trabajo y rotación de personal.</p>
+                        </div>
+                    </div>
+
+                    <div class="hierarchy-item hierarchy-level-5">
+                        <div class="hierarchy-item-title">
+                            <span>5. Equipos de Protección (EPP)</span>
+                        </div>
+                        <div>
+                            <p style="color: var(--text-secondary);">Proteger al trabajador con elementos individuales (casco, gafas, guantes, botas dieléctricas) cuando los demás controles no son suficientes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FORMULARIO DE REPORTE DE CONDICIÓN/ACTO INSEGURO -->
+        <section class="section" style="background-color: var(--bg-secondary); border-top: 1px solid var(--border-color);">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Reportar un Riesgo en el CTGI</h2>
+                    <p>Ayúdanos a mantener un campus seguro reportando condiciones o acciones peligrosas detectadas.</p>
+                </div>
+
+                <div class="report-section">
+                    <form id="report-form" class="report-form">
+                        <div class="form-group">
+                            <label for="report-type">Tipo de Reporte *</label>
+                            <select id="report-type" class="form-control" required>
+                                <option value="" disabled selected>Selecciona una opción</option>
+                                <option value="condicion">⚠️ Condición Insegura (Instalaciones / Equipos)</option>
+                                <option value="accion">🚫 Acción / Acto Inseguro (Comportamiento)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="report-location">Ubicación en el CTGI *</label>
+                            <input type="text" id="report-location" class="form-control" placeholder="Ej. Taller 3, Bloque B - Escaleras" required>
+                        </div>
+
+                        <div class="form-group form-group-full">
+                            <label for="report-description">Descripción Detallada del Hallazgo *</label>
+                            <textarea id="report-description" class="form-control" placeholder="Describe lo que observaste y el riesgo potencial..." required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="report-name">Nombre del Reportante (Opcional)</label>
+                            <input type="text" id="report-name" class="form-control" placeholder="Aprendiz / Instructor / Contratista">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="report-role">Programa / Dependencia</label>
+                            <input type="text" id="report-role" class="form-control" placeholder="Ej. ADSO / Mantenimiento">
+                        </div>
+
+                        <div class="form-group-full" style="text-align: center; margin-top: 1rem;">
+                            <button type="submit" class="btn" style="border: none; cursor: pointer; width: 100%; justify-content: center;">
+                                Enviar Reporte de Seguridad
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                    <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h3>Riesgo Cero</h3>
+                <p>Un proyecto educativo enfocado en concientizar sobre la Seguridad y Salud en el Trabajo (SST) para la
+                    comunidad del CTGI SENA.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Accesos Rápidos</h4>
+                <ul class="footer-links-list">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="riesgos.html">Riesgos</a></li>
+                    <li><a href="prevencion.html">Prevención</a></li>
+                    <li><a href="senalizacion.html">Señalización</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Información de Contacto</h4>
+                <p><strong>Ubicación:</strong> CTGI - SENA Pedregal, Medellín</p>
+                <p><strong>Programa:</strong> Análisis y Desarrollo de Software (ADSO) - SST</p>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Riesgo Cero - SENA CTGI. Todos los derechos reservados.</p>
+            <p>Diseño y prevención para un entorno formativo seguro</p>
+        </div>
+    </footer>
+
+    <!-- LIGHTBOX / MODAL DE IMÁGENES -->
+    <div class="image-modal" id="image-modal">
+        <div class="modal-content-wrapper">
+            <button class="modal-close-btn" id="modal-close" aria-label="Cerrar">&times;</button>
+            <img class="modal-img" id="modal-img" src="" alt="">
+            <div class="modal-caption" id="modal-caption"></div>
+        </div>
+    </div>
+
+    <!-- TOAST DE NOTIFICACIÓN -->
+    <div class="toast-notification" id="toast-notification">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        <span>¡Reporte registrado exitosamente! Gracias por contribuir a la seguridad del CTGI.</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+    <script>
+        // Lógica interactiva específica para la página de Prevención
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Filtrado de tarjetas (Todas / Condiciones / Acciones)
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const caseCards = document.querySelectorAll('.case-card');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const filter = btn.getAttribute('data-filter');
+
+                    // Cambiar botón activo
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    // Filtrar tarjetas
+                    caseCards.forEach(card => {
+                        const category = card.getAttribute('data-category');
+                        if (filter === 'all' || category === filter) {
+                            card.classList.remove('hide');
+                        } else {
+                            card.classList.add('hide');
+                        }
+                    });
+                });
+            });
+
+            // 2. Envío del Formulario de Reportes
+            const reportForm = document.getElementById('report-form');
+            const toast = document.getElementById('toast-notification');
+
+            if (reportForm && toast) {
+                reportForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    
+                    // Mostrar notificación
+                    toast.classList.add('show');
+                    reportForm.reset();
+
+                    // Ocultar después de 4 segundos
+                    setTimeout(() => {
+                        toast.classList.remove('show');
+                    }, 4000);
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Señalización de Seguridad SST - Riesgo Cero (CTGI)</title>
+    <meta name="description" content="Guía interactiva sobre los tipos, colores y formas de señalización de seguridad y salud en el trabajo en el CTGI.">
+    <!-- Estilos Globales -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- SVG Definitions for Gradients -->
+    <div class="svg-gradient-def">
+        <svg>
+            <defs>
+                <linearGradient id="emerald-cyan-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#10b981" />
+                    <stop offset="100%" stop-color="#06b6d4" />
+                </linearGradient>
+            </defs>
+        </svg>
+    </div>
+
+    <!-- HEADER & NAVBAR -->
+    <header class="header">
+        <div class="navbar">
+            <a href="index.html" class="logo" id="logo-brand">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2L2 22h20L12 2z" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 9v4M12 17h.01" stroke="#ef4444" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span>Riesgo Cero</span>
+            </a>
+            
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html" class="nav-link">Inicio</a></li>
+                    <li><a href="riesgos.html" class="nav-link">Riesgos</a></li>
+                    <li><a href="prevencion.html" class="nav-link">Prevención</a></li>
+                    <li><a href="senalizacion.html" class="nav-link active">Señalización</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="theme-toggle-btn" id="theme-toggle" aria-label="Cambiar Tema">
+                    <svg class="sun-icon" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="5" />
+                        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                    </svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                    </svg>
+                </button>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Abrir Menú">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                    Señalización de Seguridad y Salud en el Trabajo
+                </div>
+                <h1>Código de <span>Señales y Colores</span></h1>
+                <p>Las señales de seguridad son una herramienta fundamental de prevención que llama la atención de manera rápida y comprensible sobre objetos y situaciones que puedan provocar peligros, facilitando su identificación rápida.</p>
+                <a href="#tipos" class="btn">
+                    Explorar Señales
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-image-wrapper interactive-image-container">
+                    <!-- Representación visual de señales -->
+                    <svg viewBox="0 0 400 300" style="width: 100%; height: 100%; padding: 20px;">
+                        <circle cx="120" cy="100" r="50" fill="#ef4444" opacity="0.8"/>
+                        <line x1="85" y1="65" x2="155" y2="135" stroke="#ffffff" stroke-width="10"/>
+                        <circle cx="120" cy="100" r="45" stroke="#ffffff" stroke-width="8" fill="none"/>
+                        
+                        <polygon points="280,50 340,150 220,150" fill="#f59e0b" opacity="0.8"/>
+                        <path d="M280,90 v30 M280,130 h.01" stroke="#000000" stroke-width="6" stroke-linecap="round"/>
+                        
+                        <rect x="70" y="190" width="100" height="80" rx="10" fill="#10b981" opacity="0.8"/>
+                        <path d="M100,230 h40 M120,210 v40" stroke="#ffffff" stroke-width="10" stroke-linecap="round"/>
+                        
+                        <circle cx="280" cy="230" r="45" fill="#2563eb" opacity="0.8"/>
+                        <path d="M265,225 h30 M280,210 v30 M270,240 l20,-20" stroke="#ffffff" stroke-width="6" stroke-linecap="round" fill="none"/>
+                    </svg>
+                    <div class="image-overlay-info">
+                        <span class="image-overlay-title">Señales Normalizadas</span>
+                        <span class="image-overlay-desc">Uso de formas geométricas y colores normalizados para garantizar la máxima comprensión en entornos formativos.</span>
+                    </div>
+                </div>
+                <div class="hero-decorator"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: TIPOS DE SEÑALIZACIÓN -->
+    <section class="section" id="tipos" style="background-color: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Tipos de Señalización</h2>
+                <p>Las señalizaciones se clasifican en visuales y auditivas, permitiendo informar, alertar o prohibir mediante diferentes estímulos sensoriales.</p>
+            </div>
+
+            <div class="types-grid">
+                <!-- 1. Sonora -->
+                <article class="type-card">
+                    <div class="type-card-badge auditory">Auditiva</div>
+                    <h3>Señalización Sonora</h3>
+                    <p>Señales emitidas mediante altavoces, sirenas, alarmas o timbres. Su objetivo principal es alertar de manera inmediata a toda la población del centro en situaciones de emergencia o evacuación.</p>
+                    <ul class="type-features-list">
+                        <li>
+                            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                            Sonido audible en todo el complejo
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                            Fácilmente identificable
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                            Uso exclusivo para simulacros y emergencias reales
+                        </li>
+                    </ul>
+                </article>
+
+                <!-- 2. Luminiscencia -->
+                <article class="type-card">
+                    <div class="type-card-badge visual">Visual</div>
+                    <h3>Luminiscencia</h3>
+                    <p>Señales foto-luminiscentes que absorben la luz y brillan en la oscuridad. Son vitales durante fallas de energía eléctrica para guiar a los ocupantes hacia las salidas de emergencia de forma segura.</p>
+                    <ul class="type-features-list">
+                        <li>
+                            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                            Brillo continuo sin electricidad
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                            Visibilidad a gran distancia
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                            Instaladas en salidas y rutas de escape
+                        </li>
+                    </ul>
+                </article>
+
+                <!-- 3. Piso -->
+                <article class="type-card">
+                    <div class="type-card-badge visual">Visual / Demarcación</div>
+                    <h3>Demarcación de Piso</h3>
+                    <p>Líneas, bandas y símbolos pintados o administrados en el suelo. Indican zonas de tránsito peatonal seguro, límites de maquinaria, áreas de almacenamiento o advertencias de desniveles.</p>
+                    <ul class="type-features-list">
+                        <li>
+                            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                            Organización espacial en talleres y pasillos
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                            Resistentes al desgaste y tráfico pesado
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                            Rayado amarillo-negro para zonas de tropiezo o peligro
+                        </li>
+                    </ul>
+                </article>
+            </div>
+
+            <!-- GALERÍAS DE 4 FOTOS POR CADA TIPO DE SEÑALIZACIÓN -->
+            <div style="margin-top: 3rem;">
+                <!-- 1. FOTOS SEÑALIZACIÓN SONORA -->
+                <div class="photo-gallery-section" style="margin-bottom: 2rem;">
+                    <h3>
+                        <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                        Fotos del CTGI — Señalización Sonora (Alarmas y Altavoces)
+                    </h3>
+                    <p class="gallery-subtitle">Registro fotográfico en las instalaciones del Centro Textil y de Gestión Industrial.</p>
+                    <div class="photos-4-grid">
+                        <div class="photo-slot interactive-image-container">
+                            <span class="photo-slot-number">1</span>
+                            <img src="img/3daf8b07-ca93-4896-812d-e68d3e96b5cf.jpg" alt="Sirena y alarma en taller">
+                            <span class="photo-slot-desc">Sistemas de sirena de evacuación en laboratorios</span>
+                        </div>
+                        <div class="photo-slot interactive-image-container">
+                            <span class="photo-slot-number">2</span>
+                            <img src="img/f36713e7-210f-4bc9-b02c-a00e6eabd987.jpg" alt="Altavoces en plantas de producción">
+                            <span class="photo-slot-desc">Alarma acústica integrada en taller textil industrial</span>
+                        </div>
+                        <div class="photo-slot interactive-image-container">
+                            <span class="photo-slot-number">3</span>
+                            <img src="img/51c9bcaf-1c74-4d69-a1c6-9761885a5735.jpg" alt="Timbres y altavoces en oficinas">
+                            <span class="photo-slot-desc">Sistemas de audio de emergencia en áreas administrativas</span>
+                        </div>
+                        <div class="photo-slot interactive-image-container">
+                            <span class="photo-slot-number">4</span>
+                            <img src="img/8dc71121-b66c-494d-8f4b-5b09753fcb5b.jpg" alt="Avisos sonoros en almacén de reactivos">
+                            <span class="photo-slot-desc">Sensores y timbres de alarma de fuga de sustancias</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. FOTOS LUMINISCENCIA -->
+                <div class="photo-gallery-section" style="margin-bottom: 2rem;">
+                    <h3>
+                        <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                        Fotos del CTGI — Señalización Luminiscente / Fotoluminiscente
+                    </h3>
+                    <p class="gallery-subtitle">Registro fotográfico en las instalaciones del Centro Textil y de Gestión Industrial.</p>
+                    <div class="photos-4-grid">
+                        <div class="photo-slot interactive-image-container">
+                            <span class="photo-slot-number">1</span>
+                            <img src="img/9551aae5-085a-4b18-97c0-8d4320312568.jpg" alt="Señal fotoluminiscente Salida Exit">
+                            <span class="photo-slot-desc">Señal fotoluminiscente "SALIDA/EXIT" visible en oscuridad</span>
+                        </div>
+                        <div class="photo-slot interactive-image-container">
+                            <span class="photo-slot-number">2</span>
+                            <img src="img/3daf8b07-ca93-4896-812d-e68d3e96b5cf.jpg" alt="Placa luminiscente Ducha de Emergencia">
+                            <span class="photo-slot-desc">Placa fotoluminiscente reflectiva "Ducha de emergencia"</span>
+                        </div>
+                        <div class="photo-slot interactive-image-container">
+                            <span class="photo-slot-number">3</span>
+                            <img src="img/c55382ea-c80d-4939-9e9b-347504288d89.jpg" alt="Aviso fotoluminiscente Lavaojos">
+                            <span class="photo-slot-desc">Identificador verde reflectivo en equipos de socorro</span>
+                        </div>
+                        <div class="photo-slot interactive-image-container">
+                            <span class="photo-slot-number">4</span>
+                            <img src="img/5704dab2-592c-4c7c-9db3-033a990a335a.jpg" alt="Cinta fotoluminiscente y reflectiva">
+                            <span class="photo-slot-desc">Demarcación fotoluminiscente en pasillos de evacuación</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. FOTOS DEMARCACIÓN DE PISO -->
+                <div class="photo-gallery-section">
+                    <h3>
+                        <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                        Fotos del CTGI — Demarcación de Piso (Zonas de Tránsito)
+                    </h3>
+                    <p class="gallery-subtitle">Registro fotográfico en las instalaciones del Centro Textil y de Gestión Industrial.</p>
+                    <div class="photos-4-grid">
+                        <div class="photo-slot interactive-image-container">
+                            <span class="photo-slot-number">1</span>
+                            <img src="img/b60308af-55ec-40a8-b1b5-b7e160a8378c.jpg" alt="Demarcación amarilla en piso de andamios">
+                            <span class="photo-slot-desc">Líneas de seguridad amarillas en base de estructuras</span>
+                        </div>
+                        <div class="photo-slot interactive-image-container">
+                            <span class="photo-slot-number">2</span>
+                            <img src="img/f36713e7-210f-4bc9-b02c-a00e6eabd987.jpg" alt="Líneas amarillas en piso de taller textil">
+                            <span class="photo-slot-desc">Delimitación de áreas de trabajo seguro en maquinaria</span>
+                        </div>
+                        <div class="photo-slot interactive-image-container">
+                            <span class="photo-slot-number">3</span>
+                            <img src="img/438a6244-15f5-4d46-b91f-04adb6560e54.jpg" alt="Demarcación de piso en zonas de alturas">
+                            <span class="photo-slot-desc">Señalización en piso para demarcación de maniobras</span>
+                        </div>
+                        <div class="photo-slot interactive-image-container">
+                            <span class="photo-slot-number">4</span>
+                            <img src="img/8b03461b-0708-4c9e-8815-8e4224dac9ba.jpg" alt="Franjas amarillas en zonas de circulación">
+                            <span class="photo-slot-desc">Líneas de prohibición y paso peatonal seguro en piso</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: COLORES DE SEGURIDAD -->
+    <section class="section" id="colores">
+        <div class="container">
+            <div class="section-header">
+                <h2>Colores de Seguridad</h2>
+                <p>Cada color en la señalización tiene un significado normativo específico e indica un tipo de conducta o riesgo a considerar.</p>
+            </div>
+
+            <div class="tabs-wrapper">
+                <div class="tabs-container">
+                    <button class="tab-btn color-red active" data-tab="color-rojo">
+                        <span style="display:inline-block; width:12px; height:12px; border-radius:50%; background-color:#ef4444;"></span>
+                        Rojo (Pare / Prohibición / Incendio)
+                    </button>
+                    <button class="tab-btn color-blue" data-tab="color-azul">
+                        <span style="display:inline-block; width:12px; height:12px; border-radius:50%; background-color:#2563eb;"></span>
+                        Azul (Obligación)
+                    </button>
+                    <button class="tab-btn color-yellow" data-tab="color-amarillo">
+                        <span style="display:inline-block; width:12px; height:12px; border-radius:50%; background-color:#f59e0b;"></span>
+                        Amarillo (Precaución / Riesgo)
+                    </button>
+                    <button class="tab-btn color-green" data-tab="color-verde">
+                        <span style="display:inline-block; width:12px; height:12px; border-radius:50%; background-color:#10b981;"></span>
+                        Verde (Seguridad / Emergencia)
+                    </button>
+                </div>
+
+                <!-- 1. ROJO CONTENT -->
+                <div class="tab-content color-tab-content active" id="color-rojo">
+                    <div class="tab-info-header">
+                        <div class="tab-info-icon red">
+                            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
+                        </div>
+                        <div class="tab-info-text">
+                            <h3>Color Rojo: Señalización de Pare, Prohibición y Equipos contra Incendios</h3>
+                            <p>El color rojo indica parada, prohibición de comportamientos específicos y la localización de equipos de extinción de incendios. Exige atención inmediata y cese de una actividad.</p>
+                        </div>
+                    </div>
+
+                    <div class="signals-grid">
+                        <!-- Rojo 1 -->
+                        <article class="signal-card">
+                            <div class="signal-img-container interactive-image-container">
+                                <svg viewBox="0 0 100 100">
+                                    <circle cx="50" cy="50" r="45" stroke="#ef4444" stroke-width="8" fill="none"/>
+                                    <line x1="18" y1="18" x2="82" y2="82" stroke="#ef4444" stroke-width="8"/>
+                                    <!-- Cigarro -->
+                                    <rect x="30" y="46" width="35" height="8" fill="#d1d5db" rx="1"/>
+                                    <rect x="65" y="46" width="10" height="8" fill="#d97706" rx="1"/>
+                                    <path d="M 32 42 Q 28 42 28 38 Q 28 34 32 34" fill="none" stroke="#9ca3af" stroke-width="2"/>
+                                    <path d="M 36 43 Q 32 43 32 39 Q 32 35 36 35" fill="none" stroke="#9ca3af" stroke-width="2"/>
+                                </svg>
+                                <div class="image-overlay-info">
+                                    <span class="image-overlay-title">Prohibido Fumar</span>
+                                    <span class="image-overlay-desc">Señal de prohibición. Evita incendios por colillas encendidas en zonas combustibles del CTGI.</span>
+                                </div>
+                            </div>
+                            <h4>Prohibido Fumar</h4>
+                            <p>Prohibición de encender cigarrillos o fuego en áreas cerradas o inflamables.</p>
+                        </article>
+
+                        <!-- Rojo 2 -->
+                        <article class="signal-card">
+                            <div class="signal-img-container interactive-image-container">
+                                <svg viewBox="0 0 100 100">
+                                    <polygon points="50,5 95,25 95,75 50,95 5,75 5,25" fill="#ef4444" stroke="#ffffff" stroke-width="3"/>
+                                    <text x="50" y="58" font-family="'Outfit', sans-serif" font-size="20" font-weight="900" fill="#ffffff" text-anchor="middle">PARE</text>
+                                </svg>
+                                <div class="image-overlay-info">
+                                    <span class="image-overlay-title">Pare / Detenerse</span>
+                                    <span class="image-overlay-desc">Indica la obligación de detener la marcha de vehículos o peatones en un cruce peligroso.</span>
+                                </div>
+                            </div>
+                            <h4>Pare</h4>
+                            <p>Obliga a detenerse antes de continuar para evitar colisiones o situaciones de peligro.</p>
+                        </article>
+
+                        <!-- Rojo 3 -->
+                        <article class="signal-card">
+                            <div class="signal-img-container interactive-image-container">
+                                <svg viewBox="0 0 100 100">
+                                    <rect x="10" y="10" width="80" height="80" fill="#ef4444" rx="5"/>
+                                    <!-- Icono Extintor -->
+                                    <rect x="42" y="32" width="16" height="42" fill="#ffffff" rx="3"/>
+                                    <ellipse cx="50" cy="32" rx="8" ry="4" fill="#ffffff"/>
+                                    <path d="M 46 25 h 8 v 5 h -8 z" fill="#ffffff"/>
+                                    <path d="M 44 25 l -10 5" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+                                    <path d="M 56 26 l 10 3 v 15" stroke="#ffffff" stroke-width="4" fill="none" stroke-linecap="round"/>
+                                </svg>
+                                <div class="image-overlay-info">
+                                    <span class="image-overlay-title">Extintor de Incendios</span>
+                                    <span class="image-overlay-desc">Señal informativa de ubicación de extintor. Permite su localización rápida ante un conato de incendio.</span>
+                                </div>
+                            </div>
+                            <h4>Extintor de Incendios</h4>
+                            <p>Indica la ubicación exacta de un equipo extintor portátil.</p>
+                        </article>
+
+                        <!-- Rojo 4 -->
+                        <article class="signal-card">
+                            <div class="signal-img-container interactive-image-container">
+                                <svg viewBox="0 0 100 100">
+                                    <rect x="10" y="10" width="80" height="80" fill="#ef4444" rx="5"/>
+                                    <!-- Icono Manguera -->
+                                    <circle cx="50" cy="50" r="22" stroke="#ffffff" stroke-width="5" fill="none"/>
+                                    <circle cx="50" cy="50" r="14" stroke="#ffffff" stroke-width="3" fill="none"/>
+                                    <path d="M 50 28 v 44" stroke="#ffffff" stroke-width="4"/>
+                                    <path d="M 35 42 h 30" stroke="#ffffff" stroke-width="4"/>
+                                    <path d="M 68 50 h 12 v 20" stroke="#ffffff" stroke-width="4" fill="none" stroke-linecap="round"/>
+                                </svg>
+                                <div class="image-overlay-info">
+                                    <span class="image-overlay-desc">Señalización de manguera contra incendios integrada a la red hidráulica del centro.</span>
+                                </div>
+                            </div>
+                            <h4>Manguera contra Incendios</h4>
+                            <p>Señalización de hidrante o manguera de uso contra incendios.</p>
+                        </article>
+                    </div>
+                    <!-- FOTOS: ROJO -->
+                    <div class="photo-gallery-section">
+                        <h3>
+                            <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                            Fotos del CTGI — Señales Rojas (Prohibición / Pare / Incendio)
+                        </h3>
+                        <p class="gallery-subtitle">Registro fotográfico real de señalización en las instalaciones del Centro Textil y de Gestión Industrial SENA.</p>
+                        <div class="photos-4-grid">
+                            <div class="photo-slot interactive-image-container">
+                                <span class="photo-slot-number">1</span>
+                                <img src="img/02ea08bf-dc2a-4042-89e6-bec6dba3d8f4.jpg" alt="Señal de Área Restringida CTGI">
+                                <span class="photo-slot-desc">Señal de Prohibición: "ÁREA RESTRINGIDA" con círculo rojo y mano extendida</span>
+                            </div>
+                            <div class="photo-slot interactive-image-container">
+                                <span class="photo-slot-number">2</span>
+                                <img src="img/1a4d9b59-ac2c-42d6-8983-cf4c863ad39b.jpg" alt="Señal Solo Personal Autorizado SENA">
+                                <span class="photo-slot-desc">Señal de Prohibición: "SOLO PERSONAL AUTORIZADO" con círculo rojo e isotipo SENA</span>
+                            </div>
+                            <div class="photo-slot interactive-image-container">
+                                <span class="photo-slot-number">3</span>
+                                <img src="img/2500df3f-14bb-4677-b922-333a6cd21ba8.jpg" alt="Señal No Use Joyas en Taller CTGI">
+                                <span class="photo-slot-desc">Señal de Prohibición: "NO USE JOYAS" para evitar atrapamiento mecánico</span>
+                            </div>
+                            <div class="photo-slot interactive-image-container">
+                                <span class="photo-slot-number">4</span>
+                                <img src="img/702412fd-d9c6-4660-b6f1-fda36529a3ed.jpg" alt="Señal Extintor Fotoluminiscente">
+                                <span class="photo-slot-desc">Señal de Protección Contra Incendio: "EXTINTOR" fotoluminiscente en pared</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. AZUL CONTENT -->
+                <div class="tab-content color-tab-content" id="color-azul">
+                    <div class="tab-info-header">
+                        <div class="tab-info-icon blue">
+                            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                        <div class="tab-info-text">
+                            <h3>Color Azul: Obligación e Indicación de Acciones Requeridas</h3>
+                            <p>El azul es el color asignado para las señales de obligación. Indica que el usuario debe ejecutar obligatoriamente una acción (como portar equipos de protección personal - EPP) para salvaguardar su integridad.</p>
+                        </div>
+                    </div>
+
+                    <div class="signals-grid">
+                        <!-- Azul 1 -->
+                        <article class="signal-card">
+                            <div class="signal-img-container interactive-image-container">
+                                <svg viewBox="0 0 100 100">
+                                    <circle cx="50" cy="50" r="45" fill="#2563eb"/>
+                                    <!-- Casco -->
+                                    <path d="M 22 55 a 28 28 0 0 1 56 0 Z" fill="#ffffff"/>
+                                    <rect x="20" y="55" width="60" height="4" fill="#ffffff" rx="2"/>
+                                    <path d="M 38 35 q 12 -12 24 0" fill="none" stroke="#2563eb" stroke-width="4"/>
+                                    <path d="M 50 27 v 8" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+                                </svg>
+                                <div class="image-overlay-info">
+                                    <span class="image-overlay-title">Uso Obligatorio de Casco</span>
+                                    <span class="image-overlay-desc">Uso de casco de seguridad requerido obligatoriamente para transitar en talleres mecánicos o de construcción.</span>
+                                </div>
+                            </div>
+                            <h4>Uso Obligatorio de Casco</h4>
+                            <p>Obliga a portar casco ante riesgos de golpes o caídas de objetos.</p>
+                        </article>
+
+                        <!-- Azul 2 -->
+                        <article class="signal-card">
+                            <div class="signal-img-container interactive-image-container">
+                                <svg viewBox="0 0 100 100">
+                                    <circle cx="50" cy="50" r="45" fill="#2563eb"/>
+                                    <!-- Guantes -->
+                                    <path d="M 35 65 v -25 a 5 5 0 0 1 10 0 v 15 v -20 a 5 5 0 0 1 10 0 v 20 v -18 a 5 5 0 0 1 10 0 v 18 v -12 a 5 5 0 0 1 10 0 v 25 a 20 20 0 0 1 -40 0 Z" fill="#ffffff"/>
+                                </svg>
+                                <div class="image-overlay-info">
+                                    <span class="image-overlay-title">Uso Obligatorio de Guantes</span>
+                                    <span class="image-overlay-desc">Protección obligatoria de manos en la manipulación de químicos o temperaturas elevadas.</span>
+                                </div>
+                            </div>
+                            <h4>Protección de Manos</h4>
+                            <p>Uso obligatorio de guantes especiales de seguridad.</p>
+                        </article>
+
+                        <!-- Azul 3 -->
+                        <article class="signal-card">
+                            <div class="signal-img-container interactive-image-container">
+                                <svg viewBox="0 0 100 100">
+                                    <circle cx="50" cy="50" r="45" fill="#2563eb"/>
+                                    <!-- Botas -->
+                                    <path d="M 30 70 l 10 -35 q 8 -5 12 5 l 8 20 l 12 0 l 2 10 Z" fill="#ffffff"/>
+                                    <path d="M 30 70 h 44" stroke="#2563eb" stroke-width="3"/>
+                                </svg>
+                                <div class="image-overlay-info">
+                                    <span class="image-overlay-title">Calzado de Seguridad Obligatorio</span>
+                                    <span class="image-overlay-desc">Uso obligatorio de botas dieléctricas o con puntera de acero en todos los talleres de formación.</span>
+                                </div>
+                            </div>
+                            <h4>Calzado de Seguridad</h4>
+                            <p>Obligatorio para evitar aplastamiento o descargas eléctricas.</p>
+                        </article>
+
+                        <!-- Azul 4 -->
+                        <article class="signal-card">
+                            <div class="signal-img-container interactive-image-container">
+                                <svg viewBox="0 0 100 100">
+                                    <circle cx="50" cy="50" r="45" fill="#2563eb"/>
+                                    <!-- Pasamanos -->
+                                    <line x1="20" y1="35" x2="80" y2="65" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+                                    <circle cx="45" cy="40" r="8" fill="#ffffff"/>
+                                    <path d="M 45 48 v 20 l 10 15" stroke="#ffffff" stroke-width="4" stroke-linecap="round" fill="none"/>
+                                    <path d="M 45 52 l 25 -10" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+                                </svg>
+                                <div class="image-overlay-info">
+                                    <span class="image-overlay-title">Use el Pasamanos</span>
+                                    <span class="image-overlay-desc">Obliga a sujetarse del pasamanos en escaleras del CTGI para evitar resbalones y caídas.</span>
+                                </div>
+                            </div>
+                            <h4>Use el Pasamanos</h4>
+                            <p>Instrucción obligatoria de seguridad al transitar por escaleras.</p>
+                        </article>
+                    </div>
+                    <!-- FOTOS: AZUL -->
+                    <div class="photo-gallery-section">
+                        <h3>
+                            <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                            Fotos del CTGI — Señales Azules (Obligación de EPP e Indicación)
+                        </h3>
+                        <p class="gallery-subtitle">Registro fotográfico real de señalización en las instalaciones del Centro Textil y de Gestión Industrial SENA.</p>
+                        <div class="photos-4-grid">
+                            <div class="photo-slot interactive-image-container">
+                                <span class="photo-slot-number">1</span>
+                                <img src="img/1fecccc9-7942-45e0-a634-fe152530ee6b.jpg" alt="Señal Uso Obligatorio de EPP SENA">
+                                <span class="photo-slot-desc">Señal de Obligación: "USO OBLIGATORIO ELEMENTOS DE PROTECCIÓN PERSONAL" (Casco, Gafas, Botas, Guantes)</span>
+                            </div>
+                            <div class="photo-slot interactive-image-container">
+                                <span class="photo-slot-number">2</span>
+                                <img src="img/6469119d-3206-41a9-9442-52f33fbf68f0.jpg" alt="Señal Use Equipo de Protección Personal">
+                                <span class="photo-slot-desc">Señal de Obligación: "USE EQUIPO DE PROTECCIÓN PERSONAL" con overol y elementos EPP</span>
+                            </div>
+                            <div class="photo-slot interactive-image-container">
+                                <span class="photo-slot-number">3</span>
+                                <img src="img/f0917962-901e-49bb-b747-b9497059943d.jpg" alt="Señal EPP Laboratorios CTGI">
+                                <span class="photo-slot-desc">Señal de Obligación: "USO OBLIGATORIO DE EPP" (Bata, cofia, tapabocas, gafas de laboratorio)</span>
+                            </div>
+                            <div class="photo-slot interactive-image-container">
+                                <span class="photo-slot-number">4</span>
+                                <img src="img/1277d5ff-56b7-4f46-886a-a43f6e440289.jpg" alt="Señal Informativa Azul Libre de Humo">
+                                <span class="photo-slot-desc">Señal Informativa: "Este espacio está libre de humo de cigarrillo o de tabaco"</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-content color-tab-content" id="color-amarillo">
+                    <div class="tab-info-header">
+                        <div class="tab-info-icon yellow">
+                            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                        </div>
+                        <div class="tab-info-text">
+                            <h3>Color Amarillo: Precaución y Advertencia de Riesgos y Peligros</h3>
+                            <p>El color amarillo es de atención y advertencia. Alerta sobre zonas de peligro potencial o riesgos permanentes y temporales como alta tensión eléctrica, riesgo químico o inflamable.</p>
+                        </div>
+                    </div>
+
+                    <div class="signals-grid">
+                        <!-- Amarillo 1 -->
+                        <article class="signal-card">
+                            <div class="signal-img-container interactive-image-container">
+                                <svg viewBox="0 0 100 100">
+                                    <polygon points="50,5 95,85 5,85" fill="#f59e0b" stroke="#000000" stroke-width="5"/>
+                                    <!-- Rayo -->
+                                    <polygon points="50,22 36,50 49,50 43,76 62,45 49,45" fill="#000000"/>
+                                </svg>
+                                <div class="image-overlay-info">
+                                    <span class="image-overlay-title">Riesgo Eléctrico</span>
+                                    <span class="image-overlay-desc">Señal de advertencia de alta tensión. Se sitúa en subestaciones y tableros eléctricos del CTGI.</span>
+                                </div>
+                            </div>
+                            <h4>Riesgo Eléctrico</h4>
+                            <p>Advierte sobre la presencia de alta tensión y peligro de electrocución.</p>
+                        </article>
+
+                        <!-- Amarillo 2 -->
+                        <article class="signal-card">
+                            <div class="signal-img-container interactive-image-container">
+                                <svg viewBox="0 0 100 100">
+                                    <polygon points="50,5 95,85 5,85" fill="#f59e0b" stroke="#000000" stroke-width="5"/>
+                                    <!-- Llama -->
+                                    <path d="M 50 35 Q 38 52 50 78 Q 62 52 50 35 M 48 48 Q 42 60 52 70" fill="#000000"/>
+                                </svg>
+                                <div class="image-overlay-info">
+                                    <span class="image-overlay-title">Riesgo de Inflamabilidad</span>
+                                    <span class="image-overlay-desc">Advierte de la presencia de líquidos combustibles o inflamables (pinturas, solventes en talleres).</span>
+                                </div>
+                            </div>
+                            <h4>Material Inflamable</h4>
+                            <p>Peligro de incendio debido a sustancias combustibles en el entorno.</p>
+                        </article>
+
+                        <!-- Amarillo 3 -->
+                        <article class="signal-card">
+                            <div class="signal-img-container interactive-image-container">
+                                <svg viewBox="0 0 100 100">
+                                    <polygon points="50,5 95,85 5,85" fill="#f59e0b" stroke="#000000" stroke-width="5"/>
+                                    <!-- Explosión -->
+                                    <circle cx="50" cy="55" r="8" fill="#000000"/>
+                                    <path d="M 50 55 L 28 35 M 50 55 L 72 35 M 50 55 L 40 78 M 50 55 L 60 78" stroke="#000000" stroke-width="4"/>
+                                    <polygon points="32,32 30,45 42,38" fill="#000000"/>
+                                    <polygon points="68,32 70,45 58,38" fill="#000000"/>
+                                </svg>
+                                <div class="image-overlay-info">
+                                    <span class="image-overlay-title">Riesgo de Explosión</span>
+                                    <span class="image-overlay-desc">Advierte sobre tanques de gases comprimidos (oxígeno, acetileno) con peligro de detonación.</span>
+                                </div>
+                            </div>
+                            <h4>Riesgo de Explosión</h4>
+                            <p>Sustancias reactivas o cilindros a presión que pueden explotar.</p>
+                        </article>
+
+                        <!-- Amarillo 4 -->
+                        <article class="signal-card">
+                            <div class="signal-img-container interactive-image-container">
+                                <svg viewBox="0 0 100 100">
+                                    <polygon points="50,5 95,85 5,85" fill="#f59e0b" stroke="#000000" stroke-width="5"/>
+                                    <!-- Trébol de Radiación -->
+                                    <circle cx="50" cy="56" r="7" fill="#000000"/>
+                                    <path d="M 50 56 L 35 30 A 30 30 0 0 1 65 30 Z" fill="#000000"/>
+                                    <path d="M 50 56 L 68 66 A 30 30 0 0 1 50 86 Z" fill="#000000"/>
+                                    <path d="M 50 56 L 32 66 A 30 30 0 0 1 32 46 Z" fill="#000000"/>
+                                    <circle cx="50" cy="56" r="10" fill="#f59e0b"/>
+                                    <circle cx="50" cy="56" r="4" fill="#000000"/>
+                                </svg>
+                        <div class="image-overlay-info">
+                                    <span class="image-overlay-title">Radiación Ionizante</span>
+                                    <span class="image-overlay-desc">Advierte de equipos emisores de rayos X o fuentes radiactivas en zonas restringidas de salud.</span>
+                                </div>
+                            </div>
+                            <h4>Riesgo de Radiación</h4>
+                            <p>Zona con exposición a radiaciones invisibles nocivas para la salud.</p>
+                        </article>
+                    </div>
+                    <!-- FOTOS: AMARILLO -->
+                    <div class="photo-gallery-section">
+                        <h3>
+                            <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                            Fotos del CTGI — Señales Amarillas (Precaución / Riesgo / Peligro)
+                        </h3>
+                        <p class="gallery-subtitle">Registro fotográfico real de señalización en las instalaciones del Centro Textil y de Gestión Industrial SENA.</p>
+                        <div class="photos-4-grid">
+                            <div class="photo-slot interactive-image-container">
+                                <span class="photo-slot-number">1</span>
+                                <img src="img/1effa93a-642c-48f0-abfb-9df58760e58c.jpg" alt="Señal Precaución Máquina en Movimiento SENA">
+                                <span class="photo-slot-desc">Señal de Advertencia: "PRECAUCIÓN MÁQUINA EN MOVIMIENTO" con triángulo amarillo y engranajes</span>
+                            </div>
+                            <div class="photo-slot interactive-image-container">
+                                <span class="photo-slot-number">2</span>
+                                <img src="img/37b5ea72-b52a-47c9-98f6-0ae1a1f3b6df.jpg" alt="Señal Precaución Caída de Objetos SENA">
+                                <span class="photo-slot-desc">Señal de Advertencia: "PRECAUCIÓN CAÍDA DE OBJETOS (CELOSÍAS)" con triángulo amarillo</span>
+                            </div>
+                            <div class="photo-slot interactive-image-container">
+                                <span class="photo-slot-number">3</span>
+                                <img src="img/55c039fa-75c5-4818-9f82-71084db58a2c.jpg" alt="Señal Peligro Alto Voltaje CTGI">
+                                <span class="photo-slot-desc">Señal de Advertencia: "¡PELIGRO! ALTO VOLTAJE" en subestación o tablero eléctrico</span>
+                            </div>
+                            <div class="photo-slot interactive-image-container">
+                                <span class="photo-slot-number">4</span>
+                                <img src="img/843a6c1a-505c-4529-a794-310cd0a1dfba.jpg" alt="Señal Peligro Caídas al Mismo Nivel SENA">
+                                <span class="photo-slot-desc">Señal de Advertencia: "¡PELIGRO! CAÍDAS AL MISMO NIVEL" en pasillos y zonas húmedas</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. VERDE CONTENT -->
+                <div class="tab-content color-tab-content" id="color-verde">
+                    <div class="tab-info-header">
+                        <div class="tab-info-icon green">
+                            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+                        </div>
+                        <div class="tab-info-text">
+                            <h3>Color Verde: Seguridad, Auxilio, y Rutas de Emergencia</h3>
+                            <p>El color verde demarca condiciones completamente seguras, salidas rápidas de emergencia, rutas de evacuación ante siniestros y la localización de los equipos de primeros auxilios.</p>
+                        </div>
+                    </div>
+
+                    <div class="signals-grid">
+                        <!-- Verde 1 -->
+                        <article class="signal-card">
+                            <div class="signal-img-container interactive-image-container">
+                                <svg viewBox="0 0 100 100">
+                                    <rect x="10" y="10" width="80" height="80" fill="#10b981" rx="5"/>
+                                    <!-- Salida -->
+                                    <line x1="25" y1="50" x2="35" y2="50" stroke="#ffffff" stroke-width="3"/>
+                                </svg>
+                                <div class="image-overlay-info">
+                                    <span class="image-overlay-title">Salida de Emergencia</span>
+                                    <span class="image-overlay-desc">Señal informativa de salida de emergencia. Indica la salida más cercana en caso de evacuación.</span>
+                                </div>
+                            </div>
+                            <h4>Salida de Emergencia</h4>
+                            <p>Dirección y puerta de egreso seguro durante una contingencia.</p>
+                        </article>
+
+                        <!-- Verde 2 -->
+                        <article class="signal-card">
+                            <div class="signal-img-container interactive-image-container">
+                                <svg viewBox="0 0 100 100">
+                                    <rect x="10" y="25" width="80" height="50" fill="#10b981" rx="5"/>
+                                    <!-- Flecha -->
+                                    <line x1="25" y1="50" x2="70" y2="50" stroke="#ffffff" stroke-width="8" stroke-linecap="round"/>
+                                    <polygon points="65,35 80,50 65,65" fill="#ffffff"/>
+                                </svg>
+                                <div class="image-overlay-info">
+                                    <span class="image-overlay-title">Ruta de Evacuación</span>
+                                    <span class="image-overlay-desc">Señal de sentido de evacuación que guía a las personas hacia la salida más próxima.</span>
+                                </div>
+                            </div>
+                            <h4>Ruta de Evacuación</h4>
+                            <p>Flecha que define la dirección del recorrido de escape seguro.</p>
+                        </article>
+
+                        <!-- Verde 3 -->
+                        <article class="signal-card">
+                            <div class="signal-img-container interactive-image-container">
+                                <svg viewBox="0 0 100 100">
+                                    <rect x="10" y="10" width="80" height="80" fill="#10b981" rx="5"/>
+                                    <!-- Punto Encuentro -->
+                                    <circle cx="50" cy="50" r="14" fill="#ffffff"/>
+                                    <circle cx="50" cy="50" r="10" fill="#10b981"/>
+                                    <circle cx="50" cy="50" r="6" fill="#ffffff"/>
+                                    <!-- Flechas apuntando al centro -->
+                                    <path d="M 22 22 l 14 14" stroke="#ffffff" stroke-width="4"/>
+                                    <polygon points="36,25 36,36 25,36" fill="#ffffff"/>
+                                    <path d="M 78 22 l -14 14" stroke="#ffffff" stroke-width="4"/>
+                                    <polygon points="64,25 64,36 75,36" fill="#ffffff"/>
+                                    <path d="M 22 78 l 14 -14" stroke="#ffffff" stroke-width="4"/>
+                                    <polygon points="25,64 36,64 36,75" fill="#ffffff"/>
+                                    <path d="M 78 78 l -14 -14" stroke="#ffffff" stroke-width="4"/>
+                                    <polygon points="75,64 64,64 64,75" fill="#ffffff"/>
+                                </svg>
+                                <div class="image-overlay-info">
+                                    <span class="image-overlay-title">Punto de Encuentro</span>
+                                    <span class="image-overlay-desc">Zona externa segura del CTGI predeterminada para congregar al personal tras evacuar la edificación.</span>
+                                </div>
+                            </div>
+                            <h4>Punto de Encuentro</h4>
+                            <p>Indica la zona exterior más segura para reunirse después de evacuar.</p>
+                        </article>
+
+                        <!-- Verde 4 -->
+                        <article class="signal-card">
+                            <div class="signal-img-container interactive-image-container">
+                                <svg viewBox="0 0 100 100">
+                                    <rect x="15" y="15" width="70" height="70" fill="#10b981" rx="5"/>
+                                    <!-- Cruz Médica -->
+                                    <rect x="42" y="28" width="16" height="44" fill="#ffffff"/>
+                                    <rect x="28" y="42" width="44" height="16" fill="#ffffff"/>
+                                </svg>
+                                <div class="image-overlay-info">
+                                    <span class="image-overlay-title">Botiquín de Primeros Auxilios</span>
+                                    <span class="image-overlay-desc">Ubicación del maletín o estación de primeros auxilios para atender accidentes leves en el área.</span>
+                                </div>
+                            </div>
+                            <h4>Primeros Auxilios</h4>
+                            <p>Indica la ubicación de camillas, botiquines o puestos de socorro.</p>
+                        </article>
+                    </div>
+
+                    <!-- FOTOS: VERDE -->
+                    <div class="photo-gallery-section">
+                        <h3>
+                            <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                            Fotos del CTGI — Señales Verdes (Evacuación / Emergencia / Auxilio)
+                        </h3>
+                        <p class="gallery-subtitle">Registro fotográfico real de señalización en las instalaciones del Centro Textil y de Gestión Industrial SENA.</p>
+                        <div class="photos-4-grid">
+                            <div class="photo-slot interactive-image-container">
+                                <span class="photo-slot-number">1</span>
+                                <img src="img/467bfc55-78c8-435d-b02f-eba206140d0b.jpg" alt="Señal Punto de Encuentro CTGI SENA">
+                                <span class="photo-slot-desc">Señal de Evacuación: "PUNTO DE ENCUENTRO" en zonas verdes exteriores del centro</span>
+                            </div>
+                            <div class="photo-slot interactive-image-container">
+                                <span class="photo-slot-number">2</span>
+                                <img src="img/a00f4c2a-f156-4329-aff5-754330bafe4c.jpg" alt="Señal Salida Exit con Flecha">
+                                <span class="photo-slot-desc">Señal de Evacuación: "SALIDA / EXIT" verde con flecha direccional</span>
+                            </div>
+                            <div class="photo-slot interactive-image-container">
+                                <span class="photo-slot-number">3</span>
+                                <img src="img/543d1b8d-6477-4f01-830c-55b31169572f.jpg" alt="Señal Estación Lavaojos de Emergencia">
+                                <span class="photo-slot-desc">Señal de Emergencia: "ESTACIÓN LAVAOJOS" para socorro en descontaminación ocular</span>
+                            </div>
+                            <div class="photo-slot interactive-image-container">
+                                <span class="photo-slot-number">4</span>
+                                <img src="img/b30afb14-a877-4aad-ba8e-8c4cf0d24e1c.jpg" alt="Señal Botiquín con Morral de Primeros Auxilios">
+                                <span class="photo-slot-desc">Señal de Auxilio: "BOTIQUÍN" junto a morral oficial de primeros auxilios del CTGI</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: FORMAS DE SEGURIDAD -->
+    <section class="section" id="formas" style="background-color: var(--bg-secondary); border-top: 1px solid var(--border-color);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Formas Geométricas de Seguridad</h2>
+                <p>Las formas de las señales determinan el tipo de mensaje que comunican: prohibición/acción de mando, prevención o información.</p>
+            </div>
+
+            <div class="tabs-wrapper">
+                <div class="tabs-container">
+                    <button class="tab-btn shape-tab active" data-tab="forma-circulo">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="color:var(--accent-teal);"><circle cx="12" cy="12" r="9"/></svg>
+                        Círculo (Prohibición / Mando)
+                    </button>
+                    <button class="tab-btn shape-tab" data-tab="forma-triangulo">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="color:var(--accent-orange);"><polygon points="12,2 22,22 2,22"/></svg>
+                        Triángulo (Prevención)
+                    </button>
+                    <button class="tab-btn shape-tab" data-tab="forma-rectangulo">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="color:var(--accent-emerald);"><rect x="3" y="5" width="18" height="14" rx="2"/></svg>
+                        Rectángulo (Información)
+                    </button>
+                </div>
+
+                <!-- 1. CIRCULO CONTENT -->
+                <div class="tab-content shape-tab-content active" id="forma-circulo">
+                    <div class="tab-info-header">
+                        <div class="tab-info-icon blue" style="background-color: rgba(6, 182, 212, 0.1); color: var(--accent-teal);">
+                            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>
+                        </div>
+                        <div class="tab-info-text">
+                            <h3>Forma Circular: Prohibición y Acción de Mando</h3>
+                            <p>Las señales circulares se usan para prohibir acciones (con un borde rojo y una diagonal) o para obligar a usar ciertos elementos o realizar conductas (círculo azul sin diagonal).</p>
+                        </div>
+                    </div>
+
+                    <div class="signals-grid">
+                        <!-- Circulo 1 -->
+                        <article class="signal-card">
+                            <div class="signal-img-container interactive-image-container">
+                                <svg viewBox="0 0 100 100">
+                                    <circle cx="50" cy="50" r="45" stroke="#ef4444" stroke-width="8" fill="none"/>
+                                    <line x1="18" y1="18" x2="82" y2="82" stroke="#ef4444" stroke-width="8"/>
+                                    <!-- Silueta Persona Caminando -->
+                                    <circle cx="50" cy="30" r="6" fill="#000000"/>
+                                    <path d="M 50 36 v 18 l -8 15 M 50 42 l 8 10 M 50 36 l -8 -5 M 50 36 l 8 -5" stroke="#000000" stroke-width="4" stroke-linecap="round" fill="none"/>
+                                </svg>
+                                <div class="image-overlay-info">
+                                    <span class="image-overlay-title">Prohibido el Paso</span>
+                                    <span class="image-overlay-desc">Forma circular restrictiva con franja diagonal. Restringe el paso a personal no autorizado en áreas de maniobra o peligro del CTGI.</span>
+                                </div>
+                            </div>
+                            <h4>Prohibido el Paso</h4>
+                            <p>Prohibición de circulación peatonal en zonas de alto riesgo.</p>
+                        </article>
+
+                        <!-- Circulo 2 -->
+                        <article class="signal-card">
+                            <div class="signal-img-container interactive-image-container">
+                                <svg viewBox="0 0 100 100">
+                                    <circle cx="50" cy="50" r="45" stroke="#ef4444" stroke-width="8" fill="none"/>
+                                    <line x1="18" y1="18" x2="82" y2="82" stroke="#ef4444" stroke-width="8"/>
+                                    <!-- Cigarro -->
+                                    <rect x="30" y="46" width="35" height="8" fill="#d1d5db" rx="1"/>
+                                    <rect x="65" y="46" width="10" height="8" fill="#d97706" rx="1"/>
+                                </svg>
+                                <div class="image-overlay-info">
+                                    <span class="image-overlay-title">Prohibido Fumar</span>
+                                    <span class="image-overlay-desc">Señal circular de prohibición. Evita conatos de incendio por fuentes de calor directas en talleres o áreas comunes.</span>
+                                </div>
+                            </div>
+                            <h4>Prohibido Fumar</h4>
+                            <p>Restricción absoluta de encender tabaco o cigarrillos en el recinto.</p>
+                        </article>
+
+                        <!-- Circulo 3 -->
+                        <article class="signal-card">
+                            <div class="signal-img-container interactive-image-container">
+                                <svg viewBox="0 0 100 100">
+                                    <circle cx="50" cy="50" r="45" fill="#2563eb"/>
+                                    <!-- Orejeras EPP -->
+                                    <rect x="25" y="40" width="10" height="24" rx="4" fill="#ffffff"/>
+                                    <rect x="65" y="40" width="10" height="24" rx="4" fill="#ffffff"/>
+                                    <path d="M 30 40 a 20 20 0 0 1 40 0" fill="none" stroke="#ffffff" stroke-width="5"/>
+                                </svg>
+                                <div class="image-overlay-info">
+                                    <span class="image-overlay-title">Protección Auditiva Obligatoria</span>
+                                    <span class="image-overlay-desc">Acción de mando (obligación). Requerido en talleres de maquinado con ruido continuo perjudicial.</span>
+                                </div>
+                            </div>
+                            <h4>Protección Auditiva</h4>
+                            <p>Obliga al uso de tapones u orejeras contra contaminación acústica.</p>
+                        </article>
+
+                        <!-- Circulo 4 -->
+                        <article class="signal-card">
+                            <div class="signal-img-container interactive-image-container">
+                                <svg viewBox="0 0 100 100">
+                                    <circle cx="50" cy="50" r="45" fill="#2563eb"/>
+                                    <!-- Guantes -->
+                                    <rect x="32" y="45" width="16" height="28" rx="5" fill="#ffffff"/>
+                                    <rect x="52" y="45" width="16" height="28" rx="5" fill="#ffffff"/>
+                        <div class="image-overlay-info">
+                                    <span class="image-overlay-title">Uso Obligatorio de Guantes</span>
+                                    <span class="image-overlay-desc">Acción de mando (obligación). Exige uso de guantes en manipulación de piezas rugosas o químicos peligrosos.</span>
+                                </div>
+                            </div>
+                            <h4>Protección de Manos</h4>
+                            <p>Uso obligatorio de guantes dieléctricos, de nitrilo o de cuero.</p>
+                        </article>
+                    </div>
+                    <!-- FOTOS: CÍRCULO -->
+                    <div class="photo-gallery-section">
+                        <h3>
+                            <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                            Fotos del CTGI — Señales Circulares (Obligación / Prohibición)
+                        </h3>
+                        <p class="gallery-subtitle">Registro fotográfico real en las instalaciones del Centro Textil y de Gestión Industrial SENA.</p>
+                        <div class="photos-4-grid">
+                            <div class="photo-slot interactive-image-container">
+                                <span class="photo-slot-number">1</span>
+                                <img src="img/02ea08bf-dc2a-4042-89e6-bec6dba3d8f4.jpg" alt="Señal circular de Área Restringida">
+                                <span class="photo-slot-desc">Señal Circular de Prohibición: "ÁREA RESTRINGIDA" con franja diagonal roja</span>
+                            </div>
+                            <div class="photo-slot interactive-image-container">
+                                <span class="photo-slot-number">2</span>
+                                <img src="img/1a4d9b59-ac2c-42d6-8983-cf4c863ad39b.jpg" alt="Señal circular Solo Personal Autorizado SENA">
+                                <span class="photo-slot-desc">Señal Circular de Prohibición: "SOLO PERSONAL AUTORIZADO" con logo SENA</span>
+                            </div>
+                            <div class="photo-slot interactive-image-container">
+                                <span class="photo-slot-number">3</span>
+                                <img src="img/2500df3f-14bb-4677-b922-333a6cd21ba8.jpg" alt="Señal circular No Use Joyas CTGI">
+                                <span class="photo-slot-desc">Señal Circular de Prohibición: "NO USE JOYAS" en laboratorios y talleres</span>
+                            </div>
+                            <div class="photo-slot interactive-image-container">
+                                <span class="photo-slot-number">4</span>
+                                <img src="img/1fecccc9-7942-45e0-a634-fe152530ee6b.jpg" alt="Señal circular Uso Obligatorio de EPP SENA">
+                                <span class="photo-slot-desc">Señal Circular de Obligación: "USO OBLIGATORIO DE ELEMENTOS DE PROTECCIÓN PERSONAL"</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. TRIANGULO CONTENT -->
+                <div class="tab-content shape-tab-content" id="forma-triangulo">
+                    <div class="tab-info-header">
+                        <div class="tab-info-icon yellow" style="background-color: rgba(245, 158, 11, 0.1); color: var(--accent-orange);">
+                            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12,2 22,22 2,22"/></svg>
+                        </div>
+                        <div class="tab-info-text">
+                            <h3>Forma Triangular: Prevención y Advertencia</h3>
+                            <p>La forma triangular de color amarillo con borde y pictogramas negros alerta al usuario sobre peligros potenciales presentes en la zona. Exige cautela extrema.</p>
+                        </div>
+                    </div>
+
+                    <div class="signals-grid">
+                        <!-- Triangulo 1 -->
+                        <article class="signal-card">
+                            <div class="signal-img-container interactive-image-container">
+                                <svg viewBox="0 0 100 100">
+                                    <polygon points="50,5 95,85 5,85" fill="#f59e0b" stroke="#000000" stroke-width="5"/>
+                                    <!-- Rayo -->
+                                    <polygon points="50,22 36,50 49,50 43,76 62,45 49,45" fill="#000000"/>
+                                </svg>
+                                <div class="image-overlay-info">
+                                    <span class="image-overlay-title">Alta Tensión</span>
+                                    <span class="image-overlay-desc">Forma triangular de advertencia. Advierte de peligro de muerte por electrocución o arcos eléctricos.</span>
+                                </div>
+                            </div>
+                            <h4>Alta Tensión</h4>
+                            <p>Peligro por líneas de media/alta tensión o tableros de control.</p>
+                        </article>
+
+                        <!-- Triangulo 2 -->
+                        <article class="signal-card">
+                            <div class="signal-img-container interactive-image-container">
+                                <svg viewBox="0 0 100 100">
+                                    <polygon points="50,5 95,85 5,85" fill="#f59e0b" stroke="#000000" stroke-width="5"/>
+                                    <!-- Riesgo Biologico -->
+                                    <circle cx="50" cy="55" r="7" stroke="#000000" stroke-width="4" fill="none"/>
+                                    <circle cx="43" cy="46" r="7" stroke="#000000" stroke-width="4" fill="none"/>
+                                    <circle cx="57" cy="46" r="7" stroke="#000000" stroke-width="4" fill="none"/>
+                                    <circle cx="50" cy="50" r="2" fill="#000000"/>
+                                </svg>
+                                <div class="image-overlay-info">
+                                    <span class="image-overlay-title">Riesgo Biológico</span>
+                                    <span class="image-overlay-desc">Forma triangular de advertencia. Presencia de agentes patógenos en laboratorios de análisis o botaderos de basura del CTGI.</span>
+                                </div>
+                            </div>
+                            <h4>Riesgo Biológico</h4>
+                            <p>Peligro de infección por virus, bacterias o cultivos biológicos.</p>
+                        </article>
+
+                        <!-- Triangulo 3 -->
+                        <article class="signal-card">
+                            <div class="signal-img-container interactive-image-container">
+                                <svg viewBox="0 0 100 100">
+                                    <polygon points="50,5 95,85 5,85" fill="#f59e0b" stroke="#000000" stroke-width="5"/>
+                                    <!-- Peligro General -->
+                                    <rect x="47" y="30" width="6" height="28" fill="#000000" rx="1"/>
+                                    <circle cx="50" cy="68" r="4" fill="#000000"/>
+                                </svg>
+                                <div class="image-overlay-info">
+                                    <span class="image-overlay-title">Peligro General</span>
+                                    <span class="image-overlay-desc">Forma triangular de advertencia. Señal comodín que alerta de un peligro genérico no codificado en la norma.</span>
+                                </div>
+                            </div>
+                            <h4>Peligro General</h4>
+                            <p>Alerta sobre riesgos diversos que requieren precaución adicional.</p>
+                        </article>
+
+                        <!-- Triangulo 4 -->
+                        <article class="signal-card">
+                            <div class="signal-img-container interactive-image-container">
+                                <svg viewBox="0 0 100 100">
+                                    <polygon points="50,5 95,85 5,85" fill="#f59e0b" stroke="#000000" stroke-width="5"/>
+                                    <!-- Montacargas -->
+                                    <circle cx="35" cy="70" r="6" fill="#000000"/>
+                                    <circle cx="65" cy="70" r="6" fill="#000000"/>
+                                    <rect x="30" y="50" width="30" height="15" fill="#000000" rx="2"/>
+                                    <rect x="63" y="35" width="4" height="35" fill="#000000"/>
+                                    <line x1="67" y1="45" x2="78" y2="45" stroke="#000000" stroke-width="4"/>
+                                </svg>
+                                <div class="image-overlay-info">
+                                    <span class="image-overlay-title">Tránsito de Montacargas</span>
+                                    <span class="image-overlay-desc">Advertencia de tráfico de maquinaria industrial móvil en talleres de logística o manufactura del CTGI.</span>
+                                </div>
+                            </div>
+                            <h4>Cuidado con Montacargas</h4>
+                            <p>Zona de maniobras de maquinaria pesada. Mantenga distancia.</p>
+                        </article>
+                    </div>
+                    <!-- FOTOS: TRIÁNGULO -->
+                    <div class="photo-gallery-section">
+                        <h3>
+                            <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                            Fotos del CTGI — Señales Triangulares (Advertencia / Precaución)
+                        </h3>
+                        <p class="gallery-subtitle">Registro fotográfico real en las instalaciones del Centro Textil y de Gestión Industrial SENA.</p>
+                        <div class="photos-4-grid">
+                            <div class="photo-slot interactive-image-container">
+                                <span class="photo-slot-number">1</span>
+                                <img src="img/1effa93a-642c-48f0-abfb-9df58760e58c.jpg" alt="Señal triangular Precaución Máquina en Movimiento SENA">
+                                <span class="photo-slot-desc">Señal Triangular de Advertencia: "PRECAUCIÓN MÁQUINA EN MOVIMIENTO" con engranajes</span>
+                            </div>
+                            <div class="photo-slot interactive-image-container">
+                                <span class="photo-slot-number">2</span>
+                                <img src="img/37b5ea72-b52a-47c9-98f6-0ae1a1f3b6df.jpg" alt="Señal triangular Precaución Caída de Objetos SENA">
+                                <span class="photo-slot-desc">Señal Triangular de Advertencia: "PRECAUCIÓN CAÍDA DE OBJETOS" con isotipo SENA</span>
+                            </div>
+                            <div class="photo-slot interactive-image-container">
+                                <span class="photo-slot-number">3</span>
+                                <img src="img/55c039fa-75c5-4818-9f82-71084db58a2c.jpg" alt="Señal triangular Peligro Alto Voltaje CTGI">
+                                <span class="photo-slot-desc">Señal Triangular de Advertencia: "¡PELIGRO! ALTO VOLTAJE" con rayo negro</span>
+                            </div>
+                            <div class="photo-slot interactive-image-container">
+                                <span class="photo-slot-number">4</span>
+                                <img src="img/843a6c1a-505c-4529-a794-310cd0a1dfba.jpg" alt="Señal triangular Peligro Caídas al Mismo Nivel SENA">
+                                <span class="photo-slot-desc">Señal Triangular de Advertencia: "¡PELIGRO! CAÍDAS AL MISMO NIVEL" con isotipo SENA</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. RECTANGULO CONTENT -->
+                <div class="tab-content shape-tab-content" id="forma-rectangulo">
+                    <div class="tab-info-header">
+                        <div class="tab-info-icon green" style="background-color: rgba(16, 185, 129, 0.1); color: var(--accent-emerald);">
+                            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/></svg>
+                        </div>
+                        <div class="tab-info-text">
+                            <h3>Forma Rectangular: Información, Evacuación e Incendio</h3>
+                            <p>Las señales rectangulares o cuadradas proveen información de utilidad sobre las vías de evacuación rápida, salidas de emergencia, primeros auxilios y la ubicación de equipos contra incendios (rojo).</p>
+                        </div>
+                    </div>
+
+                    <div class="signals-grid">
+                        <!-- Rectangulo 1 -->
+                        <article class="signal-card">
+                            <div class="signal-img-container interactive-image-container">
+                                <svg viewBox="0 0 100 100">
+                                    <rect x="10" y="25" width="80" height="50" fill="#10b981" rx="5"/>
+                                    <!-- Camilla -->
+                                    <line x1="20" y1="50" x2="80" y2="50" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+                                    <line x1="28" y1="45" x2="28" y2="55" stroke="#ffffff" stroke-width="4"/>
+                                    <line x1="72" y1="45" x2="72" y2="55" stroke="#ffffff" stroke-width="4"/>
+                                    <!-- Cruz Pequeña -->
+                                    <rect x="47" y="32" width="6" height="14" fill="#ffffff"/>
+                                    <rect x="43" y="36" width="14" height="6" fill="#ffffff"/>
+                                </svg>
+                                <div class="image-overlay-info">
+                                    <span class="image-overlay-title">Camilla de Emergencia</span>
+                                    <span class="image-overlay-desc">Forma rectangular informativa. Indica el lugar donde se almacena una camilla para traslado de lesionados.</span>
+                                </div>
+                            </div>
+                            <h4>Camilla de Emergencia</h4>
+                            <p>Ubicación de elementos de inmovilización médica.</p>
+                        </article>
+
+                        <!-- Rectangulo 2 -->
+                        <article class="signal-card">
+                            <div class="signal-img-container interactive-image-container">
+                                <svg viewBox="0 0 100 100">
+                                    <rect x="10" y="25" width="80" height="50" fill="#10b981" rx="5"/>
+                                    <!-- Teléfono de Emergencia -->
+                                    <path d="M 35 35 a 15 15 0 0 1 30 0 v 15 q 0 8 -8 8 h -14 q -8 0 -8 -8 Z" fill="#ffffff" opacity="0.3"/>
+                                    <!-- Auricular -->
+                                    <path d="M 30 38 c 3 -5 10 -5 14 0 l 2 8 c -1 3 -4 4 -6 2 l -4 -4 c -4 4 -4 10 0 14 l 4 -4 c 2 -2 5 -1 6 2 l -2 8 c -4 5 -11 5 -14 0 Z" fill="#ffffff"/>
+                                </svg>
+                                <div class="image-overlay-info">
+                                    <span class="image-overlay-title">Teléfono de Emergencia</span>
+                                    <span class="image-overlay-desc">Indica la localización de una línea de comunicación directa con brigadas de socorro o servicios médicos del CTGI.</span>
+                                </div>
+                            </div>
+                            <h4>Teléfono de Emergencia</h4>
+                            <p>Teléfono exclusivo para reportar incidentes o pedir auxilio rápido.</p>
+                        </article>
+
+                        <!-- Rectangulo 3 -->
+                        <article class="signal-card">
+                            <div class="signal-img-container interactive-image-container">
+                                <svg viewBox="0 0 100 100">
+                                    <rect x="10" y="10" width="80" height="80" fill="#ef4444" rx="5"/>
+                                    <!-- Extintor -->
+                                    <rect x="42" y="32" width="16" height="42" fill="#ffffff" rx="3"/>
+                                    <ellipse cx="50" cy="32" rx="8" ry="4" fill="#ffffff"/>
+                                    <path d="M 46 25 h 8 v 5 h -8 z" fill="#ffffff"/>
+                                    <path d="M 44 25 l -10 5" stroke="#ffffff" stroke-width="4"/>
+                                    <path d="M 56 26 l 10 3 v 15" stroke="#ffffff" stroke-width="4" fill="none"/>
+                                </svg>
+                                <div class="image-overlay-info">
+                                    <span class="image-overlay-title">Extintor Portátil</span>
+                                    <span class="image-overlay-desc">Forma rectangular y color rojo de combate de incendios. Equipos para combate rápido contra fuego incipiente.</span>
+                                </div>
+                            </div>
+                            <h4>Extintor de Incendios</h4>
+                            <p>Ubicación de extintores Multipropósito (ABC) o de CO2.</p>
+                        </article>
+
+                        <!-- Rectangulo 4 -->
+                        <article class="signal-card">
+                            <div class="signal-img-container interactive-image-container">
+                                <svg viewBox="0 0 100 100">
+                                    <rect x="10" y="25" width="80" height="50" fill="#10b981" rx="5"/>
+                                    <!-- Salida Emergencia Izquierda -->
+                                    <rect x="55" y="35" width="20" height="30" fill="none" stroke="#ffffff" stroke-width="4"/>
+                                    <circle cx="35" cy="42" r="5" fill="#ffffff"/>
+                                    <path d="M 35 48 v 12 l -8 10" stroke="#ffffff" stroke-width="4" stroke-linecap="round" fill="none"/>
+                                    <path d="M 35 52 l -12 -5" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+                                    <line x1="55" y1="50" x2="65" y2="50" stroke="#ffffff" stroke-width="3"/>
+                                </svg>
+                                <div class="image-overlay-info">
+                                    <span class="image-overlay-title">Salida de Emergencia (Izquierda)</span>
+                                    <span class="image-overlay-desc">Informa que la vía de evacuación más expedita se encuentra girando a la izquierda.</span>
+                                </div>
+                            </div>
+                            <h4>Salida (Izquierda)</h4>
+                            <p>Indica dirección de evacuación hacia la izquierda.</p>
+                        </article>
+                    </div>
+
+                    <!-- FOTOS: RECTÁNGULO -->
+                    <div class="photo-gallery-section">
+                        <h3>
+                            <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                            Fotos del CTGI — Señales Rectangulares (Información / Evacuación / Incendio)
+                        </h3>
+                        <p class="gallery-subtitle">Registro fotográfico real de señales rectangulares en las instalaciones del Centro Textil y de Gestión Industrial SENA.</p>
+                        <div class="photos-4-grid">
+                            <div class="photo-slot interactive-image-container">
+                                <span class="photo-slot-number">1</span>
+                                <img src="img/467bfc55-78c8-435d-b02f-eba206140d0b.jpg" alt="Señal rectangular Punto de Encuentro CTGI SENA">
+                                <span class="photo-slot-desc">Señal Rectangular Informativa: "PUNTO DE ENCUENTRO" verde en parqueadero/zonas verdes</span>
+                            </div>
+                            <div class="photo-slot interactive-image-container">
+                                <span class="photo-slot-number">2</span>
+                                <img src="img/8860ea43-3f75-4779-8464-48f5143dbceb.jpg" alt="Señal rectangular Extintor Multipropósito">
+                                <span class="photo-slot-desc">Señal Rectangular de Incendio: "EXTINTOR MULTIPROPÓSITO" roja e instrucciones</span>
+                            </div>
+                            <div class="photo-slot interactive-image-container">
+                                <span class="photo-slot-number">3</span>
+                                <img src="img/a00f4c2a-f156-4329-aff5-754330bafe4c.jpg" alt="Señal rectangular Salida Exit con Flecha">
+                                <span class="photo-slot-desc">Señal Rectangular de Evacuación: "SALIDA / EXIT" verde con flecha direccional</span>
+                            </div>
+                            <div class="photo-slot interactive-image-container">
+                                <span class="photo-slot-number">4</span>
+                                <img src="img/973af4ee-9151-4eae-a1ed-2db715650c25.jpg" alt="Señal rectangular Camilla de Emergencia SENA">
+                                <span class="photo-slot-desc">Señal Rectangular de Emergencia: "CAMILLA DE EMERGENCIA" con cruz médica e isotipo SENA</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h3>Riesgo Cero</h3>
+                <p>Un proyecto educativo enfocado en concientizar sobre la Seguridad y Salud en el Trabajo (SST) para la comunidad del CTGI SENA.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Accesos Rápidos</h4>
+                <ul class="footer-links-list">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="riesgos.html">Riesgos</a></li>
+                    <li><a href="prevencion.html">Prevención</a></li>
+                    <li><a href="senalizacion.html">Señalización</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Información de Contacto</h4>
+                <p><strong>Ubicación:</strong> CTGI - SENA Pedregal, Medellín</p>
+                <p><strong>Programa:</strong> Gestión de la Seguridad y Salud en el Trabajo</p>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Riesgo Cero - SENA CTGI. Todos los derechos reservados.</p>
+            <p>Diseño y prevención para un entorno formativo seguro</p>
+        </div>
+    </footer>
+
+    <!-- LIGHTBOX/IMAGE MODAL -->
+    <div class="image-modal" id="image-modal">
+        <div class="modal-content-wrapper">
+            <button class="modal-close-btn" id="modal-close" aria-label="Cerrar">&times;</button>
+            <img class="modal-img" id="modal-img" src="" alt="">
+            <div class="modal-caption" id="modal-caption"></div>
+        </div>
+    </div>
+
+    <!-- Script de Interactividad -->
+    <script src="js/script.js"></script>
+</body>
+</html>
