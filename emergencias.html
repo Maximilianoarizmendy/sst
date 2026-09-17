@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan de Emergencias y Manejo de Residuos - Riesgo Cero (CTGI)</title>
+    <meta name="description"
+        content="Plan de emergencias, recursos de atención inmediata y código de colores de residuos sólidos en el CTGI SENA.">
+    <!-- Estilos Globales -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Estilos específicos para Emergencias y Residuos */
+        .emergencias-banner {
+            background-color: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            padding: 140px 0 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .emergencias-banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 75% 25%, rgba(239, 68, 68, 0.1), transparent 60%),
+                        radial-gradient(circle at 25% 75%, rgba(16, 185, 129, 0.1), transparent 60%);
+            pointer-events: none;
+        }
+
+        .emergencias-banner h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .emergencias-banner h1 span {
+            background: linear-gradient(135deg, #ef4444 0%, #f59e0b 50%, #10b981 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .emergencias-banner p {
+            color: var(--text-secondary);
+            max-width: 820px;
+            margin: 0 auto 1.5rem auto;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* Banner de Píldoras Rápidas */
+        .pills-summary {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .summary-pill {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 0.65rem 1.4rem;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .summary-pill .indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .ind-red { background: #ef4444; box-shadow: 0 0 8px rgba(239, 68, 68, 0.6); }
+        .ind-amber { background: #f59e0b; box-shadow: 0 0 8px rgba(245, 158, 11, 0.6); }
+        .ind-green { background: #10b981; box-shadow: 0 0 8px rgba(16, 185, 129, 0.6); }
+
+        /* Tarjetas de Amenazas */
+        .threats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .threat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            transition: transform var(--transition-normal), border-color var(--transition-normal);
+        }
+
+        .threat-card:hover {
+            transform: translateY(-4px);
+            border-color: #ef4444;
+        }
+
+        .threat-icon {
+            font-size: 2.2rem;
+        }
+
+        .threat-card h3 {
+            font-size: 1.3rem;
+            color: var(--text-primary);
+        }
+
+        .threat-card p {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            line-height: 1.55;
+        }
+
+        /* Galería de 10 Fotos de Emergencia */
+        .gallery-grid-10 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .item-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+        }
+
+        .item-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--border-hover);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .item-card-img-wrap {
+            position: relative;
+            height: 280px;
+            overflow: hidden;
+            background: var(--bg-primary);
+            cursor: pointer;
+        }
+
+        .item-card-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform var(--transition-normal);
+        }
+
+        .item-card:hover .item-card-img-wrap img {
+            transform: scale(1.05);
+        }
+
+        .item-tag {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            padding: 0.35rem 0.85rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            backdrop-filter: var(--glass-blur);
+            z-index: 2;
+        }
+
+        .tag-emergency {
+            background: rgba(239, 68, 68, 0.85);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .tag-dea {
+            background: rgba(220, 38, 38, 0.95);
+            color: #ffffff;
+            border: 2px solid #ffffff;
+            box-shadow: 0 0 12px rgba(220, 38, 38, 0.7);
+            animation: pulse-dea 2s infinite;
+        }
+
+        @keyframes pulse-dea {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .tag-caneca-verde { background: #10b981; color: #ffffff; }
+        .tag-caneca-negra { background: #1f2937; color: #ffffff; border: 1px solid #4b5563; }
+        .tag-caneca-blanca { background: #f3f4f6; color: #111827; border: 1px solid #d1d5db; }
+        .tag-caneca-roja { background: #ef4444; color: #ffffff; }
+
+        .item-zoom-hint {
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
+            background: rgba(0, 0, 0, 0.65);
+            color: #ffffff;
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .item-card-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            flex: 1;
+        }
+
+        .item-card-body h3 {
+            font-size: 1.25rem;
+            line-height: 1.3;
+        }
+
+        .item-card-body p {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            line-height: 1.55;
+        }
+
+        .item-badges-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: auto;
+            padding-top: 0.75rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .item-badge {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            padding: 0.25rem 0.65rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            color: var(--text-primary);
+        }
+
+        /* Sección de Canecas / Residuos */
+        .waste-section {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 5rem 0;
+        }
+
+        .waste-intro-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin: 2.5rem 0;
+        }
+
+        .waste-color-box {
+            border-radius: var(--border-radius);
+            padding: 1.75rem;
+            border: 2px solid transparent;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            transition: transform var(--transition-normal);
+        }
+
+        .waste-color-box:hover {
+            transform: translateY(-4px);
+        }
+
+        .box-green {
+            background: rgba(16, 185, 129, 0.1);
+            border-color: #10b981;
+        }
+
+        .box-black {
+            background: rgba(31, 41, 55, 0.15);
+            border-color: #4b5563;
+        }
+
+        .box-white {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .box-red {
+            background: rgba(239, 68, 68, 0.1);
+            border-color: #ef4444;
+        }
+
+        .waste-color-box h4 {
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .waste-color-box p {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .waste-color-box ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .waste-color-box ul li::before {
+            content: '• ';
+            font-weight: bold;
+        }
+
+        /* Galería de 6 Fotos de Residuos */
+        .gallery-grid-6 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- SVG Definitions for Gradients -->
+    <div class="svg-gradient-def">
+        <svg>
+            <defs>
+                <linearGradient id="emerald-cyan-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#10b981" />
+                    <stop offset="100%" stop-color="#06b6d4" />
+                </linearGradient>
+            </defs>
+        </svg>
+    </div>
+
+    <!-- HEADER & NAVBAR -->
+    <header class="header">
+        <div class="navbar">
+            <a href="index.html" class="logo" id="logo-brand">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2L2 22h20L12 2z" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M12 9v4M12 17h.01" stroke="#ef4444" stroke-width="2" stroke-linecap="round" />
+                </svg>
+                <span>Riesgo Cero</span>
+            </a>
+
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html" class="nav-link">Inicio</a></li>
+                    <li><a href="riesgos.html" class="nav-link">Riesgos</a></li>
+                    <li><a href="prevencion.html" class="nav-link">Prevención</a></li>
+                    <li><a href="controles.html" class="nav-link">Controles</a></li>
+                    <li><a href="emergencias.html" class="nav-link active">Emergencias y Residuos</a></li>
+                    <li><a href="senalizacion.html" class="nav-link">Señalización</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="theme-toggle-btn" id="theme-toggle" aria-label="Cambiar Tema">
+                    <svg class="sun-icon" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="5" />
+                        <path
+                            d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                    </svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                    </svg>
+                </button>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Abrir Menú">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- BANNER PRINCIPAL -->
+        <section class="emergencias-banner">
+            <div class="container">
+                <div class="hero-badge">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg>
+                    SST - SENA CTGI Pedregal
+                </div>
+                <h1>Plan de <span>Emergencias y Residuos</span></h1>
+                <p>Preparación ante eventos <strong>urgentes e imprevistos</strong> (sismos, incendios, inundaciones), recursos de primera respuesta como el <strong>DEA y extintores</strong>, y la correcta separación en la fuente bajo el <strong>código unificado de colores</strong>.</p>
+
+                <div class="pills-summary">
+                    <div class="summary-pill">
+                        <span class="indicator ind-red"></span>
+                        Eventos: Urgentes e Imprevistos
+                    </div>
+                    <div class="summary-pill">
+                        <span class="indicator ind-amber"></span>
+                        Capacitación: Simulacro y Evacuación
+                    </div>
+                    <div class="summary-pill">
+                        <span class="indicator ind-green"></span>
+                        Residuos: Código Unificado Res. 2184
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PARTE 1: PLAN DE EMERGENCIAS Y AMENAZAS -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Tipos de <span>Amenazas y Preparación</span></h2>
+                    <p>Fenómenos imprevistos que exigen respuesta inmediata y capacitación continua de la brigada y comunidad SENA.</p>
+                </div>
+
+                <div class="threats-grid">
+                    <!-- Sismo -->
+                    <div class="threat-card">
+                        <span class="threat-icon">🌋</span>
+                        <h3>Sismos y Terremotos</h3>
+                        <p>Movimientos telúricos imprevistos. Protocolo: Protegerse bajo zonas seguras, no usar ascensores y evacuar con calma al <strong>Punto de Encuentro</strong>.</p>
+                    </div>
+
+                    <!-- Incendio -->
+                    <div class="threat-card">
+                        <span class="threat-icon">🔥</span>
+                        <h3>Incendios y Conflagraciones</h3>
+                        <p>Generados por fallas eléctricas o químicos inflamables en talleres. Requiere uso oportuno de <strong>extintores</strong> y activación de alarmas.</p>
+                    </div>
+
+                    <!-- Inundación -->
+                    <div class="threat-card">
+                        <span class="threat-icon">🌊</span>
+                        <h3>Inundaciones y Lluvias</h3>
+                        <p>Colapso de drenajes por lluvias torrenciales. Implica corte de energía, protección de equipos y despeje de vías de evacuación.</p>
+                    </div>
+                </div>
+
+                <!-- 10 FOTOS DE RECURSOS DE EMERGENCIA -->
+                <div class="section-header" style="margin-top: 4rem;">
+                    <h2>10 Recursos Clave del <span>Plan de Emergencias</span></h2>
+                    <p>Equipos, dispositivos y señalizaciones indispensables identificados en los ambientes del centro de formación CTGI.</p>
+                </div>
+
+                <div class="gallery-grid-10">
+
+                    <!-- FOTO 1: EXTINTOR -->
+                    <div class="item-card">
+                        <div class="item-card-img-wrap interactive-image-container">
+                            <img src="img/02ea08bf-dc2a-4042-89e6-bec6dba3d8f4.jpg" alt="Extintor multipropósito en pasillo del CTGI" onerror="this.src='https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&w=600&q=80'">
+                            <span class="item-tag tag-emergency">Recurso 1 · Extintor</span>
+                            <span class="item-zoom-hint">Ampliar</span>
+                        </div>
+                        <div class="item-card-body">
+                            <h3>1. Extintor Portátil Contra Incendios</h3>
+                            <p>Equipo presurizado de polvo químico seco (ABC) o CO2 para sofocar fuegos incipientes en talleres y laboratorios.</p>
+                            <div class="item-badges-container">
+                                <span class="item-badge">Fuegos A-B-C</span>
+                                <span class="item-badge">Inspección mensual</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FOTO 2: BOTIQUÍN -->
+                    <div class="item-card">
+                        <div class="item-card-img-wrap interactive-image-container">
+                            <img src="img/37b5ea72-b52a-47c9-98f6-0ae1a1f3b6df.jpg" alt="Botiquín de primeros auxilios reglamentario en pared" onerror="this.src='https://images.unsplash.com/photo-1603398938378-e54eab446dde?auto=format&fit=crop&w=600&q=80'">
+                            <span class="item-tag tag-emergency">Recurso 2 · Botiquín</span>
+                            <span class="item-zoom-hint">Ampliar</span>
+                        </div>
+                        <div class="item-card-body">
+                            <h3>2. Botiquín de Primeros Auxilios</h3>
+                            <p>Gabinete equipado con insumos básicos: gasas, vendas, apósitos, microporo, solución salina y tijeras para atención inicial de heridos.</p>
+                            <div class="item-badges-container">
+                                <span class="item-badge">Primeros Auxilios</span>
+                                <span class="item-badge">Tipo A / Institucional</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FOTO 3: CAMILLA -->
+                    <div class="item-card">
+                        <div class="item-card-img-wrap interactive-image-container">
+                            <img src="img/438a6244-15f5-4d46-b91f-04adb6560e54.jpg" alt="Camilla rígida de inmovilización espinal" onerror="this.src='https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=600&q=80'">
+                            <span class="item-tag tag-emergency">Recurso 3 · Camilla</span>
+                            <span class="item-zoom-hint">Ampliar</span>
+                        </div>
+                        <div class="item-card-body">
+                            <h3>3. Camilla Rígida de Emergencia</h3>
+                            <p>Camilla espinal con arnés de sujeción (tipo araña) e inmovilizador de cuello para el traslado seguro de personas traumatizadas.</p>
+                            <div class="item-badges-container">
+                                <span class="item-badge">Inmovilización espinal</span>
+                                <span class="item-badge">Arnés tipo araña</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FOTO 4: DEA (DESFIBRILADOR) -->
+                    <div class="item-card">
+                        <div class="item-card-img-wrap interactive-image-container">
+                            <img src="img/16356616-94e7-40b6-a083-4a43edad6821.jpg" alt="DEA Desfibrilador Externo Automático en gabinete de emergencia" onerror="this.src='https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80'">
+                            <span class="item-tag tag-dea">⚡ Recurso 4 · DEA</span>
+                            <span class="item-zoom-hint">Ampliar</span>
+                        </div>
+                        <div class="item-card-body">
+                            <h3>4. Desfibrilador Externo Automático (DEA)</h3>
+                            <p>Dispositivo médico de emergencia para reanimación cardiopulmonar y tratamiento inmediato de paros cardíacos súbitos (Ley 1831 de 2017).</p>
+                            <div class="item-badges-container">
+                                <span class="item-badge">Salvavidas Cardíaco</span>
+                                <span class="item-badge">Voz guiada</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FOTO 5: SEÑALIZACIÓN DE EVACUACIÓN -->
+                    <div class="item-card">
+                        <div class="item-card-img-wrap interactive-image-container">
+                            <img src="img/5ce8679d-e533-428b-832d-47a423d836eb.jpg" alt="Señal fotoluminiscente de ruta de evacuación y salida" onerror="this.src='https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=600&q=80'">
+                            <span class="item-tag tag-emergency">Recurso 5 · Señalización</span>
+                            <span class="item-zoom-hint">Ampliar</span>
+                        </div>
+                        <div class="item-card-body">
+                            <h3>5. Señalización de Rutas de Escape</h3>
+                            <p>Paneles fotoluminiscentes verdes que indican la trayectoria libre y segura hacia las salidas de emergencia ante corte de luz.</p>
+                            <div class="item-badges-container">
+                                <span class="item-badge">Fotoluminiscente</span>
+                                <span class="item-badge">Ruta Continua</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FOTO 6: PUNTO DE ENCUENTRO -->
+                    <div class="item-card">
+                        <div class="item-card-img-wrap interactive-image-container">
+                            <img src="img/5d1bcbae-7ccb-42c3-874b-f68debad8a2d.jpg" alt="Señal de Punto de Encuentro en zona abierta del CTGI" onerror="this.src='https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=600&q=80'">
+                            <span class="item-tag tag-emergency">Recurso 6 · Punto Encuentro</span>
+                            <span class="item-zoom-hint">Ampliar</span>
+                        </div>
+                        <div class="item-card-body">
+                            <h3>6. Punto de Encuentro Institucional</h3>
+                            <p>Área despejada al aire libre (canchas / patios) donde la comunidad se congrega para el conteo de personal y verificación de aprendices.</p>
+                            <div class="item-badges-container">
+                                <span class="item-badge">Zona Segura</span>
+                                <span class="item-badge">Conteo de Brigada</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FOTO 7: ALARMA Y PULSADOR -->
+                    <div class="item-card">
+                        <div class="item-card-img-wrap interactive-image-container">
+                            <img src="img/8b03461b-0708-4c9e-8815-8e4224dac9ba.jpg" alt="Estación manual de alarma contra incendios y sirena" onerror="this.src='https://images.unsplash.com/photo-1541888946425-d0fbb18086f6?auto=format&fit=crop&w=600&q=80'">
+                            <span class="item-tag tag-emergency">Recurso 7 · Alarma</span>
+                            <span class="item-zoom-hint">Ampliar</span>
+                        </div>
+                        <div class="item-card-body">
+                            <h3>7. Estación Manual de Alarma y Sirena</h3>
+                            <p>Pulsador de activación manual para alertar a todo el edificio e iniciar la evacuación inmediata ante humo o peligro inminente.</p>
+                            <div class="item-badges-container">
+                                <span class="item-badge">Alerta Sonora</span>
+                                <span class="item-badge">Activación Manual</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FOTO 8: LÁMPARAS DE EMERGENCIA -->
+                    <div class="item-card">
+                        <div class="item-card-img-wrap interactive-image-container">
+                            <img src="img/b60308af-55ec-40a8-b1b5-b7e160a8378c.jpg" alt="Lámpara de iluminación de emergencia autónoma" onerror="this.src='https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&w=600&q=80'">
+                            <span class="item-tag tag-emergency">Recurso 8 · Luces Emergencia</span>
+                            <span class="item-zoom-hint">Ampliar</span>
+                        </div>
+                        <div class="item-card-body">
+                            <h3>8. Iluminación de Emergencia Autónoma</h3>
+                            <p>Lámparas LED con batería de respaldo que se encienden automáticamente cuando falla la red eléctrica general durante una contingencia.</p>
+                            <div class="item-badges-container">
+                                <span class="item-badge">Batería Autónoma</span>
+                                <span class="item-badge">Anti-Pánico</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FOTO 9: SALIDAS DE EMERGENCIA DESPEJADAS -->
+                    <div class="item-card">
+                        <div class="item-card-img-wrap interactive-image-container">
+                            <img src="img/e7e8c878-89fb-47c3-adf9-384bb51cb0ad.jpg" alt="Puertas y salidas de emergencia con barra antipánico" onerror="this.src='https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=600&q=80'">
+                            <span class="item-tag tag-emergency">Recurso 9 · Salida Emergencia</span>
+                            <span class="item-zoom-hint">Ampliar</span>
+                        </div>
+                        <div class="item-card-body">
+                            <h3>9. Puertas de Escape con Barra Antipánico</h3>
+                            <p>Accesos de evacuación de apertura rápida hacia el exterior que deben mantenerse siempre 100% libres de cajas o mobiliario.</p>
+                            <div class="item-badges-container">
+                                <span class="item-badge">Apertura Rápida</span>
+                                <span class="item-badge">Sin Bloqueos</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FOTO 10: GABINETE CONTRA INCENDIOS / DUCHA -->
+                    <div class="item-card">
+                        <div class="item-card-img-wrap interactive-image-container">
+                            <img src="img/bf620c6c-c920-43ee-917a-f6cc2e143cda.jpg" alt="Gabinete de red contra incendios con manguera y válvula" onerror="this.src='https://images.unsplash.com/photo-1584467735815-f778f274e296?auto=format&fit=crop&w=600&q=80'">
+                            <span class="item-tag tag-emergency">Recurso 10 · Red Incendios</span>
+                            <span class="item-zoom-hint">Ampliar</span>
+                        </div>
+                        <div class="item-card-body">
+                            <h3>10. Gabinete de Red Hidráulica y Manguera</h3>
+                            <p>Punto de conexión a la red de agua a presión con manguera semirrígida y hacha para uso exclusivo de la brigada de emergencias.</p>
+                            <div class="item-badges-container">
+                                <span class="item-badge">Red Hídrica</span>
+                                <span class="item-badge">Manguera 30m</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- PARTE 2: MANEJO DE RESIDUOS (BASURAS) -->
+        <section class="waste-section" id="residuos">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Manejo Integral de Residuos <span>(Código de Canecas)</span></h2>
+                    <p>Separación en la fuente conforme al <strong>Código Unificado de Colores de Colombia (Resolución 2184 de 2019)</strong> aplicado en el CTGI.</p>
+                </div>
+
+                <!-- CÓDIGO DE 4 COLORES EXPLICADO -->
+                <div class="waste-intro-grid">
+
+                    <!-- VERDE -->
+                    <div class="waste-color-box box-green">
+                        <h4>🟢 Caneca Verde</h4>
+                        <p><strong>Orgánicos Aprovechables</strong></p>
+                        <ul>
+                            <li>Restos de comida cruda o preparada</li>
+                            <li>Cáscaras de frutas y verduras</li>
+                            <li>Hojas secas y residuos de poda</li>
+                            <li>Borra de café y bolsitas de té</li>
+                        </ul>
+                    </div>
+
+                    <!-- NEGRA -->
+                    <div class="waste-color-box box-black">
+                        <h4>⚫ Caneca Negra</h4>
+                        <p><strong>No Aprovechables (Ordinarios)</strong></p>
+                        <ul>
+                            <li>Papel higiénico y pañuelos faciales</li>
+                            <li>Servilletas usadas y toallas de mano</li>
+                            <li>Papeles y cartones engrasados con comida</li>
+                            <li>Papeles metalizados y colillas</li>
+                        </ul>
+                    </div>
+
+                    <!-- BLANCA -->
+                    <div class="waste-color-box box-white">
+                        <h4>⚪ Caneca Blanca</h4>
+                        <p><strong>Aprovechables (Reciclables)</strong></p>
+                        <ul>
+                            <li>Botellas plásticas y envases PET limpios</li>
+                            <li>Papel de archivo, periódico y cartón seco</li>
+                            <li>Latas de gaseosa y metales limpios</li>
+                            <li>Botellas y frascos de vidrio sin romper</li>
+                        </ul>
+                    </div>
+
+                    <!-- ROJA -->
+                    <div class="waste-color-box box-red">
+                        <h4>🔴 Caneca Roja</h4>
+                        <p><strong>Residuos Peligrosos / Biológicos</strong></p>
+                        <ul>
+                            <li>Guantes de látex y nitrilo contaminados</li>
+                            <li>Gasas, apósitos y material con fluidos</li>
+                            <li>Envases de reactivos químicos y solventes</li>
+                            <li>Jeringas y agujas (en Guardián rígido)</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <!-- 6 FOTOS DE CANECAS DE BASURA -->
+                <div class="section-header" style="margin-top: 4rem;">
+                    <h2>6 Evidencias de <span>Clasificación y Canecas</span></h2>
+                    <p>Puntos ecológicos y contenedores distribuidos en pasillos, cafetería, laboratorios y áreas comunes del CTGI.</p>
+                </div>
+
+                <div class="gallery-grid-6">
+
+                    <!-- FOTO 1: CANECA VERDE (ORGÁNICOS) -->
+                    <div class="item-card">
+                        <div class="item-card-img-wrap interactive-image-container">
+                            <img src="img_new/image copy 2.png" alt="Caneca verde de residuos orgánicos en cafetería del SENA" onerror="this.src='https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=600&q=80'">
+                            <span class="item-tag tag-caneca-verde">Caneca 1 · Verde (Orgánicos)</span>
+                            <span class="item-zoom-hint">Ampliar</span>
+                        </div>
+                        <div class="item-card-body">
+                            <h3>1. Caneca Verde: Residuos Orgánicos</h3>
+                            <p>Ubicada en zonas de alimentación y jardines para la recolección de restos de comida, frutas y vegetales que van a procesos de compostaje.</p>
+                            <div class="item-badges-container">
+                                <span class="item-badge">Biodegradable</span>
+                                <span class="item-badge">Compostaje</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FOTO 2: CANECA NEGRA (NO APROVECHABLES) -->
+                    <div class="item-card">
+                        <div class="item-card-img-wrap interactive-image-container">
+                            <img src="img/1effa93a-642c-48f0-abfb-9df58760e58c.jpg" alt="Caneca negra de residuos no aprovechables" onerror="this.src='https://images.unsplash.com/photo-1611284446314-60a58ac0deb9?auto=format&fit=crop&w=600&q=80'">
+                            <span class="item-tag tag-caneca-negra">Caneca 2 · Negra (No Aprovechable)</span>
+                            <span class="item-zoom-hint">Ampliar</span>
+                        </div>
+                        <div class="item-card-body">
+                            <h3>2. Caneca Negra: Residuos Ordinarios</h3>
+                            <p>Destinada al depósito de residuos que van a relleno sanitario: papel higiénico, servilletas sucias, envolturas de snacks y toallas higiénicas.</p>
+                            <div class="item-badges-container">
+                                <span class="item-badge">Relleno Sanitario</span>
+                                <span class="item-badge">No Reciclable</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FOTO 3: CANECA BLANCA (PLÁSTICOS / PET) -->
+                    <div class="item-card">
+                        <div class="item-card-img-wrap interactive-image-container">
+                            <img src="img/1a4d9b59-ac2c-42d6-8983-cf4c863ad39b.jpg" alt="Caneca blanca de plásticos y botellas PET reciclables" onerror="this.src='https://images.unsplash.com/photo-1595278069441-2cf29f8005a4?auto=format&fit=crop&w=600&q=80'">
+                            <span class="item-tag tag-caneca-blanca">Caneca 3 · Blanca (Plásticos/PET)</span>
+                            <span class="item-zoom-hint">Ampliar</span>
+                        </div>
+                        <div class="item-card-body">
+                            <h3>3. Caneca Blanca: Plásticos y Botellas PET</h3>
+                            <p>Contenedor para botellas plásticas vacías, tapas y envases que pueden ser triturados y reincorporados a la cadena de valor.</p>
+                            <div class="item-badges-container">
+                                <span class="item-badge">Plástico PET</span>
+                                <span class="item-badge">Economía Circular</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FOTO 4: CANECA BLANCA (PAPEL Y CARTÓN) -->
+                    <div class="item-card">
+                        <div class="item-card-img-wrap interactive-image-container">
+                            <img src="img/1fecccc9-7942-45e0-a634-fe152530ee6b.jpg" alt="Caneca para recolección de papel limpio y cartón en aulas" onerror="this.src='https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&w=600&q=80'">
+                            <span class="item-tag tag-caneca-blanca">Caneca 4 · Blanca (Papel/Cartón)</span>
+                            <span class="item-zoom-hint">Ampliar</span>
+                        </div>
+                        <div class="item-card-body">
+                            <h3>4. Caneca Blanca: Papel y Cartón Limpio</h3>
+                            <p>Instalada en salas de sistemas y oficinas para recuperar papel de impresión, cajas de cartón desarmadas y hojas sin arrugar ni mojar.</p>
+                            <div class="item-badges-container">
+                                <span class="item-badge">Papel Archivo</span>
+                                <span class="item-badge">Cartón Seco</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FOTO 5: CANECA ROJA (PELIGROSOS / BIOLÓGICOS) -->
+                    <div class="item-card">
+                        <div class="item-card-img-wrap interactive-image-container">
+                            <img src="img/2500df3f-14bb-4677-b922-333a6cd21ba8.jpg" alt="Caneca roja y guardián de residuos peligrosos biológicos" onerror="this.src='https://images.unsplash.com/photo-1584744982491-665216d95f8b?auto=format&fit=crop&w=600&q=80'">
+                            <span class="item-tag tag-caneca-roja">Caneca 5 · Roja (Peligrosos)</span>
+                            <span class="item-zoom-hint">Ampliar</span>
+                        </div>
+                        <div class="item-card-body">
+                            <h3>5. Caneca Roja: Residuos Peligrosos (RESPEL)</h3>
+                            <p>Ubicada en enfermería y laboratorios para material con riesgo biológico infeccioso (gasas, guantes, hisopos) con pedal para evitar contacto manual.</p>
+                            <div class="item-badges-container">
+                                <span class="item-badge">Riesgo Biológico</span>
+                                <span class="item-badge">Accionamiento Pedal</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FOTO 6: PUNTO ECOLÓGICO INTEGRAL -->
+                    <div class="item-card">
+                        <div class="item-card-img-wrap interactive-image-container">
+                            <img src="img/3daf8b07-ca93-4896-812d-e68d3e96b5cf.jpg" alt="Punto ecológico completo con canecas verde, negra y blanca" onerror="this.src='https://images.unsplash.com/photo-1503596476-1c12a8ba09a9?auto=format&fit=crop&w=600&q=80'">
+                            <span class="item-tag tag-caneca-blanca">Punto Ecológico · Trío Nacional</span>
+                            <span class="item-zoom-hint">Ampliar</span>
+                        </div>
+                        <div class="item-card-body">
+                            <h3>6. Punto Ecológico Institucional Integrado</h3>
+                            <p>Estación modular unificada con las 3 canecas reglamentarias dispuestas en orden de izquierda a derecha con sus rótulos explicativos visibles.</p>
+                            <div class="item-badges-container">
+                                <span class="item-badge">Estación Trío</span>
+                                <span class="item-badge">Resolución 2184</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h3>Riesgo Cero</h3>
+                <p>Un proyecto educativo enfocado en concientizar sobre la Seguridad y Salud en el Trabajo (SST) para la
+                    comunidad del CTGI SENA.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Accesos Rápidos</h4>
+                <ul class="footer-links-list">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="riesgos.html">Riesgos</a></li>
+                    <li><a href="prevencion.html">Prevención</a></li>
+                    <li><a href="controles.html">Controles</a></li>
+                    <li><a href="emergencias.html">Emergencias y Residuos</a></li>
+                    <li><a href="senalizacion.html">Señalización</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Información de Contacto</h4>
+                <p><strong>Ubicación:</strong> CTGI - SENA Pedregal, Medellín</p>
+                <p><strong>Programa:</strong> Análisis y Desarrollo de Software (ADSO) - SST</p>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Riesgo Cero - SENA CTGI. Todos los derechos reservados.</p>
+            <p>Diseño y prevención para un entorno formativo seguro</p>
+        </div>
+    </footer>
+
+    <!-- LIGHTBOX / MODAL DE IMÁGENES -->
+    <div class="image-modal" id="image-modal">
+        <div class="modal-content-wrapper">
+            <button class="modal-close-btn" id="modal-close" aria-label="Cerrar">&times;</button>
+            <img class="modal-img" id="modal-img" src="" alt="">
+            <div class="modal-caption" id="modal-caption"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
